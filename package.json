@@ -1,0 +1,36 @@
+{
+  "name": "hashwalk",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "hashwalk": "./bin/hashwalk.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch -p tsconfig.dev.json",
+    "start": "node ./dist/cli.js",
+    "test": "npm run build && vitest run"
+  },
+  "dependencies": {
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/yargs": "^17.0.35",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iOnline247/hashwalk.git"
+  },
+  "keywords": [],
+  "author": "Matthew Bramer",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/iOnline247/hashwalk/issues"
+  },
+  "homepage": "https://github.com/iOnline247/hashwalk#readme"
+}
