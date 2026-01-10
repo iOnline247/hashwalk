@@ -3,9 +3,9 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "hashwalk@1.0.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.0.0-5a239c6e-1ee9-4351-9649-8046c3252844",
+  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.0.0-ae2996ef-e0f2-45ac-98fe-46ad5fba7617",
   "creationInfo": {
-    "created": "2026-01-10T12:20:41.989Z",
+    "created": "2026-01-10T12:21:53.659Z",
     "creators": [
       "Tool: npm/cli-10.8.2"
     ]
