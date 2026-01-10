@@ -17,26 +17,6 @@
     ".": {
       "types": "./dist/lib/cli.d.ts",
       "import": "./dist/lib/cli.js"
-    },
-    "./walker": {
-      "types": "./dist/lib/walker.d.ts",
-      "import": "./dist/lib/walker.js"
-    },
-    "./hasher": {
-      "types": "./dist/lib/hasher.d.ts",
-      "import": "./dist/lib/hasher.js"
-    },
-    "./csv": {
-      "types": "./dist/lib/csv.d.ts",
-      "import": "./dist/lib/csv.js"
-    },
-    "./verify": {
-      "types": "./dist/lib/verify.d.ts",
-      "import": "./dist/lib/verify.js"
-    },
-    "./types": {
-      "types": "./dist/lib/types.d.ts",
-      "import": "./dist/lib/types.js"
     }
   },
   "scripts": {
