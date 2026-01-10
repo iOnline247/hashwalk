@@ -3,15 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/lib/cli.js",
+  "types": "./dist/lib/cli.d.ts",
   "bin": {
-    "hashwalk": "./bin/hashwalk.js"
+    "hashwalk": "./dist/bin/hashwalk.js"
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/lib/cli.d.ts",
+      "import": "./dist/lib/cli.js"
+    }
   },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch -p tsconfig.dev.json",
     "start": "node ./dist/cli.js",
-    "test": "npm run build && vitest run"
+    "test": "npm run build && vitest run",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "yargs": "^18.0.0"
