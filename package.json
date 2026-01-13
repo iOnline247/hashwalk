@@ -6,7 +6,7 @@
   "main": "./dist/lib/cli.js",
   "types": "./dist/lib/cli.d.ts",
   "bin": {
-    "hashwalk": "./dist/bin/hashwalk.js"
+    "hashwalk": "dist/bin/hashwalk.js"
   },
   "files": [
     "dist/",
