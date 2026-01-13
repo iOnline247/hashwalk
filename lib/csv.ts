@@ -1,19 +1,17 @@
 import fs from 'node:fs';
 import { type ChecksumRow } from './types.js';
 
-/**
- * Conditionally quote a CSV field per RFC 4180.
- */
 export function csvEscape(value: string): string {
-  if (
-    value.includes(',') ||
-    value.includes('"') ||
-    value.includes('\n') ||
-    value.includes('\r')
-  ) {
-    return `"${value.replace(/"/g, '""')}"`;
-  }
-  return value;
+  // TODO: Re-enable reserved character check if needed
+  // Research CSV specifications to see if adding quotes unconditionally is acceptable.
+
+  // const hasReservedCharacters = /[",\r\n]/.test(value);
+
+  // if (hasReservedCharacters) {
+  //   return `"${value.replace(/"/g, '""')}"`;
+  // }
+
+  return `"${value.replace(/"/g, '""')}"`;
 }
 
 export function writeCsv(
@@ -23,7 +21,7 @@ export function writeCsv(
   return new Promise(async (resolve, reject) => {
     const stream = fs.createWriteStream(file, { encoding: 'utf8' });
 
-    stream.write('RelativePath,FileName,Algorithm,Hash\n');
+    stream.write('"RelativePath","FileName","Algorithm","Hash"\n');
 
     try {
       for await (const row of rows) {

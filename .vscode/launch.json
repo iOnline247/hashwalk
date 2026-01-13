@@ -6,7 +6,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/dist/lib/cli.js",
-      "args": ["--path", "./data"],
+      "args": ["--path", "D:\\bkp"],
       "preLaunchTask": "npm: dev",
       "console": "integratedTerminal"
     },
@@ -15,7 +15,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/dist/lib/cli.js",
-      "args": ["--path", "./data", "--compare", "checksums.csv", "--algorithm", "sha256"],
+      "args": ["--path", "D:\\bkp", "--compare", "checksums.csv", "--algorithm", "sha256"],
       "preLaunchTask": "npm: dev",
       "console": "integratedTerminal"
     },
@@ -24,7 +24,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/dist/lib/cli.js",
-      "args": ["--path", "./data", "--compare", "abc123...", "--algorithm", "sha256"],
+      "args": ["--path", "D:\\bkp", "--compare", "abc123...", "--algorithm", "sha256"],
       "preLaunchTask": "npm: dev",
       "console": "integratedTerminal"
     }
