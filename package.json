@@ -13,8 +13,8 @@
     "start": "node ./dist/cli.js",
     "test": "npm run build && vitest run",
     "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
-    "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > sbom-cyclonedx.json",
-    "sbom:spdx": "npm sbom --sbom-format=spdx > sbom-spdx.json"
+    "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > ./sbom/sbom-cyclonedx.json",
+    "sbom:spdx": "npm sbom --sbom-format=spdx > ./sbom/sbom-spdx.json"
   },
   "dependencies": {
     "yargs": "^18.0.0"

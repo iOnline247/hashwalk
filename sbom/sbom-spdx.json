@@ -5,7 +5,7 @@
   "name": "hashwalk@1.0.0",
   "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.0.0-***",
   "creationInfo": {
-    "created": "2026-01-13T02:23:13.599Z",
+    "created": "2026-01-13T02:26:56.314Z",
     "creators": [
       "Tool: npm/cli-11.6.1"
     ]
