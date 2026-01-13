@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:98efa886-a136-4e8e-87bb-937efe1619bd",
+  "serialNumber": "urn:uuid:***",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-01-10T17:15:15.691Z",
+    "timestamp": "2026-01-13T02:23:12.857Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -15,7 +15,7 @@
       {
         "vendor": "npm",
         "name": "cli",
-        "version": "10.8.2"
+        "version": "11.6.1"
       }
     ],
     "component": {
@@ -26,12 +26,7 @@
       "scope": "required",
       "author": "Matthew Bramer",
       "purl": "pkg:npm/hashwalk@1.0.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": ""
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "vcs",
@@ -57,18 +52,14 @@
   },
   "components": [
     {
-      "bom-ref": "@esbuild/linux-x64@0.27.2",
+      "bom-ref": "@esbuild/win32-x64@0.27.2",
       "type": "library",
-      "name": "@esbuild/linux-x64",
+      "name": "@esbuild/win32-x64",
       "version": "0.27.2",
       "scope": "optional",
-      "description": "The Linux 64-bit binary for esbuild, a JavaScript bundler.",
-      "purl": "pkg:npm/%40esbuild/linux-x64@0.27.2",
+      "description": "The Windows 64-bit binary for esbuild, a JavaScript bundler.",
+      "purl": "pkg:npm/%40esbuild/win32-x64@0.27.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@esbuild/linux-x64"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -77,7 +68,7 @@
       "externalReferences": [
         {
           "type": "distribution",
-          "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.27.2.tgz"
+          "url": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.27.2.tgz"
         },
         {
           "type": "vcs",
@@ -95,7 +86,7 @@
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "bb0a764e2a7968f987f8d454c1371f2dbf96df65978e915e8d320e599170fefeff2a7a420ca1baeaee032dcbab4298984e263043d07b28e78c26f2c2bbf3af6c"
+          "content": "b11754d7c99c29fec5f98821788ff319fe5a9596ad3144ca8ff8cd4ba97be387fdbb7585bb8bfbb7071423dbeee2692717863d68395b94889ed0833ee71c5aa9"
         }
       ],
       "licenses": [
@@ -116,10 +107,6 @@
       "description": "Encode/decode sourcemap mappings",
       "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/sourcemap-codec"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -158,19 +145,15 @@
       ]
     },
     {
-      "bom-ref": "@rollup/rollup-linux-x64-gnu@4.55.1",
+      "bom-ref": "@rollup/rollup-win32-x64-gnu@4.55.1",
       "type": "library",
-      "name": "@rollup/rollup-linux-x64-gnu",
+      "name": "@rollup/rollup-win32-x64-gnu",
       "version": "4.55.1",
       "scope": "optional",
       "author": "Lukas Taegert-Atkinson",
       "description": "Native bindings for Rollup",
-      "purl": "pkg:npm/%40rollup/rollup-linux-x64-gnu@4.55.1",
+      "purl": "pkg:npm/%40rollup/rollup-win32-x64-gnu@4.55.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@rollup/rollup-linux-x64-gnu"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -179,7 +162,7 @@
       "externalReferences": [
         {
           "type": "distribution",
-          "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.55.1.tgz"
+          "url": "https://registry.npmjs.org/@rollup/rollup-win32-x64-gnu/-/rollup-win32-x64-gnu-4.55.1.tgz"
         },
         {
           "type": "vcs",
@@ -197,7 +180,7 @@
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "6bc1b8c22431406d8102fa3e814e97ad179146a8fea4b4b63465ca9bc8a8d7d82847e2bc970dbaf5e4eb3e449d0d300bc0c989a78b61d948740fc27d6c4575be"
+          "content": "c46198e695e3ebd23129be32bff3cea2870fcbfaa61068629b2fc5a13a534958eedc561751040c14269965725589db261b1462a19030a53865ff8cd7e358112a"
         }
       ],
       "licenses": [
@@ -209,19 +192,15 @@
       ]
     },
     {
-      "bom-ref": "@rollup/rollup-linux-x64-musl@4.55.1",
+      "bom-ref": "@rollup/rollup-win32-x64-msvc@4.55.1",
       "type": "library",
-      "name": "@rollup/rollup-linux-x64-musl",
+      "name": "@rollup/rollup-win32-x64-msvc",
       "version": "4.55.1",
       "scope": "optional",
       "author": "Lukas Taegert-Atkinson",
       "description": "Native bindings for Rollup",
-      "purl": "pkg:npm/%40rollup/rollup-linux-x64-musl@4.55.1",
+      "purl": "pkg:npm/%40rollup/rollup-win32-x64-msvc@4.55.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@rollup/rollup-linux-x64-musl"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -230,7 +209,7 @@
       "externalReferences": [
         {
           "type": "distribution",
-          "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.55.1.tgz"
+          "url": "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.55.1.tgz"
         },
         {
           "type": "vcs",
@@ -248,7 +227,7 @@
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "6c3fb38e916b3293ff86a91f11c9e35d61ccc390488211a2b0e28f8fed8d68d0ee553fbc0ece263dfdd770f1ee6add6dcfcf5644bfb5c1b731298dd649b893ef"
+          "content": "48f12968be835f8ae6717b6785dad0620cd0e56dae5b748225c87cf25076cc89a125184820ae387e452b80857f43cc9435fc39a32679be4790b192e109bd3a97"
         }
       ],
       "licenses": [
@@ -269,10 +248,6 @@
       "description": "A family of specs for interoperable TypeScript",
       "purl": "pkg:npm/%40standard-schema/spec@1.1.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@standard-schema/spec"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -320,10 +295,6 @@
       "purl": "pkg:npm/%40types/chai@5.2.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/chai"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -369,10 +340,6 @@
       "description": "TypeScript definitions for deep-eql",
       "purl": "pkg:npm/%40types/deep-eql@4.0.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/deep-eql"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -420,10 +387,6 @@
       "purl": "pkg:npm/%40types/estree@1.0.8",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/estree"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -469,10 +432,6 @@
       "description": "TypeScript definitions for node",
       "purl": "pkg:npm/%40types/node@25.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/node"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -520,10 +479,6 @@
       "purl": "pkg:npm/%40types/yargs@17.0.35",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/yargs"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -569,10 +524,6 @@
       "description": "TypeScript definitions for yargs-parser",
       "purl": "pkg:npm/%40types/yargs-parser@21.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/yargs-parser"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -620,10 +571,6 @@
       "purl": "pkg:npm/%40vitest/expect@4.0.16",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@vitest/expect"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -669,10 +616,6 @@
       "description": "Vitest module mocker implementation",
       "purl": "pkg:npm/%40vitest/mocker@4.0.16",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@vitest/mocker"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -720,10 +663,6 @@
       "purl": "pkg:npm/%40vitest/pretty-format@4.0.16",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@vitest/pretty-format"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -769,10 +708,6 @@
       "description": "Vitest test runner",
       "purl": "pkg:npm/%40vitest/runner@4.0.16",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@vitest/runner"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -820,10 +755,6 @@
       "purl": "pkg:npm/%40vitest/snapshot@4.0.16",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@vitest/snapshot"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -869,10 +800,6 @@
       "description": "Lightweight Jest compatible spy implementation",
       "purl": "pkg:npm/%40vitest/spy@4.0.16",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@vitest/spy"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -920,10 +847,6 @@
       "purl": "pkg:npm/%40vitest/utils@4.0.16",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@vitest/utils"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -969,12 +892,7 @@
       "author": "Sindre Sorhus",
       "description": "Regular expression for matching ANSI escape codes",
       "purl": "pkg:npm/ansi-regex@6.2.2",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/ansi-regex"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -1016,12 +934,7 @@
       "author": "Sindre Sorhus",
       "description": "ANSI escape codes for styling strings in the terminal",
       "purl": "pkg:npm/ansi-styles@6.2.3",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/ansi-styles"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -1064,10 +977,6 @@
       "description": "Error constructor for test and validation frameworks that implements standardized AssertionError specification.",
       "purl": "pkg:npm/assertion-error@2.0.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/assertion-error"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1116,10 +1025,6 @@
       "purl": "pkg:npm/chai@6.2.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/chai"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -1165,12 +1070,7 @@
       "author": "Ben Coe",
       "description": "easily create complex multi-column command-line-interfaces",
       "purl": "pkg:npm/cliui@9.0.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/cliui"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -1212,12 +1112,7 @@
       "author": "Mathias Bynens",
       "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
       "purl": "pkg:npm/emoji-regex@10.6.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/emoji-regex"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -1260,10 +1155,6 @@
       "description": "Lexes ES modules returning their import/export metadata",
       "purl": "pkg:npm/es-module-lexer@1.7.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/es-module-lexer"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1311,10 +1202,6 @@
       "purl": "pkg:npm/esbuild@0.27.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/esbuild"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -1360,12 +1247,7 @@
       "author": "Luke Edwards",
       "description": "A tiny (183B to 210B) and fast utility to ascend parent directories",
       "purl": "pkg:npm/escalade@3.2.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/escalade"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -1408,10 +1290,6 @@
       "description": "Traverse an ESTree-compliant AST",
       "purl": "pkg:npm/estree-walker@3.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/estree-walker"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1457,10 +1335,6 @@
       "scope": "optional",
       "purl": "pkg:npm/expect-type@1.3.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/expect-type"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1509,10 +1383,6 @@
       "purl": "pkg:npm/fdir@6.5.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/fdir"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -1557,12 +1427,7 @@
       "scope": "required",
       "author": "Stefan Penner",
       "purl": "pkg:npm/get-caller-file@2.0.5",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/get-caller-file"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -1604,12 +1469,7 @@
       "author": "Sindre Sorhus",
       "description": "Determine the East Asian Width of a Unicode character",
       "purl": "pkg:npm/get-east-asian-width@1.4.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/get-east-asian-width"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -1652,10 +1512,6 @@
       "description": "Modify strings, generate sourcemaps",
       "purl": "pkg:npm/magic-string@0.30.21",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/magic-string"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1704,10 +1560,6 @@
       "purl": "pkg:npm/nanoid@3.3.11",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/nanoid"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -1755,10 +1607,6 @@
       "purl": "pkg:npm/obug@2.1.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/obug"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -1804,10 +1652,6 @@
       "description": "Universal filesystem path utils",
       "purl": "pkg:npm/pathe@2.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/pathe"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1856,10 +1700,6 @@
       "purl": "pkg:npm/picocolors@1.1.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/picocolors"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -1906,10 +1746,6 @@
       "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions.",
       "purl": "pkg:npm/picomatch@4.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/picomatch"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1958,10 +1794,6 @@
       "purl": "pkg:npm/postcss@8.5.6",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/postcss"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2008,10 +1840,6 @@
       "description": "Next-generation ES module bundler",
       "purl": "pkg:npm/rollup@4.55.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/rollup"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2060,10 +1888,6 @@
       "purl": "pkg:npm/siginfo@2.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/siginfo"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2110,10 +1934,6 @@
       "description": "Generates and consumes source maps",
       "purl": "pkg:npm/source-map-js@1.2.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/source-map-js"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2162,10 +1982,6 @@
       "purl": "pkg:npm/stackback@0.0.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/stackback"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2212,10 +2028,6 @@
       "purl": "pkg:npm/std-env@3.10.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/std-env"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2261,12 +2073,7 @@
       "author": "Sindre Sorhus",
       "description": "Get the visual width of a string - the number of columns required to display it",
       "purl": "pkg:npm/string-width@7.2.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/string-width"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -2308,12 +2115,7 @@
       "author": "Sindre Sorhus",
       "description": "Strip ANSI escape codes from a string",
       "purl": "pkg:npm/strip-ansi@7.1.2",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/strip-ansi"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -2354,10 +2156,6 @@
       "scope": "optional",
       "purl": "pkg:npm/tinybench@2.9.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tinybench"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2406,10 +2204,6 @@
       "purl": "pkg:npm/tinyexec@1.0.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tinyexec"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2457,10 +2251,6 @@
       "purl": "pkg:npm/tinyglobby@0.2.15",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tinyglobby"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2506,10 +2296,6 @@
       "description": "A small library to print colourful messages.",
       "purl": "pkg:npm/tinyrainbow@3.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tinyrainbow"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2558,10 +2344,6 @@
       "purl": "pkg:npm/typescript@5.9.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/typescript"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2607,10 +2389,6 @@
       "description": "A stand-alone types package for Undici",
       "purl": "pkg:npm/undici-types@7.16.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/undici-types"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2659,10 +2437,6 @@
       "purl": "pkg:npm/vite@7.3.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/vite"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2709,10 +2483,6 @@
       "description": "Next generation testing framework powered by Vite",
       "purl": "pkg:npm/vitest@4.0.16",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/vitest"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2761,10 +2531,6 @@
       "purl": "pkg:npm/why-is-node-running@2.3.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/why-is-node-running"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2810,12 +2576,7 @@
       "author": "Sindre Sorhus",
       "description": "Wordwrap a string with ANSI escape codes",
       "purl": "pkg:npm/wrap-ansi@9.0.2",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/wrap-ansi"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -2857,12 +2618,7 @@
       "author": "Ben Coe",
       "description": "the bare-bones internationalization library used by yargs",
       "purl": "pkg:npm/y18n@5.0.8",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/y18n"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -2903,12 +2659,7 @@
       "scope": "required",
       "description": "yargs the modern, pirate-themed, successor to optimist.",
       "purl": "pkg:npm/yargs@18.0.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/yargs"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -2950,12 +2701,7 @@
       "author": "Ben Coe",
       "description": "the mighty option parser used by yargs",
       "purl": "pkg:npm/yargs-parser@22.0.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/yargs-parser"
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "distribution",
@@ -3001,7 +2747,7 @@
       ]
     },
     {
-      "ref": "@esbuild/linux-x64@0.27.2",
+      "ref": "@esbuild/win32-x64@0.27.2",
       "dependsOn": []
     },
     {
@@ -3009,11 +2755,11 @@
       "dependsOn": []
     },
     {
-      "ref": "@rollup/rollup-linux-x64-gnu@4.55.1",
+      "ref": "@rollup/rollup-win32-x64-gnu@4.55.1",
       "dependsOn": []
     },
     {
-      "ref": "@rollup/rollup-linux-x64-musl@4.55.1",
+      "ref": "@rollup/rollup-win32-x64-msvc@4.55.1",
       "dependsOn": []
     },
     {
@@ -3138,7 +2884,7 @@
     {
       "ref": "esbuild@0.27.2",
       "dependsOn": [
-        "@esbuild/linux-x64@0.27.2"
+        "@esbuild/win32-x64@0.27.2"
       ]
     },
     {
@@ -3207,8 +2953,8 @@
       "ref": "rollup@4.55.1",
       "dependsOn": [
         "@types/estree@1.0.8",
-        "@rollup/rollup-linux-x64-gnu@4.55.1",
-        "@rollup/rollup-linux-x64-musl@4.55.1"
+        "@rollup/rollup-win32-x64-gnu@4.55.1",
+        "@rollup/rollup-win32-x64-msvc@4.55.1"
       ]
     },
     {
