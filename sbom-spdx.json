@@ -3,11 +3,11 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "hashwalk@1.0.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.0.0-7c186b9a-dd1f-4206-8634-d87029718903",
+  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.0.0-***",
   "creationInfo": {
-    "created": "2026-01-10T17:15:16.240Z",
+    "created": "2026-01-13T02:23:13.599Z",
     "creators": [
-      "Tool: npm/cli-10.8.2"
+      "Tool: npm/cli-11.6.1"
     ]
   },
   "documentDescribes": [
@@ -33,12 +33,12 @@
       ]
     },
     {
-      "name": "@esbuild/linux-x64",
-      "SPDXID": "SPDXRef-Package-esbuild.linux-x64-0.27.2",
+      "name": "@esbuild/win32-x64",
+      "SPDXID": "SPDXRef-Package-esbuild.win32-x64-0.27.2",
       "versionInfo": "0.27.2",
-      "packageFileName": "node_modules/@esbuild/linux-x64",
-      "description": "The Linux 64-bit binary for esbuild, a JavaScript bundler.",
-      "downloadLocation": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.27.2.tgz",
+      "packageFileName": "node_modules/@esbuild/win32-x64",
+      "description": "The Windows 64-bit binary for esbuild, a JavaScript bundler.",
+      "downloadLocation": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.27.2.tgz",
       "filesAnalyzed": false,
       "homepage": "https://github.com/evanw/esbuild#readme",
       "licenseDeclared": "MIT",
@@ -46,13 +46,13 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:npm/%40esbuild/linux-x64@0.27.2"
+          "referenceLocator": "pkg:npm/%40esbuild/win32-x64@0.27.2"
         }
       ],
       "checksums": [
         {
           "algorithm": "SHA512",
-          "checksumValue": "bb0a764e2a7968f987f8d454c1371f2dbf96df65978e915e8d320e599170fefeff2a7a420ca1baeaee032dcbab4298984e263043d07b28e78c26f2c2bbf3af6c"
+          "checksumValue": "b11754d7c99c29fec5f98821788ff319fe5a9596ad3144ca8ff8cd4ba97be387fdbb7585bb8bfbb7071423dbeee2692717863d68395b94889ed0833ee71c5aa9"
         }
       ]
     },
@@ -81,12 +81,12 @@
       ]
     },
     {
-      "name": "@rollup/rollup-linux-x64-gnu",
-      "SPDXID": "SPDXRef-Package-rollup.rollup-linux-x64-gnu-4.55.1",
+      "name": "@rollup/rollup-win32-x64-gnu",
+      "SPDXID": "SPDXRef-Package-rollup.rollup-win32-x64-gnu-4.55.1",
       "versionInfo": "4.55.1",
-      "packageFileName": "node_modules/@rollup/rollup-linux-x64-gnu",
+      "packageFileName": "node_modules/@rollup/rollup-win32-x64-gnu",
       "description": "Native bindings for Rollup",
-      "downloadLocation": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.55.1.tgz",
+      "downloadLocation": "https://registry.npmjs.org/@rollup/rollup-win32-x64-gnu/-/rollup-win32-x64-gnu-4.55.1.tgz",
       "filesAnalyzed": false,
       "homepage": "https://rollupjs.org/",
       "licenseDeclared": "MIT",
@@ -94,23 +94,23 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:npm/%40rollup/rollup-linux-x64-gnu@4.55.1"
+          "referenceLocator": "pkg:npm/%40rollup/rollup-win32-x64-gnu@4.55.1"
         }
       ],
       "checksums": [
         {
           "algorithm": "SHA512",
-          "checksumValue": "6bc1b8c22431406d8102fa3e814e97ad179146a8fea4b4b63465ca9bc8a8d7d82847e2bc970dbaf5e4eb3e449d0d300bc0c989a78b61d948740fc27d6c4575be"
+          "checksumValue": "c46198e695e3ebd23129be32bff3cea2870fcbfaa61068629b2fc5a13a534958eedc561751040c14269965725589db261b1462a19030a53865ff8cd7e358112a"
         }
       ]
     },
     {
-      "name": "@rollup/rollup-linux-x64-musl",
-      "SPDXID": "SPDXRef-Package-rollup.rollup-linux-x64-musl-4.55.1",
+      "name": "@rollup/rollup-win32-x64-msvc",
+      "SPDXID": "SPDXRef-Package-rollup.rollup-win32-x64-msvc-4.55.1",
       "versionInfo": "4.55.1",
-      "packageFileName": "node_modules/@rollup/rollup-linux-x64-musl",
+      "packageFileName": "node_modules/@rollup/rollup-win32-x64-msvc",
       "description": "Native bindings for Rollup",
-      "downloadLocation": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.55.1.tgz",
+      "downloadLocation": "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.55.1.tgz",
       "filesAnalyzed": false,
       "homepage": "https://rollupjs.org/",
       "licenseDeclared": "MIT",
@@ -118,13 +118,13 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:npm/%40rollup/rollup-linux-x64-musl@4.55.1"
+          "referenceLocator": "pkg:npm/%40rollup/rollup-win32-x64-msvc@4.55.1"
         }
       ],
       "checksums": [
         {
           "algorithm": "SHA512",
-          "checksumValue": "6c3fb38e916b3293ff86a91f11c9e35d61ccc390488211a2b0e28f8fed8d68d0ee553fbc0ece263dfdd770f1ee6add6dcfcf5644bfb5c1b731298dd649b893ef"
+          "checksumValue": "48f12968be835f8ae6717b6785dad0620cd0e56dae5b748225c87cf25076cc89a125184820ae387e452b80857f43cc9435fc39a32679be4790b192e109bd3a97"
         }
       ]
     },
@@ -1603,7 +1603,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-esbuild.linux-x64-0.27.2",
+      "spdxElementId": "SPDXRef-Package-esbuild.win32-x64-0.27.2",
       "relatedSpdxElement": "SPDXRef-Package-esbuild-0.27.2",
       "relationshipType": "OPTIONAL_DEPENDENCY_OF"
     },
@@ -1643,12 +1643,12 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-rollup.rollup-linux-x64-gnu-4.55.1",
+      "spdxElementId": "SPDXRef-Package-rollup.rollup-win32-x64-gnu-4.55.1",
       "relatedSpdxElement": "SPDXRef-Package-rollup-4.55.1",
       "relationshipType": "OPTIONAL_DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-rollup.rollup-linux-x64-musl-4.55.1",
+      "spdxElementId": "SPDXRef-Package-rollup.rollup-win32-x64-msvc-4.55.1",
       "relatedSpdxElement": "SPDXRef-Package-rollup-4.55.1",
       "relationshipType": "OPTIONAL_DEPENDENCY_OF"
     },
