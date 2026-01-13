@@ -23,8 +23,11 @@
     "build": "tsc",
     "dev": "tsc --watch -p tsconfig.dev.json",
     "start": "node ./dist/cli.js",
-    "test": "npm run build && vitest run",
-    "prepublishOnly": "npm run build"
+    "test": "vitest run",
+    "prepublishOnly": "npm run build",
+    "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
+    "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > ./sbom/sbom-cyclonedx.json",
+    "sbom:spdx": "npm sbom --sbom-format=spdx > ./sbom/sbom-spdx.json"
   },
   "dependencies": {
     "yargs": "^18.0.0"
