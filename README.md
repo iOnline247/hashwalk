@@ -12,6 +12,18 @@ Generate SBOM files in both CycloneDX and SPDX formats:
 npm run sbom:generate
 ```
 
+## Publishing
+
+- Quick preview of what would be published  
+`npm pack --dry-run`  
+`npm publish --dry-run`  
+
+- Fix problems with CLI configuration within package.json  
+`npm pkg fix`  
+
+- Create a local tarball you can inspect  
+`npm pack`
+
 ## TODOs
 
 - Create example usages
