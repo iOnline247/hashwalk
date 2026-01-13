@@ -11,12 +11,16 @@
     "build": "tsc",
     "dev": "tsc --watch -p tsconfig.dev.json",
     "start": "node ./dist/cli.js",
-    "test": "npm run build && vitest run"
+    "test": "npm run build && vitest run",
+    "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
+    "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > sbom-cyclonedx.json",
+    "sbom:spdx": "npm sbom --sbom-format=spdx > sbom-spdx.json"
   },
   "dependencies": {
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@cyclonedx/cyclonedx-npm": "^4.1.2",
     "@types/node": "^25.0.3",
     "@types/yargs": "^17.0.35",
     "typescript": "^5.9.3",
