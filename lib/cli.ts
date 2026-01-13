@@ -1,4 +1,3 @@
-import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
@@ -10,19 +9,10 @@ import { walk } from './walker.js';
 import { hashFile } from './hasher.js';
 import { writeCsv } from './csv.js';
 import { hashFileStream } from './verify.js';
+import { type HashWalkResult } from './types.js';
 
 // TODO:
 // Switch to using: https://nodejs.org/api/util.html#utilparseargsconfig
-
-// const argv = yargs(hideBin(process.argv))
-//   .options({
-//     path: { type: 'string', demandOption: true },
-//     compare: { type: 'string' },
-//     algorithm: { type: 'string' },
-//     concurrency: { type: 'number', default: 8 },
-//     csvDirectory: { type: 'string' }
-//   })
-//   .parseSync();
 
 const argv = yargs(hideBin(process.argv))
   .scriptName('hashwalk')
@@ -69,66 +59,63 @@ const argv = yargs(hideBin(process.argv))
       describe: 'Maximum concurrent file hashes'
     }
   })
-  .check(argv => {
-    if (argv.compare && !argv.algorithm) {
-      throw new Error('--algorithm is required when using --compare');
-    }
-    return true;
-  })
   .help()
   .strict()
   .parseSync();
 
-(async () => {
-  try {
-    const algorithm = argv.algorithm.toLowerCase();
-    const basePath = path.resolve(argv.path);
-    const files = (await walk(basePath)).sort();
 
-    const csvDir =
-      argv.csvDirectory ??
-      path.join(os.tmpdir(), 'hashwalk');
+try {
+  const algorithm = argv.algorithm.toLowerCase();
+  const basePath = path.resolve(argv.path);
+  const files = (await walk(basePath)).sort();
 
-    await fs.mkdir(csvDir, { recursive: true });
+  const csvDir =
+    argv.csvDirectory ??
+    path.join(os.tmpdir(), 'hashwalk');
 
-    const timestamp = new Date()
-      .toISOString()
-      .replace(/[-:]/g, '')
-      .slice(0, 15);
+  await fs.mkdir(csvDir, { recursive: true });
 
-    const outCsvPath = path.join(
-      csvDir,
-      `${timestamp}_${algorithm}_${crypto.randomUUID()}.csv`
-    );
+  const timestamp = new Date()
+    .toISOString()
+    .replace(/[-:]/g, '')
+    .slice(0, 15);
 
-    async function* rows() {
-      for (const file of files) {
-        const hash = await hashFile(file, algorithm!);
+  const outCsvPath = path.join(
+    csvDir,
+    `${timestamp}_${algorithm}_${crypto.randomUUID()}.csv`
+  );
 
-        yield {
-          RelativePath: path.relative(basePath, file),
-          FileName: path.basename(file),
-          Algorithm: algorithm!,
-          Hash: hash
-        };
-      }
+  async function* rows() {
+    for (const file of files) {
+      const hash = await hashFile(file, algorithm!);
+
+      yield {
+        RelativePath: path.relative(basePath, file),
+        FileName: path.basename(file),
+        Algorithm: algorithm!,
+        Hash: hash
+      };
     }
+  }
 
-    await writeCsv(outCsvPath, rows());
+  await writeCsv(outCsvPath, rows());
 
-    if (!argv.compare) {
-      process.exit(0);
-    }
+  const newHash = await hashFileStream(outCsvPath, algorithm);
 
-    const newHash = await hashFileStream(outCsvPath, algorithm);
+  const results: HashWalkResult = {
+    csv: outCsvPath,
+    hash: newHash,
+  }
+
+  if (argv.compare) {
     // TODO:
     // Make a utility function to check if a path exists and is a file.
-    const compareHash = await fs.stat(argv.compare)
-      ? await hashFileStream(argv.compare, algorithm)
-      : argv.compare;
+    const compareHash = await hashFileStream(argv.compare, algorithm);
 
-    process.exit(newHash === compareHash ? 0 : 1);
-  } catch {
-    process.exit(2);
+    results.compare = newHash === compareHash;
   }
-})();
+
+  console.log(JSON.stringify(results));
+} catch {
+  process.exit(1);
+}
