@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { removeDebuggerInfo } from '../helpers/utils.js';
 import { runCli } from '../helpers/runCli.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -118,7 +119,8 @@ describe('hashwalk CLI validation - Integration Tests', () => {
     const result = await runCli(args);
 
     assert.equal(result.code, 1);
-    const parsed = JSON.parse(result.stderr);
+    const parsed = JSON.parse(removeDebuggerInfo(result.stderr));
+
     assert.ok(parsed.error);
     assert.ok(parsed.error.includes('Invalid directory path'));
   });
@@ -130,9 +132,9 @@ describe('hashwalk CLI validation - Integration Tests', () => {
     ];
 
     const result = await runCli(args);
-
     assert.equal(result.code, 1);
-    const parsed = JSON.parse(result.stderr);
+    
+    const parsed = JSON.parse(removeDebuggerInfo(result.stderr));
     assert.ok(parsed.error);
     assert.ok(parsed.error.includes('Invalid directory path'));
   });
