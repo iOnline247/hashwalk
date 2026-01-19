@@ -1,1 +1,11 @@
+# Check if staged files are only sbom/ files
+staged=$(git diff --cached --name-only)
+non_sbom=$(echo "$staged" | grep -v '^sbom/')
+
+if [ -z "$non_sbom" ]; then
+  echo "Only SBOM files staged, skipping sbom:generate"
+  exit 0
+fi
+
 npm run sbom:generate
+git add sbom/
