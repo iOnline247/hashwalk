@@ -121,12 +121,7 @@ describe('Symlink Handling - Integration Tests', () => {
         20000,
         'Should find exactly 20000 files (no infinite loop from symlink)'
       );
-      
-      // Verify sort order is deterministic
-      const sorted1 = [...walkedFiles].sort();
-      const sorted2 = [...walkedFiles].sort();
-      assert.deepEqual(sorted1, sorted2, 'Sort order should be deterministic');
-      
+            
       // Generate CSV and verify it's deterministic
       const csvPath1 = path.join(tmpDir, 'test1.csv');
       const csvPath2 = path.join(tmpDir, 'test2.csv');
@@ -149,8 +144,10 @@ describe('Symlink Handling - Integration Tests', () => {
       
       const csv1Content = fs.readFileSync(csvPath1, 'utf-8');
       const csv2Content = fs.readFileSync(csvPath2, 'utf-8');
+      const csv1Hash = await hashFile(csvPath1, 'sha256');
+      const csv2Hash = await hashFile(csvPath2, 'sha256');
       
-      assert.equal(csv1Content, csv2Content, 'CSV content should be identical on multiple runs');
+      assert.equal(csv1Hash, csv2Hash, 'CSV hashes should be identical on multiple runs');
       
       // Verify CSV has correct number of lines (header + 20000 data rows)
       const csvLines = csv1Content.trim().split('\n');
