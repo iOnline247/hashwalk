@@ -3,11 +3,11 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "hashwalk@1.0.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.0.0-c0da26dc-1ec3-4a4b-8920-c873b13c5928",
+  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.0.0-314cd609-ae7a-401b-a3a8-6ddb5f603ded",
   "creationInfo": {
-    "created": "2026-01-19T02:00:14.776Z",
+    "created": "2026-01-19T02:35:17.391Z",
     "creators": [
-      "Tool: npm/cli-10.9.2"
+      "Tool: npm/cli-10.8.2"
     ]
   },
   "documentDescribes": [
@@ -53,6 +53,30 @@
         {
           "algorithm": "SHA512",
           "checksumValue": "5bad3d6ee2d545599e5baf77c4a7f31de215ea72461b3f7cb823df79723510b30b5d578a619f66d797c03126943c11d82c616c55170c9920a4b103ab655f4160"
+        }
+      ]
+    },
+    {
+      "name": "husky",
+      "SPDXID": "SPDXRef-Package-husky-9.1.7",
+      "versionInfo": "9.1.7",
+      "packageFileName": "node_modules/husky",
+      "description": "Modern native Git hooks",
+      "downloadLocation": "https://registry.npmjs.org/husky/-/husky-9.1.7.tgz",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/typicode/husky#readme",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/husky@9.1.7"
+        }
+      ],
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "e60b39cad68d8c1ae1e4ec37cebbdd51463ed15c48b9654be22f62aede9fae257e06a7427e6575d4241358c8816161db5e1728f89d641df4ce52478f8420ef30"
         }
       ]
     },
@@ -113,6 +137,11 @@
     },
     {
       "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.0.0",
+      "relationshipType": "DEV_DEPENDENCY_OF"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-husky-9.1.7",
       "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.0.0",
       "relationshipType": "DEV_DEPENDENCY_OF"
     },

@@ -35,18 +35,26 @@
     "prepublishOnly": "npm run build",
     "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
     "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > ./sbom/sbom-cyclonedx.json",
-    "sbom:spdx": "npm sbom --sbom-format=spdx > ./sbom/sbom-spdx.json"
+    "sbom:spdx": "npm sbom --sbom-format=spdx > ./sbom/sbom-spdx.json",
+    "prepare": "husky"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "^25.0.3",
+    "husky": "^9.1.7",
     "typescript": "^5.9.3"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iOnline247/hashwalk.git"
   },
-  "keywords": ["checksum", "hash", "file integrity", "verify", "audit", "cli"],
+  "keywords": [
+    "checksum",
+    "hash",
+    "file integrity",
+    "verify",
+    "audit",
+    "cli"
+  ],
   "author": "Matthew Bramer",
   "license": "AGPL-3.0-only",
   "bugs": {
