@@ -141,14 +141,12 @@ describe('Symlink Handling - Integration Tests', () => {
       
       await writeCsv(csvPath1, generateRows(walkedFiles));
       await writeCsv(csvPath2, generateRows(walkedFiles));
-      
-      const csv1Content = fs.readFileSync(csvPath1, 'utf-8');
-      const csv2Content = fs.readFileSync(csvPath2, 'utf-8');
       const csv1Hash = await hashFile(csvPath1, 'sha256');
       const csv2Hash = await hashFile(csvPath2, 'sha256');
       
       assert.equal(csv1Hash, csv2Hash, 'CSV hashes should be identical on multiple runs');
       
+      const csv1Content = fs.readFileSync(csvPath1, 'utf-8');
       // Verify CSV has correct number of lines (header + 20000 data rows)
       const csvLines = csv1Content.trim().split('\n');
       assert.equal(csvLines.length, 20001, 'CSV should have header + 20000 data rows');
