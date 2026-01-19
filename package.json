@@ -46,7 +46,7 @@
     "type": "git",
     "url": "git+https://github.com/iOnline247/hashwalk.git"
   },
-  "keywords": [],
+  "keywords": ["checksum", "hash", "file integrity", "verify", "audit", "cli"],
   "author": "Matthew Bramer",
   "license": "AGPL-3.0-only",
   "bugs": {
