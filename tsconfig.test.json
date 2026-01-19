@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["bin/**/*", "lib/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "./dist"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "module": "NodeNext",
+    "target": "esnext",
+    "lib": ["esnext"],
+    "types": ["node"],
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }
+}

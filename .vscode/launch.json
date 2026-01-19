@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "hashwalk - Generate CSV",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/dist/lib/cli.js",
+      "args": ["--path", "D:\\bkp"],
+      "preLaunchTask": "npm: dev",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "hashwalk - Verify with CSV",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/dist/lib/cli.js",
+      "args": ["--path", "D:\\bkp", "--compare", "./tests/fixtures/checksums-full.csv", "--algorithm", "sha256"],
+      "preLaunchTask": "npm: dev",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "hashwalk - Verify with checksum",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/dist/lib/cli.js",
+      "args": ["--path", "D:\\bkp", "--compare", "96a6cb0901b1d73cebcf866084e655c2ffc60f645181cbc483c94dd09f106843", "--algorithm", "sha256"],
+      "preLaunchTask": "npm: dev",
+      "console": "integratedTerminal"
+    }
+  ]
+}

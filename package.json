@@ -1,0 +1,56 @@
+{
+  "name": "hashwalk",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./dist/lib/cli.js",
+  "types": "./dist/lib/cli.d.ts",
+  "bin": {
+    "hashwalk": "dist/bin/hashwalk.js"
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/lib/cli.d.ts",
+      "import": "./dist/lib/cli.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "node -e \"if (process.platform !== 'win32') { require('fs').chmodSync('dist/bin/hashwalk.js',0o755); }\"",
+    "dev": "tsc --watch -p tsconfig.dev.json",
+    "start": "node ./dist/cli.js",
+    "test": "tsc -p tsconfig.test.json && node --test dist/tests/unit/*.test.js dist/tests/integration/*.test.js",
+    "test:unit": "tsc -p tsconfig.test.json && node --test dist/tests/unit/*.test.js",
+    "test:integration": "tsc -p tsconfig.test.json && node --test dist/tests/integration/*.test.js",
+    "test:coverage": "tsc -p tsconfig.test.json && node --test --experimental-test-coverage --test-reporter=spec --test-reporter-destination=stdout dist/tests/unit/*.test.js dist/tests/integration/*.test.js",
+    "test:failures": "tsc -p tsconfig.test.json && node --test --test-reporter=tap dist/tests/unit/*.test.js dist/tests/integration/*.test.js | grep -A 10 'not ok'",
+    "lint": "deno lint lib/ bin/ tests/",
+    "format:check": "deno fmt --check lib/ bin/ tests/",
+    "format:fix": "deno fmt lib/ bin/ tests/",
+    "prepublishOnly": "npm run build",
+    "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
+    "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > ./sbom/sbom-cyclonedx.json",
+    "sbom:spdx": "npm sbom --sbom-format=spdx > ./sbom/sbom-spdx.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iOnline247/hashwalk.git"
+  },
+  "keywords": [],
+  "author": "Matthew Bramer",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/iOnline247/hashwalk/issues"
+  },
+  "homepage": "https://github.com/iOnline247/hashwalk#readme"
+}
