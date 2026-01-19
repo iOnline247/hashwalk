@@ -136,7 +136,7 @@ try {
       results.isMatch = newHash === compareHash;
     } else {
       // NOTE:
-      // Treat as checksum string
+      // This is treated as a direct checksum string comparison.
       results.isMatch = newHash === argv.compare;
     }
   }
