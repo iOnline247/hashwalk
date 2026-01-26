@@ -88,4 +88,14 @@ describe('csvEscape - Unit Tests', () => {
 
     assert.equal(result, '","",\n\r"');
   });
+
+  it('should handle backslashes in paths (Windows-style paths)', () => {
+    const input = 'folder\\subfolder\\file.txt';
+
+    const result = csvEscape(input);
+
+    // csvEscape should quote the value but preserve the backslashes
+    // The conversion to forward slashes happens at the source (cli.ts)
+    assert.equal(result, '"folder\\subfolder\\file.txt"');
+  });
 });
