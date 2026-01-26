@@ -107,7 +107,7 @@ try {
       const hash = await hashFile(file, algorithm!);
 
       yield {
-        RelativePath: path.relative(basePath, file),
+        RelativePath: path.relative(basePath, file).replace(/\\/g, '/'),
         FileName: path.basename(file),
         Algorithm: algorithm!,
         Hash: hash

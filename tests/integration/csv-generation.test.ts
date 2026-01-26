@@ -189,4 +189,36 @@ describe('CSV Generation - Integration Tests', () => {
 
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
+
+  it('should convert backslashes to forward slashes in RelativePath', async () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hashwalk-backslash-test-'));
+    const csvPath = path.join(tmpDir, 'backslash-test.csv');
+
+    // Simulate Windows-style paths with backslashes
+    async function* generateRows(): AsyncGenerator<ChecksumRow> {
+      yield {
+        RelativePath: 'folder\\subfolder\\file1.txt'.replace(/\\/g, '/'),
+        FileName: 'file1.txt',
+        Algorithm: 'sha256',
+        Hash: 'abc123'
+      };
+      yield {
+        RelativePath: 'another\\deep\\nested\\path\\file2.txt'.replace(/\\/g, '/'),
+        FileName: 'file2.txt',
+        Algorithm: 'sha256',
+        Hash: 'def456'
+      };
+    }
+
+    await writeCsv(csvPath, generateRows());
+
+    const csvContent = fs.readFileSync(csvPath, 'utf-8');
+    
+    // Verify that forward slashes are used, not backslashes
+    assert.ok(csvContent.includes('folder/subfolder/file1.txt'), 'Should contain forward slashes');
+    assert.ok(csvContent.includes('another/deep/nested/path/file2.txt'), 'Should contain forward slashes');
+    assert.ok(!csvContent.includes('\\'), 'Should not contain backslashes in paths');
+
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
 });

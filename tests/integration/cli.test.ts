@@ -138,4 +138,51 @@ describe('hashwalk CLI validation - Integration Tests', () => {
     assert.ok(parsed.error);
     assert.ok(parsed.error.includes('Invalid directory path'));
   });
+
+  it('should use forward slashes in RelativePath field regardless of platform', async () => {
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-path-test-'));
+    
+    try {
+      // Create a nested directory structure
+      const nestedDir = path.join(tmpDir, 'folder', 'subfolder', 'deep');
+      await fs.mkdir(nestedDir, { recursive: true });
+      
+      // Create files at different levels
+      await fs.writeFile(path.join(tmpDir, 'root.txt'), 'root file');
+      await fs.writeFile(path.join(tmpDir, 'folder', 'level1.txt'), 'level 1 file');
+      await fs.writeFile(path.join(tmpDir, 'folder', 'subfolder', 'level2.txt'), 'level 2 file');
+      await fs.writeFile(path.join(tmpDir, 'folder', 'subfolder', 'deep', 'level3.txt'), 'level 3 file');
+
+      const csvDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-csv-'));
+      
+      const args = [
+        '--path', tmpDir,
+        '--csvDirectory', csvDir,
+        '--algorithm', 'sha256'
+      ];
+
+      const result = await runCli(args);
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      const csvContent = await fs.readFile(parsed.csv, 'utf-8');
+      
+      // Verify all paths use forward slashes, not backslashes
+      assert.ok(csvContent.includes('folder/level1.txt'), 'Should contain forward slash path for level1');
+      assert.ok(csvContent.includes('folder/subfolder/level2.txt'), 'Should contain forward slash path for level2');
+      assert.ok(csvContent.includes('folder/subfolder/deep/level3.txt'), 'Should contain forward slash path for level3');
+      
+      // Ensure no backslashes exist in the CSV (except possibly in headers/quoted strings)
+      const lines = csvContent.split('\n').slice(1); // Skip header
+      for (const line of lines) {
+        if (line.trim()) {
+          assert.ok(!line.includes('\\'), `Line should not contain backslashes: ${line}`);
+        }
+      }
+
+      await fs.rm(csvDir, { recursive: true, force: true });
+    } finally {
+      await fs.rm(tmpDir, { recursive: true, force: true });
+    }
+  });
 });

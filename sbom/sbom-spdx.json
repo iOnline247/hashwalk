@@ -3,11 +3,11 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "hashwalk@1.1.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.1.0-5f294031-7732-42ed-95a5-19e2c87b616b",
+  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.1.0-522c0a05-407f-4834-b80f-29bc4272557c",
   "creationInfo": {
-    "created": "2026-01-19T03:54:15.410Z",
+    "created": "2026-01-26T22:19:46.682Z",
     "creators": [
-      "Tool: npm/cli-10.9.2"
+      "Tool: npm/cli-10.8.2"
     ]
   },
   "documentDescribes": [
