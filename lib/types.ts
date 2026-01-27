@@ -7,7 +7,7 @@ export interface ChecksumRow {
 
 export interface HashWalkResult {
   compare?: string;
-  csv: string; 
-  hash: string; 
-  isMatch?: boolean 
+  csv: string;
+  hash: string;
+  isMatch?: boolean;
 }

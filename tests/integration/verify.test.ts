@@ -14,23 +14,28 @@ describe('hashwalk verification behavior - Integration Tests', () => {
 
   it('should return isMatch false when checksum does not match', async () => {
     const args = [
-      '--path', dataDir,
-      '--compare', 'deadbeef',
-      '--algorithm', 'sha256'
+      '--path',
+      dataDir,
+      '--compare',
+      'deadbeef',
+      '--algorithm',
+      'sha256',
     ];
 
     const result = await runCli(args);
 
     assert.equal(result.code, 0);
-    
+
     const jsonOutput = JSON.parse(result.stdout);
     assert.equal(jsonOutput.isMatch, false);
   });
 
   it('should return isMatch true when checksum matches', async () => {
     const generateArgs = [
-      '--path', dataDir,
-      '--algorithm', 'sha256'
+      '--path',
+      dataDir,
+      '--algorithm',
+      'sha256',
     ];
 
     const generateResult = await runCli(generateArgs);
@@ -47,15 +52,18 @@ describe('hashwalk verification behavior - Integration Tests', () => {
       .digest('hex');
 
     const verifyArgs = [
-      '--path', dataDir,
-      '--compare', hash,
-      '--algorithm', 'sha256'
+      '--path',
+      dataDir,
+      '--compare',
+      hash,
+      '--algorithm',
+      'sha256',
     ];
 
     const verifyResult = await runCli(verifyArgs);
 
     assert.equal(verifyResult.code, 0);
-    
+
     const verifyOutput = JSON.parse(verifyResult.stdout);
     assert.equal(verifyOutput.isMatch, true);
   });

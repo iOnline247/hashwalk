@@ -1,12 +1,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import process from "node:process";
+import process from 'node:process';
 import { parseArgs } from 'node:util';
 
 import { walk } from './walker.js';
 import { rows, writeCsv } from './csv.js';
-import { hashFileStream, isFile, isDirectory, setDebug } from './verify.js';
+import { hashFileStream, isDirectory, isFile, setDebug } from './verify.js';
 import { type HashWalkResult } from './types.js';
 
 const { values: argv } = parseArgs({
@@ -69,7 +69,13 @@ if (!argv.path) {
 const algorithm = (argv.algorithm || 'sha256').toLowerCase();
 const validAlgorithms = ['md5', 'sha1', 'sha256', 'sha384', 'sha512'];
 if (!validAlgorithms.includes(algorithm)) {
-  console.error(JSON.stringify({ error: `Invalid algorithm: ${algorithm}. Must be one of: ${validAlgorithms.join(', ')}` }));
+  console.error(
+    JSON.stringify({
+      error: `Invalid algorithm: ${algorithm}. Must be one of: ${
+        validAlgorithms.join(', ')
+      }`,
+    }),
+  );
   process.exit(1);
 }
 
@@ -78,16 +84,15 @@ setDebug(argv.debug);
 
 try {
   const basePath = path.resolve(argv.path);
-  
+
   // Validate the directory path
   if (!(await isDirectory(basePath))) {
     throw new Error(`Invalid directory path: ${argv.path}`);
   }
-  
+
   const files = (await walk(basePath)).sort();
 
-  const csvDir =
-    argv.csvDirectory ??
+  const csvDir = argv.csvDirectory ??
     path.join(os.tmpdir(), 'hashwalk');
 
   await fs.mkdir(csvDir, { recursive: true });
@@ -99,7 +104,7 @@ try {
 
   const outCsvPath = path.join(
     csvDir,
-    `${timestamp}_${algorithm}_${crypto.randomUUID()}.csv`
+    `${timestamp}_${algorithm}_${crypto.randomUUID()}.csv`,
   );
 
   await writeCsv(outCsvPath, rows(files, basePath, algorithm));
@@ -109,7 +114,7 @@ try {
   const results: HashWalkResult = {
     csv: outCsvPath,
     hash: newHash,
-  }
+  };
 
   if (argv.compare) {
     const compareFilePath = path.resolve(argv.compare);
@@ -119,7 +124,7 @@ try {
 
     if (shouldProcessAsFile) {
       const compareHash = await hashFileStream(compareFilePath, algorithm);
-  
+
       results.isMatch = newHash === compareHash;
     } else {
       // NOTE:
@@ -133,7 +138,11 @@ try {
   if (argv.debug) {
     // NOTE:
     // This needs to be console.error to avoid mixing with stdout.error JSON result.
-    console.error(JSON.stringify({ error: `${(err as Error).message}\n${(err as Error).stack || ''}` }));
+    console.error(
+      JSON.stringify({
+        error: `${(err as Error).message}\n${(err as Error).stack || ''}`,
+      }),
+    );
   } else {
     console.error(JSON.stringify({ error: (err as Error).message }));
   }

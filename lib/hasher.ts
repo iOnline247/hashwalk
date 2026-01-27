@@ -3,7 +3,7 @@ import crypto from 'crypto';
 
 export function hashFile(
   file: string,
-  algorithm: string
+  algorithm: string,
 ): Promise<string> {
   return new Promise((resolve) => {
     const hash = crypto.createHash(algorithm);

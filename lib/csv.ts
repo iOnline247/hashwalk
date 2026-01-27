@@ -12,22 +12,26 @@ export function csvEscape(value: string): string {
   return `"${value.replace(/"/g, '""')}"`;
 }
 
-export async function* rows(files: string[], basePath: string, algorithm: string): AsyncGenerator<ChecksumRow> {
-    for (const file of files) {
-        const hash = await hashFile(file, algorithm);
+export async function* rows(
+  files: string[],
+  basePath: string,
+  algorithm: string,
+): AsyncGenerator<ChecksumRow> {
+  for (const file of files) {
+    const hash = await hashFile(file, algorithm);
 
-        yield {
-            RelativePath: path.relative(basePath, file).replace(/\\/g, '/'),
-            FileName: path.basename(file),
-            Algorithm: algorithm,
-            Hash: hash
-        };
-    }
+    yield {
+      RelativePath: path.relative(basePath, file).replace(/\\/g, '/'),
+      FileName: path.basename(file),
+      Algorithm: algorithm,
+      Hash: hash,
+    };
+  }
 }
 
 export async function writeCsv(
   file: string,
-  rows: AsyncIterable<ChecksumRow>
+  rows: AsyncIterable<ChecksumRow>,
 ): Promise<void> {
   const stream = fs.createWriteStream(file, { encoding: 'utf8' });
 
@@ -38,7 +42,7 @@ export async function writeCsv(
       csvEscape(row.RelativePath),
       csvEscape(row.FileName),
       csvEscape(row.Algorithm),
-      csvEscape(row.Hash)
+      csvEscape(row.Hash),
     ].join(',') + '\n';
 
     stream.write(line);
