@@ -32,6 +32,24 @@ describe('hashwalk CLI validation - Integration Tests', () => {
     const result = await runCli(args);
 
     assert.equal(result.code, 1);
+    assert.ok(
+      JSON.parse(removeDebuggerInfo(result.stderr)).error.includes(
+        'Missing required argument: --path',
+      ),
+    );
+  });
+
+  it('should fail if --path is invalid', async () => {
+    const args: string[] = ['--path', '/nonexistent'];
+
+    const result = await runCli(args);
+
+    assert.equal(result.code, 1);
+    assert.ok(
+      JSON.parse(removeDebuggerInfo(result.stderr)).error.includes(
+        'Invalid directory path',
+      ),
+    );
   });
 
   it('should succeed with --path only (generate mode)', async () => {
@@ -113,6 +131,27 @@ describe('hashwalk CLI validation - Integration Tests', () => {
     }
   });
 
+  it('should use default sha256 algorithm when not specified', async () => {
+    const args = ['--path', dataDir];
+    const result = await runCli(args);
+
+    assert.equal(result.code, 0);
+    const parsed = JSON.parse(result.stdout);
+    assert.ok(parsed.csv.includes('sha256'));
+  });
+
+  it('should throw when invalid algorithm is provided', async () => {
+    const args = ['--path', dataDir, '--algorithm', 'invalid'];
+    const result = await runCli(args);
+
+    assert.equal(result.code, 1);
+
+    const parsed = JSON.parse(removeDebuggerInfo(result.stderr));
+    assert.ok(
+      parsed.error.includes('Invalid algorithm: invalid. Must be one of'),
+    );
+  });
+
   it('should succeed with valid --path and --algorithm', async () => {
     const args = [
       '--path',
@@ -141,7 +180,9 @@ describe('hashwalk CLI validation - Integration Tests', () => {
     const parsed = JSON.parse(removeDebuggerInfo(result.stderr));
 
     assert.ok(parsed.error);
-    assert.ok(parsed.error.includes('Invalid directory path'));
+    assert.ok(
+      parsed.error.includes('Error: Invalid directory path: /nonexistent'),
+    );
   });
 
   it('should show minimal error without --debug flag', async () => {
@@ -157,7 +198,7 @@ describe('hashwalk CLI validation - Integration Tests', () => {
 
     const parsed = JSON.parse(removeDebuggerInfo(result.stderr));
     assert.ok(parsed.error);
-    assert.ok(parsed.error.includes('Invalid directory path'));
+    assert.ok(parsed.error.includes('Invalid directory path: /nonexistent'));
   });
 
   it('should use forward slashes in RelativePath field regardless of platform', async () => {
