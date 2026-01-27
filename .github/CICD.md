@@ -59,15 +59,31 @@ These are uploaded as build artifacts and can be used for supply chain security 
 
 ### Prerequisites
 
-1. **npm Account**: You need an npm account with publish permissions for the package
-2. **npm Token**: Create an automation token or configure trusted publishing
-   - For classic tokens: Create at https://www.npmjs.com/settings/your-username/tokens
-   - For trusted publishing: Configure at https://www.npmjs.com/package/hashwalk/access
+#### 1. Configure npm Trusted Publisher (OIDC)
 
-3. **GitHub Secret**: Add your npm token as a repository secret
-   - Go to repository Settings → Secrets and variables → Actions
-   - Create a new secret named `NPM_TOKEN`
-   - Paste your npm automation token
+The workflow uses npm's Trusted Publishing with OIDC for secure, keyless authentication. **No npm token or secret is required.**
+
+**Steps to configure:**
+
+1. Go to your package page on npmjs.com (or create the package first)
+2. Navigate to **Settings** → **Publishing Access** → **Trusted Publishers**
+3. Click **Add Trusted Publisher**
+4. Select **GitHub Actions**
+5. Fill in the details:
+   - **Organization/User**: `iOnline247`
+   - **Repository**: `hashwalk`
+   - **Workflow filename**: `publish.yml` (just the filename, not the full path)
+   - **Environment** (optional): Leave blank unless using GitHub Environments
+
+This creates a trust relationship where npm will only accept publishes from this specific workflow in this specific repository.
+
+**Important Notes:**
+- The workflow filename must match exactly (case-sensitive)
+- The workflow file must be in `.github/workflows/` directory
+- OIDC authentication requires npm CLI v11.5.1 or later (installed automatically in GitHub Actions)
+- No `NPM_TOKEN` secret is needed - authentication is handled automatically via OIDC
+
+For more details, see: https://docs.npmjs.com/trusted-publishers
 
 ### Publishing a New Version
 
@@ -101,11 +117,11 @@ Users installing the package can also verify provenance automatically when using
 
 ## Security Considerations
 
-- **Provenance**: Provides cryptographic proof of package origin
-- **Sigstore**: Uses industry-standard keyless signing (no secrets to leak)
+- **OIDC Trusted Publishing**: Uses keyless authentication - no long-lived secrets to manage or leak
+- **Provenance**: Provides cryptographic proof of package origin via Sigstore
 - **SBOM**: Enables supply chain transparency and vulnerability tracking
 - **Test Before Publish**: The workflow ensures all tests pass before publishing
-- **Protected Secrets**: npm token is stored as an encrypted GitHub secret
+- **Minimal Permissions**: Workflows use least-privilege permission model
 
 ## Further Reading
 

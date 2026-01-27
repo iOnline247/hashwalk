@@ -1,6 +1,6 @@
 # This workflow will publish the package to npm with provenance when a new release is created
-# Provenance uses Sigstore under the hood to generate attestations
-# For more information see: https://docs.npmjs.com/generating-provenance-statements
+# Uses npm Trusted Publishing with OIDC (no NPM_TOKEN required)
+# For more information see: https://docs.npmjs.com/trusted-publishers
 
 name: Publish to npm
 
@@ -20,12 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write  # Required for provenance (Sigstore signing)
+      id-token: write  # Required for OIDC authentication and provenance
     
     steps:
     - uses: actions/checkout@v4
       with:
         ref: ${{ inputs.tag || github.ref }}
+    
+    - name: Setup Deno
+      uses: denoland/setup-deno@v2
+      with:
+        deno-version: v2.x
     
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -45,6 +50,9 @@ jobs:
     - name: Run linter
       run: npm run lint
     
+    - name: Run format check
+      run: npm run format:check
+    
     - name: Generate SBOM
       run: npm run sbom:generate
     
@@ -54,7 +62,5 @@ jobs:
         name: sbom
         path: sbom/
     
-    - name: Publish to npm with provenance
+    - name: Publish to npm with OIDC and provenance
       run: npm publish --provenance --access public
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
