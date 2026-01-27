@@ -181,20 +181,36 @@ npm run dev
 
 ## Publishing
 
+This project uses automated publishing via GitHub Actions with npm provenance (powered by Sigstore).
+
+**Automated Publishing** (Recommended):
+1. Update version in `package.json`
+2. Create a GitHub release with a version tag (e.g., `v1.2.0`)
+3. The publish workflow automatically runs with provenance signing
+
+See [CI/CD Documentation](./.github/CICD.md) for details on workflows, provenance, and Sigstore integration.
+
+**Manual Publishing** (for testing):
 ```bash
 # Quick preview of what would be published
 npm pack --dry-run
 npm publish --dry-run
 
-# Fix problems with CLI configuration within package.json
-npm pkg fix
-
 # Create a local tarball you can inspect
 npm pack
 
-# Publish to npm
+# Publish to npm manually (local only, no provenance)
 npm publish
 ```
+
+## CI/CD
+
+This repository includes GitHub Actions workflows for:
+- **Continuous Integration**: Automated testing on multiple Node.js versions
+- **Code Coverage**: Test coverage reporting
+- **Automated Publishing**: npm publishing with provenance and Sigstore signing
+
+See [.github/CICD.md](./.github/CICD.md) for complete documentation.
 
 ## License
 
