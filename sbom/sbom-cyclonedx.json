@@ -5,7 +5,7 @@
   "serialNumber": "urn:uuid:***",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-01-27T03:00:53.981Z",
+    "timestamp": "2026-01-27T03:09:37.013Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -19,13 +19,13 @@
       }
     ],
     "component": {
-      "bom-ref": "hashwalk@1.1.0",
+      "bom-ref": "hashwalk@1.2.0",
       "type": "library",
       "name": "hashwalk",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "scope": "required",
       "author": "Matthew Bramer",
-      "purl": "pkg:npm/hashwalk@1.1.0",
+      "purl": "pkg:npm/hashwalk@1.2.0",
       "properties": [],
       "externalReferences": [
         {
@@ -228,7 +228,7 @@
   ],
   "dependencies": [
     {
-      "ref": "hashwalk@1.1.0",
+      "ref": "hashwalk@1.2.0",
       "dependsOn": [
         "@types/node@25.0.3",
         "husky@9.1.7",

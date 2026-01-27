@@ -2,22 +2,22 @@
   "spdxVersion": "SPDX-2.3",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "name": "hashwalk@1.1.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.1.0-***",
+  "name": "hashwalk@1.2.0",
+  "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.2.0-***",
   "creationInfo": {
-    "created": "2026-01-27T03:00:54.283Z",
+    "created": "2026-01-27T03:09:37.300Z",
     "creators": [
       "Tool: npm/cli-11.6.2"
     ]
   },
   "documentDescribes": [
-    "SPDXRef-Package-hashwalk-1.1.0"
+    "SPDXRef-Package-hashwalk-1.2.0"
   ],
   "packages": [
     {
       "name": "hashwalk",
-      "SPDXID": "SPDXRef-Package-hashwalk-1.1.0",
-      "versionInfo": "1.1.0",
+      "SPDXID": "SPDXRef-Package-hashwalk-1.2.0",
+      "versionInfo": "1.2.0",
       "packageFileName": "",
       "primaryPackagePurpose": "LIBRARY",
       "downloadLocation": "NOASSERTION",
@@ -28,7 +28,7 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:npm/hashwalk@1.1.0"
+          "referenceLocator": "pkg:npm/hashwalk@1.2.0"
         }
       ]
     },
@@ -132,22 +132,22 @@
   "relationships": [
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.1.0",
+      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.2.0",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
-      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.1.0",
+      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.2.0",
       "relationshipType": "DEV_DEPENDENCY_OF"
     },
     {
       "spdxElementId": "SPDXRef-Package-husky-9.1.7",
-      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.1.0",
+      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.2.0",
       "relationshipType": "DEV_DEPENDENCY_OF"
     },
     {
       "spdxElementId": "SPDXRef-Package-typescript-5.9.3",
-      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.1.0",
+      "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.2.0",
       "relationshipType": "DEV_DEPENDENCY_OF"
     },
     {
