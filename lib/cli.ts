@@ -24,10 +24,6 @@ const { values: argv } = parseArgs({
     csvDirectory: {
       type: 'string',
     },
-    concurrency: {
-      type: 'string',
-      default: '8',
-    },
     debug: {
       type: 'boolean',
       default: false,
@@ -49,7 +45,6 @@ Options:
   --compare       CSV file path or checksum string
   --algorithm     Hash algorithm (md5, sha1, sha256, sha384, sha512) [default: sha256]
   --csvDirectory  Directory to write generated CSV (default: OS temp + /hashwalk)
-  --concurrency   Maximum concurrent file hashes [default: 8]
   --debug         Enable detailed error logging [default: false]
   --help          Show this help message
 
