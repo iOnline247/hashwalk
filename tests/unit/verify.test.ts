@@ -4,7 +4,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
-import { hashFileStream, isFile, isDirectory, setDebug } from '../../lib/verify.js';
+import {
+  hashFileStream,
+  isDirectory,
+  isFile,
+  setDebug,
+} from '../../lib/verify.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const fixturesDir = path.resolve(__dirname, '../../../tests/fixtures');
@@ -98,10 +103,9 @@ describe('verify module - Unit Tests', () => {
       // This is a simple setter test
       setDebug(true);
       setDebug(false);
-      
+
       // If no error, the function works correctly
       assert.ok(true);
     });
   });
 });
-

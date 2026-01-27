@@ -17,7 +17,7 @@ describe('walk - Unit Tests', () => {
       path.join(walkerTestDir, 'file2.txt'),
       path.join(walkerTestDir, 'subdir1', 'file3.txt'),
       path.join(walkerTestDir, 'subdir1', 'nested', 'file4.txt'),
-      path.join(walkerTestDir, 'subdir2', 'file5.txt')
+      path.join(walkerTestDir, 'subdir2', 'file5.txt'),
     ].sort();
 
     const result = await walk(walkerTestDir);
@@ -32,7 +32,7 @@ describe('walk - Unit Tests', () => {
 
     try {
       tmpDir = fs.mkdtempSync(path.join(fixturesDir, 'empty-dir-'));
-      
+
       const result = await walk(tmpDir);
 
       assert.equal(result.length, 0);

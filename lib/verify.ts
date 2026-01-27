@@ -9,7 +9,7 @@ export function setDebug(enabled: boolean): void {
 
 export function hashFileStream(
   file: string,
-  algorithm: string
+  algorithm: string,
 ): Promise<string> {
   return new Promise((resolve, reject) => {
     const hash = crypto.createHash(algorithm);
@@ -23,7 +23,7 @@ export function hashFileStream(
 
 export async function isFile(filePath: string): Promise<boolean> {
   try {
-    const fileStats = await fs.promises.stat(filePath)
+    const fileStats = await fs.promises.stat(filePath);
     const isValidFilePath = fileStats.isFile();
 
     if (!isValidFilePath) {
@@ -33,7 +33,7 @@ export async function isFile(filePath: string): Promise<boolean> {
     if (debugEnabled) {
       console.debug(JSON.stringify({ debug: `Error checking file: ${err}` }));
     }
-    
+
     return false;
   }
 

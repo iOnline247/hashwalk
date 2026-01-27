@@ -6,17 +6,20 @@ export async function walk(dir: string): Promise<string[]> {
   return await walkInternal(dir, visited);
 }
 
-async function walkInternal(dir: string, visited: Set<string>): Promise<string[]> {
+async function walkInternal(
+  dir: string,
+  visited: Set<string>,
+): Promise<string[]> {
   const entries = await fs.promises.readdir(dir, { withFileTypes: true });
   const results: string[] = [];
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
-    
+
     // Handle symlinks by following them but tracking visited paths
     let isDir = entry.isDirectory();
     let isFileEntry = entry.isFile();
-    
+
     if (entry.isSymbolicLink()) {
       try {
         const stats = await fs.promises.stat(fullPath);
@@ -27,7 +30,7 @@ async function walkInternal(dir: string, visited: Set<string>): Promise<string[]
         continue;
       }
     }
-    
+
     if (isDir) {
       // Track visited directories by their real path to prevent infinite loops
       let realPath: string;
@@ -37,12 +40,12 @@ async function walkInternal(dir: string, visited: Set<string>): Promise<string[]
         // Skip if we can't resolve the real path
         continue;
       }
-      
+
       if (visited.has(realPath)) {
         // Skip already visited directories (prevents infinite loops from symlinks)
         continue;
       }
-      
+
       visited.add(realPath);
       results.push(...await walkInternal(fullPath, visited));
     } else if (isFileEntry) {
@@ -54,7 +57,7 @@ async function walkInternal(dir: string, visited: Set<string>): Promise<string[]
         // If we can't resolve real path, use the original path
         realPath = fullPath;
       }
-      
+
       if (!visited.has(realPath)) {
         visited.add(realPath);
         results.push(fullPath);
