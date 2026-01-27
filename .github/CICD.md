@@ -1,0 +1,115 @@
+# CI/CD Workflows
+
+This repository uses GitHub Actions for continuous integration and publishing to npm with provenance.
+
+## Workflows
+
+### CI Workflow (`ci.yml`)
+
+Runs on every push and pull request to the `main` branch.
+
+**Jobs:**
+- **Build and Test**: Tests the package on Node.js 20.x and 22.x
+  - Installs dependencies
+  - Builds the project
+  - Runs linter
+  - Runs all tests
+
+- **Coverage**: Generates test coverage report
+  - Runs tests with coverage on Node.js 22.x
+  - Uploads coverage artifacts for review
+
+### Publish Workflow (`publish.yml`)
+
+Publishes the package to npm with provenance when a new release is created, or can be triggered manually.
+
+**Key Features:**
+
+#### 📦 npm Provenance
+The workflow publishes with the `--provenance` flag, which:
+- Generates a provenance attestation for the published package
+- Links the package to its source code and build environment
+- Uses **Sigstore** under the hood for keyless signing
+- Creates a verifiable, tamper-evident record in a public transparency log
+
+This means consumers can verify:
+- The package was built from this specific repository
+- The exact commit/tag it was built from
+- The package hasn't been tampered with since publication
+
+#### 🔐 Sigstore Integration
+
+npm's provenance feature uses [Sigstore](https://www.sigstore.dev/) internally for signing and verification:
+
+- **Keyless Signing**: No long-term private keys to manage. Signing is tied to GitHub Actions' OIDC identity.
+- **Transparency Log**: All signatures are recorded in a public, tamper-evident log (Rekor).
+- **Verification**: Anyone can verify the provenance attestation using npm's built-in tooling.
+
+The workflow requires the `id-token: write` permission to enable OIDC authentication with Sigstore.
+
+#### 📋 SBOM Generation
+
+The workflow also generates Software Bill of Materials (SBOM) in both CycloneDX and SPDX formats:
+- `sbom/sbom-cyclonedx.json`
+- `sbom/sbom-spdx.json`
+
+These are uploaded as build artifacts and can be used for supply chain security and compliance.
+
+## Setup
+
+### Prerequisites
+
+1. **npm Account**: You need an npm account with publish permissions for the package
+2. **npm Token**: Create an automation token or configure trusted publishing
+   - For classic tokens: Create at https://www.npmjs.com/settings/your-username/tokens
+   - For trusted publishing: Configure at https://www.npmjs.com/package/hashwalk/access
+
+3. **GitHub Secret**: Add your npm token as a repository secret
+   - Go to repository Settings → Secrets and variables → Actions
+   - Create a new secret named `NPM_TOKEN`
+   - Paste your npm automation token
+
+### Publishing a New Version
+
+#### Option 1: Create a GitHub Release (Recommended)
+
+1. Update version in `package.json`
+2. Commit and push to `main`
+3. Create a new release on GitHub with a tag (e.g., `v1.2.0`)
+4. The publish workflow will automatically run
+
+#### Option 2: Manual Workflow Dispatch
+
+1. Go to Actions → Publish to npm
+2. Click "Run workflow"
+3. Optionally specify a tag to publish
+4. The workflow will run and publish the package
+
+## Verifying Provenance
+
+After publishing, you can verify the provenance of the package:
+
+```bash
+# View provenance information
+npm view hashwalk --json | jq .dist
+
+# The response will include attestations that prove the package
+# was built from this repository by GitHub Actions
+```
+
+Users installing the package can also verify provenance automatically when using npm with audit features enabled.
+
+## Security Considerations
+
+- **Provenance**: Provides cryptographic proof of package origin
+- **Sigstore**: Uses industry-standard keyless signing (no secrets to leak)
+- **SBOM**: Enables supply chain transparency and vulnerability tracking
+- **Test Before Publish**: The workflow ensures all tests pass before publishing
+- **Protected Secrets**: npm token is stored as an encrypted GitHub secret
+
+## Further Reading
+
+- [npm Provenance Documentation](https://docs.npmjs.com/generating-provenance-statements)
+- [Sigstore Documentation](https://docs.sigstore.dev/)
+- [GitHub Actions for npm Publishing](https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages)
+- [npm Trusted Publishing with OIDC](https://github.blog/changelog/2025-07-31-npm-trusted-publishing-with-oidc-is-generally-available/)
