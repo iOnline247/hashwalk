@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:d32cac21-2f9e-4b44-af5f-6281abe53c96",
+  "serialNumber": "urn:uuid:***",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-01-26T22:19:46.218Z",
+    "timestamp": "2026-01-27T02:31:37.303Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -15,7 +15,7 @@
       {
         "vendor": "npm",
         "name": "cli",
-        "version": "10.8.2"
+        "version": "11.6.2"
       }
     ],
     "component": {
@@ -26,12 +26,7 @@
       "scope": "required",
       "author": "Matthew Bramer",
       "purl": "pkg:npm/hashwalk@1.1.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": ""
-        }
-      ],
+      "properties": [],
       "externalReferences": [
         {
           "type": "vcs",
@@ -66,10 +61,6 @@
       "purl": "pkg:npm/%40types/node@25.0.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/node"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -81,15 +72,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
         },
         {
           "type": "website",
           "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
         }
       ],
       "hashes": [
@@ -117,10 +104,6 @@
       "purl": "pkg:npm/husky@9.1.7",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/husky"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -133,14 +116,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/typicode/husky.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/typicode/husky#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/typicode/husky/issues"
         }
       ],
       "hashes": [
@@ -168,10 +143,6 @@
       "purl": "pkg:npm/typescript@5.9.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/typescript"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -183,7 +154,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/microsoft/TypeScript.git"
+          "url": "https://github.com/microsoft/TypeScript.git"
         },
         {
           "type": "website",
@@ -217,10 +188,6 @@
       "description": "A stand-alone types package for Undici",
       "purl": "pkg:npm/undici-types@7.16.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/undici-types"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"

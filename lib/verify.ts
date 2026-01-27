@@ -7,7 +7,7 @@ export function setDebug(enabled: boolean): void {
   debugEnabled = enabled;
 }
 
-export async function hashFileStream(
+export function hashFileStream(
   file: string,
   algorithm: string
 ): Promise<string> {
@@ -48,7 +48,7 @@ export async function isDirectory(dirPath: string): Promise<boolean> {
     if (!isValidDirPath) {
       return false;
     }
-  } catch (err) {
+  } catch {
     return false;
   }
 

@@ -11,7 +11,7 @@ export interface CliResult {
   stderr: string;
 }
 
-export async function runCli(args: string[]): Promise<CliResult> {
+export function runCli(args: string[]): Promise<CliResult> {
   return new Promise((resolve, reject) => {
     const child = spawn('node', [binPath, ...args]);
     let stdout = '';

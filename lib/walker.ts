@@ -22,7 +22,7 @@ async function walkInternal(dir: string, visited: Set<string>): Promise<string[]
         const stats = await fs.promises.stat(fullPath);
         isDir = stats.isDirectory();
         isFileEntry = stats.isFile();
-      } catch (err) {
+      } catch {
         // Skip broken symlinks
         continue;
       }
@@ -33,7 +33,7 @@ async function walkInternal(dir: string, visited: Set<string>): Promise<string[]
       let realPath: string;
       try {
         realPath = await fs.promises.realpath(fullPath);
-      } catch (err) {
+      } catch {
         // Skip if we can't resolve the real path
         continue;
       }
@@ -50,7 +50,7 @@ async function walkInternal(dir: string, visited: Set<string>): Promise<string[]
       let realPath: string;
       try {
         realPath = await fs.promises.realpath(fullPath);
-      } catch (err) {
+      } catch {
         // If we can't resolve real path, use the original path
         realPath = fullPath;
       }

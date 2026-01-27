@@ -1,11 +1,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
+import process from "node:process";
 import { parseArgs } from 'node:util';
 
 import { walk } from './walker.js';
-import { hashFile } from './hasher.js';
-import { writeCsv } from './csv.js';
+import { rows, writeCsv } from './csv.js';
 import { hashFileStream, isFile, isDirectory, setDebug } from './verify.js';
 import { type HashWalkResult } from './types.js';
 
@@ -102,20 +102,7 @@ try {
     `${timestamp}_${algorithm}_${crypto.randomUUID()}.csv`
   );
 
-  async function* rows() {
-    for (const file of files) {
-      const hash = await hashFile(file, algorithm!);
-
-      yield {
-        RelativePath: path.relative(basePath, file).replace(/\\/g, '/'),
-        FileName: path.basename(file),
-        Algorithm: algorithm!,
-        Hash: hash
-      };
-    }
-  }
-
-  await writeCsv(outCsvPath, rows());
+  await writeCsv(outCsvPath, rows(files, basePath, algorithm));
 
   const newHash = await hashFileStream(outCsvPath, algorithm);
 

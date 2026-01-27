@@ -5,8 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { walk } from '../../lib/walker.js';
 import { hashFile } from '../../lib/hasher.js';
-import { writeCsv } from '../../lib/csv.js';
-import { type ChecksumRow } from '../../lib/types.js';
+import { rows, writeCsv } from '../../lib/csv.js';
 
 describe('Symlink Handling - Integration Tests', () => {
   it('should handle large directory structure with symlinks without infinite loops', async () => {
@@ -98,7 +97,7 @@ describe('Symlink Handling - Integration Tests', () => {
         try {
           fs.symlinkSync(symlinkTarget, symlinkPath, 'dir');
           symlinkCreated = true;
-        } catch (err) {
+        } catch {
           // Symlink creation might fail on Windows without admin privileges
           console.log('Skipping symlink test on this platform');
         }
@@ -126,21 +125,8 @@ describe('Symlink Handling - Integration Tests', () => {
       const csvPath1 = path.join(tmpDir, 'test1.csv');
       const csvPath2 = path.join(tmpDir, 'test2.csv');
       
-      async function* generateRows(files: string[]): AsyncGenerator<ChecksumRow> {
-        const sortedFiles = [...files].sort();
-        for (const file of sortedFiles) {
-          const hash = await hashFile(file, 'sha256');
-          yield {
-            RelativePath: path.relative(tmpDir, file),
-            FileName: path.basename(file),
-            Algorithm: 'sha256',
-            Hash: hash
-          };
-        }
-      }
-      
-      await writeCsv(csvPath1, generateRows(walkedFiles));
-      await writeCsv(csvPath2, generateRows(walkedFiles));
+      await writeCsv(csvPath1, rows(walkedFiles, tmpDir, 'sha256'));
+      await writeCsv(csvPath2, rows(walkedFiles, tmpDir, 'sha256'));
       const csv1Hash = await hashFile(csvPath1, 'sha256');
       const csv2Hash = await hashFile(csvPath2, 'sha256');
       
