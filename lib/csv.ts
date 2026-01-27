@@ -1,4 +1,8 @@
 import fs from 'node:fs';
+import path from 'node:path';
+
+import { hashFile } from './hasher.js';
+
 import { type ChecksumRow } from './types.js';
 
 export function csvEscape(value: string): string {
@@ -8,30 +12,37 @@ export function csvEscape(value: string): string {
   return `"${value.replace(/"/g, '""')}"`;
 }
 
-export function writeCsv(
+export async function* rows(files: string[], basePath: string, algorithm: string): AsyncGenerator<ChecksumRow> {
+    for (const file of files) {
+        const hash = await hashFile(file, algorithm);
+
+        yield {
+            RelativePath: path.relative(basePath, file).replace(/\\/g, '/'),
+            FileName: path.basename(file),
+            Algorithm: algorithm,
+            Hash: hash
+        };
+    }
+}
+
+export async function writeCsv(
   file: string,
   rows: AsyncIterable<ChecksumRow>
 ): Promise<void> {
-  return new Promise(async (resolve, reject) => {
-    const stream = fs.createWriteStream(file, { encoding: 'utf8' });
+  const stream = fs.createWriteStream(file, { encoding: 'utf8' });
 
-    stream.write('"RelativePath","FileName","Algorithm","Hash"\n');
+  stream.write('"RelativePath","FileName","Algorithm","Hash"\n');
 
-    try {
-      for await (const row of rows) {
-        const line = [
-          csvEscape(row.RelativePath),
-          csvEscape(row.FileName),
-          csvEscape(row.Algorithm),
-          csvEscape(row.Hash)
-        ].join(',') + '\n';
+  for await (const row of rows) {
+    const line = [
+      csvEscape(row.RelativePath),
+      csvEscape(row.FileName),
+      csvEscape(row.Algorithm),
+      csvEscape(row.Hash)
+    ].join(',') + '\n';
 
-        stream.write(line);
-      }
+    stream.write(line);
+  }
 
-      stream.end(resolve);
-    } catch (err) {
-      reject(err);
-    }
-  });
+  stream.end();
 }

@@ -1,12 +1,16 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import fsp from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
+import process from "node:process";
+import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
-import { writeCsv, csvEscape } from '../../lib/csv.js';
+
+import { csvEscape, writeCsv, rows } from '../../lib/csv.js';
 import { walk } from '../../lib/walker.js';
-import { hashFile } from '../../lib/hasher.js';
+
 import { type ChecksumRow } from '../../lib/types.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -58,7 +62,7 @@ describe('CSV Generation - Integration Tests', () => {
   it('should generate valid CSV with special character filenames', async () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hashwalk-csv-test-'));
     const csvPath = path.join(tmpDir, 'test.csv');
-
+    
     async function* generateRows(): AsyncGenerator<ChecksumRow> {
       yield {
         RelativePath: 'file,with,commas.txt',
@@ -75,7 +79,8 @@ describe('CSV Generation - Integration Tests', () => {
     }
 
     await writeCsv(csvPath, generateRows());
-
+    await sleep(100); // Ensure file write is complete
+    
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
     assert.ok(csvContent.includes('"file,with,commas.txt","file,with,commas.txt","sha256","abc123"'));
@@ -100,24 +105,14 @@ describe('CSV Generation - Integration Tests', () => {
       if (process.platform !== 'win32') {
         for (const filename of specialFilenames) {
           const filePath = path.join(csvSpecialCharsDir, filename);
+
           fs.writeFileSync(filePath, `Content of ${filename}`);
           sortedFiles.push(filePath);
         }
       }
 
-      async function* rows(): AsyncGenerator<ChecksumRow> {
-        for (const file of sortedFiles) {
-          const hash = await hashFile(file, 'sha256');
-          yield {
-            RelativePath: path.relative(csvSpecialCharsDir, file),
-            FileName: path.basename(file),
-            Algorithm: 'sha256',
-            Hash: hash
-          };
-        }
-      }
-
-      await writeCsv(csvPath, rows());
+      await writeCsv(csvPath, rows(sortedFiles, csvSpecialCharsDir, 'sha256'));
+      await sleep(100); // Ensure file write is complete
 
       const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
@@ -166,9 +161,9 @@ describe('CSV Generation - Integration Tests', () => {
     }
 
     await writeCsv(csvPath, generateRows());
+    await sleep(100); // Ensure file write is complete
 
-    const csvContent = fs.readFileSync(csvPath, 'utf-8');
-    
+    const csvContent = await fsp.readFile(csvPath, { encoding: 'utf-8' });
     const lines = csvContent.trim().split('\n');
     assert.equal(lines.length, 3, 'Should have header + 2 data rows');
 
@@ -211,6 +206,7 @@ describe('CSV Generation - Integration Tests', () => {
     }
 
     await writeCsv(csvPath, generateRows());
+    await sleep(100); // Ensure file write is complete
 
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
     
