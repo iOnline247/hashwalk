@@ -40,6 +40,10 @@ describe('verify module - Unit Tests', () => {
       assert.equal(result, expectedHash);
     });
 
+    // TODO:
+    // Add large file to fixtures and not reference test.txt
+    // The file should have a very descriptive name, so it's apparent
+    // what the file will be used for.
     it('should handle large files via stream', async () => {
       const largeFile = path.join(fixturesDir, 'test.txt');
       const content = fs.readFileSync(largeFile, 'utf-8');
