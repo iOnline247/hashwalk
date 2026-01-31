@@ -72,9 +72,6 @@ hashwalk --path ./data --compare ./previous-checksums.csv --algorithm sha256
 # MD5 (fastest, least secure)
 hashwalk --path ./data --algorithm md5
 
-# SHA-1
-hashwalk --path ./data --algorithm sha1
-
 # SHA-256 (default, recommended)
 hashwalk --path ./data --algorithm sha256
 
@@ -105,7 +102,7 @@ Debug mode provides detailed error messages for troubleshooting.
 | ---------------- | ----- | -------------------------------------------------- | ------------------- |
 | `--path`         | `-p`  | Directory to scan (required)                       | -                   |
 | `--compare`      | `-c`  | CSV file path or checksum string to verify against | -                   |
-| `--algorithm`    | `-a`  | Hash algorithm: md5, sha1, sha256, sha384, sha512  | sha256              |
+| `--algorithm`    | `-a`  | Hash algorithm: md5, sha256, sha384, sha512        | sha256              |
 | `--csvDirectory` | -     | Directory to write generated CSV                   | OS temp + /hashwalk |
 | `--debug`        | `-d`  | Enable detailed error logging                      | false               |
 | `--help`         | `-h`  | Show help message                                  | -                   |

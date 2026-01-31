@@ -32,7 +32,7 @@ const cliOptions = {
     default: false,
   },
 } as const;
-const validAlgorithms = ['md5', 'sha1', 'sha256', 'sha384', 'sha512'];
+const validAlgorithms = ['md5', 'sha256', 'sha384', 'sha512'];
 
 const helpText = `
 hashwalk --path <directory> --algorithm <algo> [options]
@@ -40,7 +40,7 @@ hashwalk --path <directory> --algorithm <algo> [options]
 Options:
   --path          Directory to scan (required)
   --compare       CSV file path or checksum string
-  --algorithm     Hash algorithm (md5, sha1, sha256, sha384, sha512) [default: sha256]
+  --algorithm     Hash algorithm (md5, sha256, sha384, sha512) [default: sha256]
   --csvDirectory  Directory to write generated CSV (default: OS temp + /hashwalk)
   --debug         Enable detailed error logging [default: false]
   --help          Show this help message

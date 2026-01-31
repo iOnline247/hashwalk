@@ -98,7 +98,7 @@ describe('hashwalk CLI - Integration Tests', () => {
     });
 
     it('should accept all valid algorithms', async () => {
-      const algorithms = ['md5', 'sha1', 'sha256', 'sha384', 'sha512'];
+      const algorithms = ['md5', 'sha256', 'sha384', 'sha512'];
 
       for (const algo of algorithms) {
         const result = await runMain(['--path', dataDir, '--algorithm', algo]);
