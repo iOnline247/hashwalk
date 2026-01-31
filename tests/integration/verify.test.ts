@@ -1,9 +1,10 @@
-import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { setTimeout as sleep } from 'node:timers/promises';
+import { describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import crypto from 'node:crypto';
 import { runCli } from '../helpers/runCli.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -53,6 +54,9 @@ describe('hashwalk verification behavior - Integration Tests', () => {
 
     const generateOutput = JSON.parse(generateResult.stdout);
     const csvPath = generateOutput.csv;
+
+    await sleep(100);
+
     const csvContent = fs.readFileSync(csvPath);
     const hash = crypto
       .createHash('sha256')
