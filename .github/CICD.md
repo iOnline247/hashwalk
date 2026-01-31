@@ -1,6 +1,7 @@
 # CI/CD Workflows
 
-This repository uses GitHub Actions for continuous integration and publishing to npm with provenance.
+This repository uses GitHub Actions for continuous integration and publishing to
+npm with provenance.
 
 ## Workflows
 
@@ -9,6 +10,7 @@ This repository uses GitHub Actions for continuous integration and publishing to
 Runs on every push and pull request to the `main` branch.
 
 **Jobs:**
+
 - **Build and Test**: Tests the package on Node.js 20.x and 22.x
   - Installs dependencies
   - Builds the project
@@ -21,39 +23,51 @@ Runs on every push and pull request to the `main` branch.
 
 ### Publish Workflow (`publish.yml`)
 
-Publishes the package to npm with provenance when a new release is created, or can be triggered manually.
+Publishes the package to npm with provenance when a new release is created, or
+can be triggered manually.
 
 **Key Features:**
 
 #### 📦 npm Provenance
+
 The workflow publishes with the `--provenance` flag, which:
+
 - Generates a provenance attestation for the published package
 - Links the package to its source code and build environment
 - Uses **Sigstore** under the hood for keyless signing
 - Creates a verifiable, tamper-evident record in a public transparency log
 
 This means consumers can verify:
+
 - The package was built from this specific repository
 - The exact commit/tag it was built from
 - The package hasn't been tampered with since publication
 
 #### 🔐 Sigstore Integration
 
-npm's provenance feature uses [Sigstore](https://www.sigstore.dev/) internally for signing and verification:
+npm's provenance feature uses [Sigstore](https://www.sigstore.dev/) internally
+for signing and verification:
 
-- **Keyless Signing**: No long-term private keys to manage. Signing is tied to GitHub Actions' OIDC identity.
-- **Transparency Log**: All signatures are recorded in a public, tamper-evident log (Rekor).
-- **Verification**: Anyone can verify the provenance attestation using npm's built-in tooling.
+- **Keyless Signing**: No long-term private keys to manage. Signing is tied to
+  GitHub Actions' OIDC identity.
+- **Transparency Log**: All signatures are recorded in a public, tamper-evident
+  log (Rekor).
+- **Verification**: Anyone can verify the provenance attestation using npm's
+  built-in tooling.
 
-The workflow requires the `id-token: write` permission to enable OIDC authentication with Sigstore.
+The workflow requires the `id-token: write` permission to enable OIDC
+authentication with Sigstore.
 
 #### 📋 SBOM Generation
 
-The workflow also generates Software Bill of Materials (SBOM) in both CycloneDX and SPDX formats:
+The workflow also generates Software Bill of Materials (SBOM) in both CycloneDX
+and SPDX formats:
+
 - `sbom/sbom-cyclonedx.json`
 - `sbom/sbom-spdx.json`
 
-These are uploaded as build artifacts and can be used for supply chain security and compliance.
+These are uploaded as build artifacts and can be used for supply chain security
+and compliance.
 
 ## Setup
 
@@ -61,7 +75,8 @@ These are uploaded as build artifacts and can be used for supply chain security 
 
 #### 1. Configure npm Trusted Publisher (OIDC)
 
-The workflow uses npm's Trusted Publishing with OIDC for secure, keyless authentication. **No npm token or secret is required.**
+The workflow uses npm's Trusted Publishing with OIDC for secure, keyless
+authentication. **No npm token or secret is required.**
 
 **Steps to configure:**
 
@@ -75,13 +90,17 @@ The workflow uses npm's Trusted Publishing with OIDC for secure, keyless authent
    - **Workflow filename**: `publish.yml` (just the filename, not the full path)
    - **Environment** (optional): Leave blank unless using GitHub Environments
 
-This creates a trust relationship where npm will only accept publishes from this specific workflow in this specific repository.
+This creates a trust relationship where npm will only accept publishes from this
+specific workflow in this specific repository.
 
 **Important Notes:**
+
 - The workflow filename must match exactly (case-sensitive)
 - The workflow file must be in `.github/workflows/` directory
-- OIDC authentication requires npm CLI v11.5.1 or later (installed automatically in GitHub Actions)
-- No `NPM_TOKEN` secret is needed - authentication is handled automatically via OIDC
+- OIDC authentication requires npm CLI v11.5.1 or later (installed automatically
+  in GitHub Actions)
+- No `NPM_TOKEN` secret is needed - authentication is handled automatically via
+  OIDC
 
 For more details, see: https://docs.npmjs.com/trusted-publishers
 
@@ -113,11 +132,13 @@ npm view hashwalk --json | jq .dist
 # was built from this repository by GitHub Actions
 ```
 
-Users installing the package can also verify provenance automatically when using npm with audit features enabled.
+Users installing the package can also verify provenance automatically when using
+npm with audit features enabled.
 
 ## Security Considerations
 
-- **OIDC Trusted Publishing**: Uses keyless authentication - no long-lived secrets to manage or leak
+- **OIDC Trusted Publishing**: Uses keyless authentication - no long-lived
+  secrets to manage or leak
 - **Provenance**: Provides cryptographic proof of package origin via Sigstore
 - **SBOM**: Enables supply chain transparency and vulnerability tracking
 - **Test Before Publish**: The workflow ensures all tests pass before publishing
