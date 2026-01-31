@@ -50,13 +50,10 @@ async function walkInternal(
       results.push(...await walkInternal(fullPath, visited));
     } else if (isFileEntry) {
       // Track visited files by their real path to prevent duplicates
-      let realPath: string;
+      let realPath: string = fullPath;
       try {
         realPath = await fs.promises.realpath(fullPath);
-      } catch {
-        // If we can't resolve real path, use the original path
-        realPath = fullPath;
-      }
+      } catch {}
 
       if (!visited.has(realPath)) {
         visited.add(realPath);
