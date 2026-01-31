@@ -80,7 +80,7 @@ describe('hashwalk CLI validation - Integration Tests', () => {
       '--path',
       dataDir,
       '--compare',
-      path.join(fixturesDir, 'test.txt'),
+      path.join(fixturesDir, 'existing-registry-file.csv'),
       '--algorithm',
       'sha256',
     ];
@@ -88,6 +88,10 @@ describe('hashwalk CLI validation - Integration Tests', () => {
     const result = await runCli(args);
 
     assert.equal(result.code, 0);
+
+    const parsed = JSON.parse(result.stdout);
+
+    assert.equal(parsed.hash, 'b280ca23ad9b1203d7513342d25ab013c25f3d5e770fa9b71d7e7eec9ef50aa1');
   });
 
   it('should compare against checksum string (non-file)', async () => {
