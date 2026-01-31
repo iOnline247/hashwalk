@@ -288,6 +288,8 @@ describe('hashwalk CLI - Integration Tests', () => {
         assert.equal(first.code, 0);
 
         const firstResult = JSON.parse(first.stdout);
+
+        await sleep(100);
         // Compare against the generated CSV
         const second = await runMain([
           '--path',
