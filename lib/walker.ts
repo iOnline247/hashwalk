@@ -53,7 +53,9 @@ async function walkInternal(
       let realPath: string = fullPath;
       try {
         realPath = await fs.promises.realpath(fullPath);
-      } catch {}
+      } catch {
+        // Skip if we can't resolve the real path
+      }
 
       if (!visited.has(realPath)) {
         visited.add(realPath);
