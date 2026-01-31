@@ -135,18 +135,6 @@ describe('CSV Generation - Integration Tests', () => {
         'CSV should contain file with commas',
       );
       assert.ok(
-        csvContent.includes('file""with""quotes.txt'),
-        'CSV should contain file with escaped quotes',
-      );
-      assert.ok(
-        csvContent.includes('file\nwith\nnewline.txt'),
-        'CSV should contain file with newlines',
-      );
-      assert.ok(
-        csvContent.includes('file,and""both.txt'),
-        'CSV should contain file with both special chars',
-      );
-      assert.ok(
         csvContent.includes('file with spaces.txt'),
         'CSV should contain file with spaces',
       );
@@ -155,8 +143,24 @@ describe('CSV Generation - Integration Tests', () => {
         'CSV should contain normal file',
       );
 
+      if (process.platform !== 'win32') {
+        assert.ok(
+          csvContent.includes('file""with""quotes.txt'),
+          'CSV should contain file with escaped quotes',
+        );
+        assert.ok(
+          csvContent.includes('file\nwith\nnewline.txt'),
+          'CSV should contain file with newlines',
+        );
+        assert.ok(
+          csvContent.includes('file,and""both.txt'),
+          'CSV should contain file with both special chars',
+        );
+      }
+
       const csvLines = csvContent.split('\n');
       const firstLine = csvLines[0];
+
       if (firstLine !== undefined) {
         assert.equal(
           firstLine,
