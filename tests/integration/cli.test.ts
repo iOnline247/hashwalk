@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
 import { runCli, runMain } from '../helpers/runCli.js';
 
@@ -242,6 +243,8 @@ describe('hashwalk CLI - Integration Tests', () => {
       assert.equal(first.code, 0);
 
       const firstResult = JSON.parse(first.stdout);
+
+      await sleep(100);
       // Compare against the generated hash
       const second = await runMain([
         '--path',
