@@ -29,7 +29,7 @@
     "test:integration": "tsc -p tsconfig.test.json && node --test dist/tests/integration/*.test.js",
     "test:coverage": "tsc -p tsconfig.test.json && node --test --experimental-test-coverage --test-reporter=spec --test-reporter-destination=stdout dist/tests/unit/*.test.js dist/tests/integration/*.test.js",
     "test:failures": "tsc -p tsconfig.test.json && node --test --test-reporter=tap dist/tests/unit/*.test.js dist/tests/integration/*.test.js | grep -A 10 'not ok'",
-    "lint": "deno lint lib/ bin/ tests/",
+    "lint": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno lint",
     "format:check": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno fmt --check",
     "format:fix": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno fmt",
     "prepublishOnly": "npm run build",

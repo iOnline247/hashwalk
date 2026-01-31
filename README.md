@@ -189,20 +189,47 @@ npm run dev
 
 ## Publishing
 
+This project uses automated publishing via GitHub Actions with npm Trusted
+Publishing (OIDC) and provenance.
+
+**Automated Publishing** (Recommended):
+
+1. Configure npm Trusted Publisher (one-time setup - see
+   [CI/CD Documentation](./.github/CICD.md))
+2. Update version in `package.json`
+3. Create a GitHub release with a version tag (e.g., `v1.2.0`)
+4. The publish workflow automatically runs with OIDC authentication and
+   provenance signing
+
+See [CI/CD Documentation](./.github/CICD.md) for setup details, workflow
+information, and OIDC configuration.
+
+**Manual Publishing** (for testing):
+
 ```bash
 # Quick preview of what would be published
 npm pack --dry-run
 npm publish --dry-run
 
-# Fix problems with CLI configuration within package.json
-npm pkg fix
-
 # Create a local tarball you can inspect
 npm pack
 
-# Publish to npm
+# Publish to npm manually (local only, no provenance)
 npm publish
 ```
+
+## CI/CD
+
+This repository includes GitHub Actions workflows for:
+
+- **Continuous Integration**: Automated testing on Node.js 20.x, 22.x, and 24.x
+  (all active LTS versions)
+- **Code Coverage**: Test coverage reporting
+- **Automated Publishing**: npm publishing with OIDC and Sigstore provenance
+  signing
+- **Automated Publishing**: npm publishing with provenance and Sigstore signing
+
+See [.github/CICD.md](./.github/CICD.md) for complete documentation.
 
 ## License
 
