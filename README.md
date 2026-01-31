@@ -2,7 +2,10 @@
 
 ![Hashwalk Logo](./docs/img/hashwalk.png)
 
-This CLI utility creates a registry file (CSV) of all files within a directory and outputs the checksum of that registry file.  Effectively, we're checksumming the checksums - providing a single hash that represents the entire directory structure and its contents.
+This CLI utility creates a registry file (CSV) of all files within a directory
+and outputs the checksum of that registry file. Effectively, we're checksumming
+the checksums - providing a single hash that represents the entire directory
+structure and its contents.
 
 ## Installation
 
@@ -25,12 +28,14 @@ hashwalk --path ./data
 ```
 
 This will:
+
 1. Recursively scan the `./data` directory
 2. Generate a checksum for each file using SHA-256 (default)
 3. Create a CSV file with all checksums
 4. Output JSON with the CSV path and overall hash
 
 **Example output:**
+
 ```json
 {
   "csv": "/tmp/hashwalk/20240115T120000_sha256_abc123.csv",
@@ -45,6 +50,7 @@ hashwalk --path ./data --compare e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934
 ```
 
 **Example output:**
+
 ```json
 {
   "csv": "/tmp/hashwalk/20240115T120000_sha256_abc123.csv",
@@ -95,27 +101,28 @@ Debug mode provides detailed error messages for troubleshooting.
 
 ## CLI Options
 
-| Option | Short | Description | Default |
-|--------|-------|-------------|---------|
-| `--path` | `-p` | Directory to scan (required) | - |
-| `--compare` | `-c` | CSV file path or checksum string to verify against | - |
-| `--algorithm` | `-a` | Hash algorithm: md5, sha1, sha256, sha384, sha512 | sha256 |
-| `--csvDirectory` | - | Directory to write generated CSV | OS temp + /hashwalk |
-| `--debug` | `-d` | Enable detailed error logging | false |
-| `--help` | `-h` | Show help message | - |
+| Option           | Short | Description                                        | Default             |
+| ---------------- | ----- | -------------------------------------------------- | ------------------- |
+| `--path`         | `-p`  | Directory to scan (required)                       | -                   |
+| `--compare`      | `-c`  | CSV file path or checksum string to verify against | -                   |
+| `--algorithm`    | `-a`  | Hash algorithm: md5, sha1, sha256, sha384, sha512  | sha256              |
+| `--csvDirectory` | -     | Directory to write generated CSV                   | OS temp + /hashwalk |
+| `--debug`        | `-d`  | Enable detailed error logging                      | false               |
+| `--help`         | `-h`  | Show help message                                  | -                   |
 
 ## Generated CSV Format
 
 The generated CSV follows RFC 4180 format with the following columns:
 
-| Column | Description |
-|--------|-------------|
+| Column       | Description                            |
+| ------------ | -------------------------------------- |
 | RelativePath | Path relative to the scanned directory |
-| FileName | Name of the file |
-| Algorithm | Hash algorithm used |
-| Hash | Computed hash value |
+| FileName     | Name of the file                       |
+| Algorithm    | Hash algorithm used                    |
+| Hash         | Computed hash value                    |
 
 **Example CSV content:**
+
 ```csv
 "RelativePath","FileName","Algorithm","Hash"
 "file1.txt","file1.txt","sha256","abc123..."
@@ -125,10 +132,11 @@ The generated CSV follows RFC 4180 format with the following columns:
 ## Output Location
 
 By default, CSV files are written to:
+
 - **Linux/macOS:** `/tmp/hashwalk/`
 - **Windows:** `%TEMP%\hashwalk\`
 
-File naming format:  `YYYYMMDDTHHMMSS_<algorithm>_<uuid>.csv`
+File naming format: `YYYYMMDDTHHMMSS_<algorithm>_<uuid>.csv`
 
 ## Use Cases
 
