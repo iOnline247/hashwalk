@@ -38,19 +38,26 @@ describe('hashwalk verification behavior - Integration Tests', () => {
       'sha256',
     ];
 
-    const generateResult = await runCli(generateArgs);
+    let generateResult;
 
-    assert.equal(generateResult.code, 0);
+    try {
+      generateResult = await runCli(generateArgs);
+      assert.equal(generateResult.code, 0);
+    } catch (err) {
+      console.error(JSON.stringify(err));
+      console.error(generateResult?.stdout);
+      console.error(generateResult?.stderr);
+
+      throw err;
+    }
 
     const generateOutput = JSON.parse(generateResult.stdout);
     const csvPath = generateOutput.csv;
-
     const csvContent = fs.readFileSync(csvPath);
     const hash = crypto
       .createHash('sha256')
       .update(csvContent)
       .digest('hex');
-
     const verifyArgs = [
       '--path',
       dataDir,
@@ -61,7 +68,6 @@ describe('hashwalk verification behavior - Integration Tests', () => {
     ];
 
     const verifyResult = await runCli(verifyArgs);
-
     assert.equal(verifyResult.code, 0);
 
     const verifyOutput = JSON.parse(verifyResult.stdout);

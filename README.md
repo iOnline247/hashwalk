@@ -169,7 +169,7 @@ npm run test:unit
 npm run test:integration
 
 # Run tests with coverage
-npm run test:coverage
+npm run coverage
 
 # Run only tests marked with . only
 npm run test:failures
