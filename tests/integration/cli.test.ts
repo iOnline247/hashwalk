@@ -1,10 +1,12 @@
-import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { describe, it } from 'node:test';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
+
+import { isAlgoAvailable } from '../helpers/utils.js';
 import { runCli, runMain } from '../helpers/runCli.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -102,9 +104,13 @@ describe('hashwalk CLI - Integration Tests', () => {
 
       for (const algo of algorithms) {
         const result = await runMain(['--path', dataDir, '--algorithm', algo]);
+        const isAlgoAvailableOnThisEnvironment = isAlgoAvailable(algo);
 
-        if (algo === 'sha384' && os.platform() !== 'win32') {
-          // Skip sha384 test on non-Windows platforms due to known OpenSSL issue
+        if (isAlgoAvailableOnThisEnvironment) {
+          // NOTE:
+          // Node's crypto uses the system OpenSSL provider. On some Linux builds OpenSSL
+          // is configured (FIPS mode), built, or run with OpenSSL 3 providers that do not
+          // expose insecure algorithms.
           continue;
         }
 

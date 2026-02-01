@@ -4,10 +4,10 @@ import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import process from 'node:process';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
 
+import { isWindows } from '../helpers/utils.js';
 import { csvEscape, rows, writeCsv } from '../../lib/csv.js';
 import { walk } from '../../lib/walker.js';
 
@@ -112,7 +112,7 @@ describe('CSV Generation - Integration Tests', () => {
     ];
 
     try {
-      if (process.platform !== 'win32') {
+      if (!isWindows) {
         for (const filename of specialFilenames) {
           const filePath = path.join(csvSpecialCharsDir, filename);
 
@@ -143,7 +143,7 @@ describe('CSV Generation - Integration Tests', () => {
         'CSV should contain normal file',
       );
 
-      if (process.platform !== 'win32') {
+      if (!isWindows) {
         assert.ok(
           csvContent.includes('file""with""quotes.txt'),
           'CSV should contain file with escaped quotes',
