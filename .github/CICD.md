@@ -11,10 +11,11 @@ Runs on every push and pull request to the `main` branch.
 
 **Jobs:**
 
-- **Build and Test**: Tests the package on Node.js 20.x and 22.x
+- **Build and Test**: Tests the package on Node.js 20.x, 22.x, 24.x
   - Installs dependencies
   - Builds the project
   - Runs linter
+  - Run format:check
   - Runs all tests
 
 - **Coverage**: Generates test coverage report
