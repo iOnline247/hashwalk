@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
 import {
   hashFileStream,
+  isAlgoAvailable,
   isDirectory,
   isFile,
   setDebug,
@@ -110,6 +111,19 @@ describe('verify module - Unit Tests', () => {
 
       // If no error, the function works correctly
       assert.ok(true);
+    });
+  });
+
+  describe('isAlgoAvailable', () => {
+    it('should return true for supported algorithms', () => {
+      assert.equal(isAlgoAvailable('sha256'), true);
+      assert.equal(isAlgoAvailable('sha512'), true);
+      assert.equal(isAlgoAvailable('md5'), true);
+    });
+
+    it('should return false for unsupported algorithms', () => {
+      assert.equal(isAlgoAvailable('invalid-algo'), false);
+      assert.equal(isAlgoAvailable('not-a-real-hash'), false);
     });
   });
 });

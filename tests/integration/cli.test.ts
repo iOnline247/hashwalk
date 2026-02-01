@@ -81,6 +81,41 @@ describe('hashwalk CLI - Integration Tests', () => {
     });
   });
 
+  describe('--is-supported flag', () => {
+    it('should return JSON with algorithm support status', async () => {
+      const result = await runMain(['--is-supported']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(typeof parsed === 'object');
+      assert.ok('md5' in parsed);
+      assert.ok('sha256' in parsed);
+      assert.ok('sha384' in parsed);
+      assert.ok('sha512' in parsed);
+    });
+
+    it('should indicate supported algorithms as true', async () => {
+      const result = await runMain(['--is-supported']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      // These algorithms should be supported on all platforms
+      assert.equal(parsed.sha256, true);
+      assert.equal(parsed.sha512, true);
+    });
+
+    it('should work without --path argument', async () => {
+      const result = await runMain(['--is-supported']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(typeof parsed === 'object');
+    });
+  });
+
   describe('generate mode', () => {
     it('should succeed with --path only', async () => {
       const result = await runMain(['--path', dataDir]);

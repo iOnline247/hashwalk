@@ -54,3 +54,12 @@ export async function isDirectory(dirPath: string): Promise<boolean> {
 
   return true;
 }
+
+export function isAlgoAvailable(algo: string): boolean {
+  try {
+    crypto.createHash(algo);
+    return true;
+  } catch {
+    return false;
+  }
+}

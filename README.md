@@ -95,16 +95,36 @@ hashwalk --path ./data --debug
 
 Enables verbose error output for troubleshooting.
 
+### Check Algorithm Support
+
+```bash
+hashwalk --is-supported
+```
+
+Tests the environment to ensure the algorithms are supported. Outputs JSON with support status for each algorithm.
+
+**Example output:**
+
+```json
+{
+  "md5": true,
+  "sha256": true,
+  "sha384": true,
+  "sha512": true
+}
+```
+
 ## CLI Options
 
-| Option           | Short | Description                                        | Default          |
-| ---------------- | ----- | -------------------------------------------------- | ---------------- |
-| `--path`         | `-p`  | Directory to scan (required)                       | -                |
-| `--compare`      | `-c`  | CSV file path or checksum string to verify against | -                |
-| `--algorithm`    | `-a`  | Hash algorithm: md5, sha256, sha384, sha512        | sha256           |
-| `--csvDirectory` | -     | Directory to write generated CSV                   | OS temp/hashwalk |
-| `--debug`        | `-d`  | Enable detailed error logging                      | false            |
-| `--help`         | `-h`  | Show help message                                  | -                |
+| Option           | Short | Description                                          | Default          |
+| ---------------- | ----- | ---------------------------------------------------- | ---------------- |
+| `--path`         | `-p`  | Directory to scan (required unless using --is-supported) | -            |
+| `--compare`      | `-c`  | CSV file path or checksum string to verify against   | -                |
+| `--algorithm`    | `-a`  | Hash algorithm: md5, sha256, sha384, sha512          | sha256           |
+| `--csvDirectory` | -     | Directory to write generated CSV                     | OS temp/hashwalk |
+| `--debug`        | `-d`  | Enable detailed error logging                        | false            |
+| `--is-supported` | -     | Test if algorithms are supported in the environment  | false            |
+| `--help`         | `-h`  | Show help message                                    | -                |
 
 ## Generated CSV Format
 

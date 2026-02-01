@@ -7,7 +7,13 @@ import { parseArgs } from 'node:util';
 
 import { walk } from './walker.js';
 import { rows, writeCsv } from './csv.js';
-import { hashFileStream, isDirectory, isFile, setDebug } from './verify.js';
+import {
+  hashFileStream,
+  isAlgoAvailable,
+  isDirectory,
+  isFile,
+  setDebug,
+} from './verify.js';
 import { type HashWalkResult } from './types.js';
 
 const cliOptions = {
@@ -32,6 +38,10 @@ const cliOptions = {
     type: 'boolean',
     default: false,
   },
+  'is-supported': {
+    type: 'boolean',
+    default: false,
+  },
 } as const;
 const validAlgorithms = ['md5', 'sha256', 'sha384', 'sha512'];
 
@@ -39,17 +49,19 @@ const helpText = `
 hashwalk --path <directory> --algorithm <algo> [options]
 
 Options:
-  --path          Directory to scan (required)
+  --path          Directory to scan (required unless using --is-supported)
   --compare       CSV file path or checksum string
   --algorithm     Hash algorithm (md5, sha256, sha384, sha512) [default: sha256]
   --csvDirectory  Directory to write generated CSV (default: OS temp + /hashwalk)
   --debug         Enable detailed error logging [default: false]
+  --is-supported  Test if algorithms are supported in the environment
   --help          Show this help message
 
 Examples:
   hashwalk --path ./data
   hashwalk --path ./data --compare checksums.csv --algorithm sha256
   hashwalk --path ./data --compare <checksum_string> --algorithm sha256
+  hashwalk --is-supported
 `;
 
 export async function main(
@@ -63,6 +75,18 @@ export async function main(
 
   if (argv.help) {
     console.log(helpText);
+
+    return 0;
+  }
+
+  // Handle --is-supported flag
+  if (argv['is-supported']) {
+    const supportResults: Record<string, boolean> = {};
+    for (const algo of validAlgorithms) {
+      supportResults[algo] = isAlgoAvailable(algo);
+    }
+
+    console.log(JSON.stringify(supportResults));
 
     return 0;
   }
