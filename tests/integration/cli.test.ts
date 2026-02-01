@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { getHashes } from 'node:crypto';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
@@ -7,12 +6,12 @@ import { describe, it } from 'node:test';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
 
+import { isAlgoAvailable } from '../helpers/utils.js';
 import { runCli, runMain } from '../helpers/runCli.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const fixturesDir = path.resolve(__dirname, '../../../tests/fixtures');
 const dataDir = path.join(fixturesDir, 'data');
-const availableHashes = getHashes();
 
 describe('hashwalk CLI - Smoke Tests (via child process)', () => {
   // These tests spawn the actual CLI binary to verify the entrypoint works.
@@ -105,8 +104,9 @@ describe('hashwalk CLI - Integration Tests', () => {
 
       for (const algo of algorithms) {
         const result = await runMain(['--path', dataDir, '--algorithm', algo]);
+        const isAlgoAvailableOnThisEnvironment = isAlgoAvailable(algo);
 
-        if (!availableHashes.includes(algo)) {
+        if (isAlgoAvailableOnThisEnvironment) {
           // NOTE:
           // Node's crypto uses the system OpenSSL provider. On some Linux builds OpenSSL
           // is configured (FIPS mode), built, or run with OpenSSL 3 providers that do not

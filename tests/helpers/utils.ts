@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import process from 'node:process';
 
 export function removeDebuggerInfo(input: string): string {
@@ -5,6 +6,15 @@ export function removeDebuggerInfo(input: string): string {
   val = val.slice(0, val.lastIndexOf('}\n') + 2);
 
   return val;
+}
+
+export function isAlgoAvailable(algo: string): boolean {
+  try {
+    crypto.createHash(algo);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export const isWindows = process.platform === 'win32';
