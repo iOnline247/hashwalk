@@ -200,6 +200,8 @@ Publishing (OIDC) and provenance.
 See [CI/CD Documentation](./.github/CICD.md) for setup details, workflow
 information, and OIDC configuration.
 
+**Use for creating tag and new release**
+
 `npm version patch -m "chore(release): %s" && git push --follow-tags && gh release create v$(node -p "require('./package.json').version") --generate-notes`
 
 **Manual Publishing** (for testing):
