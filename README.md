@@ -1,19 +1,21 @@
 # hashwalk
 
+This tool scans a directory, computes a checksum for every file, and writes
+those results to a CSV registry. It then computes and outputs a single checksum
+of that CSV — a concise hash that represents the entire directory structure and
+its contents.
+
 ![Hashwalk Logo](./docs/img/hashwalk.png)
 
-This CLI utility creates a registry file (CSV) of all files within a directory
-and outputs the checksum of that registry file. Effectively, we're checksumming
-the checksums - providing a single hash that represents the entire directory
-structure and its contents.
-
 ## Installation
+
+Install globally:
 
 ```bash
 npm install -g hashwalk
 ```
 
-Or run directly with npx:
+Or run without installing via `npx`:
 
 ```bash
 npx hashwalk --help
@@ -27,7 +29,7 @@ npx hashwalk --help
 hashwalk --path ./data
 ```
 
-This will:
+What it does:
 
 1. Recursively scan the `./data` directory
 2. Generate a checksum for each file using SHA-256 (default)
@@ -69,9 +71,6 @@ hashwalk --path ./data --compare ./previous-checksums.csv --algorithm sha256
 ### Use Different Hash Algorithms
 
 ```bash
-# MD5 (fastest, least secure)
-hashwalk --path ./data --algorithm md5
-
 # SHA-256 (default, recommended)
 hashwalk --path ./data --algorithm sha256
 
@@ -94,18 +93,18 @@ hashwalk --path ./data --csvDirectory ./my-checksums
 hashwalk --path ./data --debug
 ```
 
-Debug mode provides detailed error messages for troubleshooting.
+Enables verbose error output for troubleshooting.
 
 ## CLI Options
 
-| Option           | Short | Description                                        | Default             |
-| ---------------- | ----- | -------------------------------------------------- | ------------------- |
-| `--path`         | `-p`  | Directory to scan (required)                       | -                   |
-| `--compare`      | `-c`  | CSV file path or checksum string to verify against | -                   |
-| `--algorithm`    | `-a`  | Hash algorithm: md5, sha256, sha384, sha512        | sha256              |
-| `--csvDirectory` | -     | Directory to write generated CSV                   | OS temp + /hashwalk |
-| `--debug`        | `-d`  | Enable detailed error logging                      | false               |
-| `--help`         | `-h`  | Show help message                                  | -                   |
+| Option           | Short | Description                                        | Default          |
+| ---------------- | ----- | -------------------------------------------------- | ---------------- |
+| `--path`         | `-p`  | Directory to scan (required)                       | -                |
+| `--compare`      | `-c`  | CSV file path or checksum string to verify against | -                |
+| `--algorithm`    | `-a`  | Hash algorithm: md5, sha256, sha384, sha512        | sha256           |
+| `--csvDirectory` | -     | Directory to write generated CSV                   | OS temp/hashwalk |
+| `--debug`        | `-d`  | Enable detailed error logging                      | false            |
+| `--help`         | `-h`  | Show help message                                  | -                |
 
 ## Generated CSV Format
 
@@ -201,6 +200,10 @@ Publishing (OIDC) and provenance.
 See [CI/CD Documentation](./.github/CICD.md) for setup details, workflow
 information, and OIDC configuration.
 
+**Use for creating tag and new release**
+
+`npm version patch -m "chore(release): %s" && git push --follow-tags && gh release create v$(node -p "require('./package.json').version") --generate-notes`
+
 **Manual Publishing** (for testing):
 
 ```bash
@@ -212,6 +215,7 @@ npm publish --dry-run
 npm pack
 
 # Publish to npm manually (local only, no provenance)
+npm login
 npm publish
 ```
 
