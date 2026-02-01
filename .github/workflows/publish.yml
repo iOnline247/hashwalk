@@ -36,17 +36,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
-
-      - name: Run tests
-        run: npm test
-
       - name: Run linter
         run: npm run lint
 
       - name: Run format check
         run: npm run format:check
+
+      - name: Build
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
 
       - name: Generate SBOM
         run: npm run sbom:generate
@@ -58,4 +58,4 @@ jobs:
           path: sbom/
 
       - name: Publish to npm with OIDC and provenance
-        run: npm publish --provenance --access public
+        run: npm publish --provenance
