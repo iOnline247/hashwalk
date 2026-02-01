@@ -106,7 +106,7 @@ describe('hashwalk CLI - Integration Tests', () => {
         const result = await runMain(['--path', dataDir, '--algorithm', algo]);
         const isAlgoAvailableOnThisEnvironment = isAlgoAvailable(algo);
 
-        if (isAlgoAvailableOnThisEnvironment) {
+        if (!isAlgoAvailableOnThisEnvironment) {
           // NOTE:
           // Node's crypto uses the system OpenSSL provider. On some Linux builds OpenSSL
           // is configured (FIPS mode), built, or run with OpenSSL 3 providers that do not
