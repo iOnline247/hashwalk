@@ -1,4 +1,4 @@
-import process from "node:process";
+import process from 'node:process';
 
 export function removeDebuggerInfo(input: string): string {
   let val = input.slice(input.indexOf('\n{') + 1);

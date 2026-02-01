@@ -108,8 +108,8 @@ describe('hashwalk CLI - Integration Tests', () => {
 
         if (!availableHashes.includes(algo)) {
           // NOTE:
-          // Node's crypto uses the system OpenSSL provider. On some Linux builds OpenSSL 
-          // is configured (FIPS mode), built, or run with OpenSSL 3 providers that do not 
+          // Node's crypto uses the system OpenSSL provider. On some Linux builds OpenSSL
+          // is configured (FIPS mode), built, or run with OpenSSL 3 providers that do not
           // expose insecure algorithms.
           continue;
         }
