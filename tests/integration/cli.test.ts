@@ -81,38 +81,46 @@ describe('hashwalk CLI - Integration Tests', () => {
     });
   });
 
-  describe('--is-supported flag', () => {
-    it('should return JSON with algorithm support status', async () => {
-      const result = await runMain(['--is-supported']);
+  describe('--verify-supported flag', () => {
+    it('should return JSON array of supported algorithms', async () => {
+      const result = await runMain(['--verify-supported']);
 
       assert.equal(result.code, 0);
 
       const parsed = JSON.parse(result.stdout);
-      assert.ok(typeof parsed === 'object');
-      assert.ok('md5' in parsed);
-      assert.ok('sha256' in parsed);
-      assert.ok('sha384' in parsed);
-      assert.ok('sha512' in parsed);
+      assert.ok(Array.isArray(parsed));
+      assert.ok(parsed.length > 0);
     });
 
-    it('should indicate supported algorithms as true', async () => {
-      const result = await runMain(['--is-supported']);
+    it('should include sha256 and sha512 in supported algorithms', async () => {
+      const result = await runMain(['--verify-supported']);
 
       assert.equal(result.code, 0);
 
       const parsed = JSON.parse(result.stdout);
       // These algorithms should be supported on all platforms
-      assert.equal(parsed.sha256, true);
-      assert.equal(parsed.sha512, true);
+      assert.ok(parsed.includes('sha256'));
+      assert.ok(parsed.includes('sha512'));
     });
 
     it('should work without --path argument', async () => {
-      const result = await runMain(['--is-supported']);
+      const result = await runMain(['--verify-supported']);
 
       assert.equal(result.code, 0);
 
       const parsed = JSON.parse(result.stdout);
-      assert.ok(typeof parsed === 'object');
+      assert.ok(Array.isArray(parsed));
+    });
+
+    it('should work with short flag -v', async () => {
+      const result = await runMain(['-v']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(Array.isArray(parsed));
+      assert.ok(parsed.includes('sha256'));
+      assert.ok(parsed.includes('sha512'));
     });
   });
 
