@@ -9,7 +9,8 @@
     "hashwalk": "dist/bin/hashwalk.js"
   },
   "files": [
-    "dist/",
+    "dist/bin/",
+    "dist/lib/",
     "LICENSE",
     "README.md"
   ],
