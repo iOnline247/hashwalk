@@ -48,5 +48,9 @@ export async function writeCsv(
     stream.write(line);
   }
 
-  stream.end();
+  await new Promise<void>((resolve, reject) => {
+    stream.on('finish', resolve);
+    stream.on('error', reject);
+    stream.end();
+  });
 }

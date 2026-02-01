@@ -3,7 +3,6 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, it } from 'node:test';
-import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
 
 import { isAlgoAvailable } from '../helpers/utils.js';
@@ -255,9 +254,6 @@ describe('hashwalk CLI - Integration Tests', () => {
       assert.equal(first.code, 0);
 
       const firstResult = JSON.parse(first.stdout);
-
-      await sleep(100);
-      // Compare against the generated hash
       const second = await runMain([
         '--path',
         dataDir,
@@ -300,9 +296,6 @@ describe('hashwalk CLI - Integration Tests', () => {
         assert.equal(first.code, 0);
 
         const firstResult = JSON.parse(first.stdout);
-
-        await sleep(100);
-        // Compare against the generated CSV
         const second = await runMain([
           '--path',
           dataDir,

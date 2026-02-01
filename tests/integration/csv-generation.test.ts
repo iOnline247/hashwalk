@@ -4,7 +4,6 @@ import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import { setTimeout as sleep } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
 
 import { isWindows } from '../helpers/utils.js';
@@ -79,7 +78,6 @@ describe('CSV Generation - Integration Tests', () => {
     }
 
     await writeCsv(csvPath, generateRows());
-    await sleep(100); // Ensure file write is complete
 
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
@@ -122,7 +120,6 @@ describe('CSV Generation - Integration Tests', () => {
       }
 
       await writeCsv(csvPath, rows(sortedFiles, csvSpecialCharsDir, 'sha256'));
-      await sleep(100); // Ensure file write is complete
 
       const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
@@ -202,7 +199,6 @@ describe('CSV Generation - Integration Tests', () => {
     }
 
     await writeCsv(csvPath, generateRows());
-    await sleep(100); // Ensure file write is complete
 
     const csvContent = await fsp.readFile(csvPath, { encoding: 'utf-8' });
     const lines = csvContent.trim().split('\n');
@@ -252,7 +248,6 @@ describe('CSV Generation - Integration Tests', () => {
     }
 
     await writeCsv(csvPath, generateRows());
-    await sleep(100); // Ensure file write is complete
 
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
