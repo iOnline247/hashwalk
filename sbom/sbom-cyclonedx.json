@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:39b159c9-545a-4be2-9775-a3ba366d65d6",
+  "serialNumber": "urn:uuid:74726b99-1513-4c27-9062-2c7687ca9d73",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-02-01T15:11:49.158Z",
+    "timestamp": "2026-02-02T05:37:56.750Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -19,13 +19,13 @@
       }
     ],
     "component": {
-      "bom-ref": "hashwalk@1.2.0",
+      "bom-ref": "hashwalk@1.5.0",
       "type": "library",
       "name": "hashwalk",
-      "version": "1.2.0",
+      "version": "1.5.0",
       "scope": "required",
       "author": "Matthew Bramer",
-      "purl": "pkg:npm/hashwalk@1.2.0",
+      "purl": "pkg:npm/hashwalk@1.5.0",
       "properties": [
         {
           "name": "cdx:npm:package:path",
@@ -261,7 +261,7 @@
   ],
   "dependencies": [
     {
-      "ref": "hashwalk@1.2.0",
+      "ref": "hashwalk@1.5.0",
       "dependsOn": [
         "@types/node@25.0.3",
         "husky@9.1.7",

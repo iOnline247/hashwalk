@@ -81,6 +81,49 @@ describe('hashwalk CLI - Integration Tests', () => {
     });
   });
 
+  describe('--verify-supported flag', () => {
+    it('should return JSON array of supported algorithms', async () => {
+      const result = await runMain(['--verify-supported']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(Array.isArray(parsed));
+      assert.ok(parsed.length > 0);
+    });
+
+    it('should include sha256 and sha512 in supported algorithms', async () => {
+      const result = await runMain(['--verify-supported']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      // These algorithms should be supported on all platforms
+      assert.ok(parsed.includes('sha256'));
+      assert.ok(parsed.includes('sha512'));
+    });
+
+    it('should work without --path argument', async () => {
+      const result = await runMain(['--verify-supported']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(Array.isArray(parsed));
+    });
+
+    it('should work with short flag -v', async () => {
+      const result = await runMain(['-v']);
+
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(Array.isArray(parsed));
+      assert.ok(parsed.includes('sha256'));
+      assert.ok(parsed.includes('sha512'));
+    });
+  });
+
   describe('generate mode', () => {
     it('should succeed with --path only', async () => {
       const result = await runMain(['--path', dataDir]);

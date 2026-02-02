@@ -95,16 +95,33 @@ hashwalk --path ./data --debug
 
 Enables verbose error output for troubleshooting.
 
+### Check Algorithm Support
+
+```bash
+hashwalk --verify-supported
+# or use the short form
+hashwalk -v
+```
+
+Tests the environment to determine which hash algorithms are supported. Outputs a JSON array of supported algorithm names.
+
+**Example output:**
+
+```json
+["RSA-MD5","RSA-RIPEMD160","RSA-SHA1",...,"sha256",...,"sha512",...]
+```
+
 ## CLI Options
 
-| Option           | Short | Description                                        | Default          |
-| ---------------- | ----- | -------------------------------------------------- | ---------------- |
-| `--path`         | `-p`  | Directory to scan (required)                       | -                |
-| `--compare`      | `-c`  | CSV file path or checksum string to verify against | -                |
-| `--algorithm`    | `-a`  | Hash algorithm: md5, sha256, sha384, sha512        | sha256           |
-| `--csvDirectory` | -     | Directory to write generated CSV                   | OS temp/hashwalk |
-| `--debug`        | `-d`  | Enable detailed error logging                      | false            |
-| `--help`         | `-h`  | Show help message                                  | -                |
+| Option              | Short | Description                                                  | Default          |
+| ------------------- | ----- | ------------------------------------------------------------ | ---------------- |
+| `--path`            | -     | Directory to scan (required unless using --verify-supported) | -                |
+| `--compare`         | -     | CSV file path or checksum string to verify against           | -                |
+| `--algorithm`       | -     | Hash algorithm: md5, sha256, sha384, sha512                  | sha256           |
+| `--csvDirectory`    | -     | Directory to write generated CSV                             | OS temp/hashwalk |
+| `--debug`           | -     | Enable detailed error logging                                | false            |
+| `--verify-supported`| `-v`  | Test which algorithms are supported in the environment       | false            |
+| `--help`            | -     | Show help message                                            | -                |
 
 ## Generated CSV Format
 
