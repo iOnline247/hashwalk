@@ -108,13 +108,13 @@ const helpText = `
 hashwalk --path <directory> --algorithm <algo> [options]
 
 Options:
-  --path, -p           Directory to scan (required unless using --verify-supported)
-  --compare, -c        CSV file path or checksum string
-  --algorithm, -a      Hash algorithm (md5, sha256, sha384, sha512) [default: sha256]
+  --path               Directory to scan (required unless using --verify-supported)
+  --compare            CSV file path or checksum string
+  --algorithm          Hash algorithm (md5, sha256, sha384, sha512) [default: sha256]
   --csvDirectory       Directory to write generated CSV (default: OS temp + /hashwalk)
-  --debug, -d          Enable detailed error logging [default: false]
+  --debug              Enable detailed error logging [default: false]
   --verify-supported, -v  Test which algorithms are supported in the environment
-  --help, -h           Show this help message
+  --help               Show this help message
 
 Examples:
   hashwalk --path ./data

@@ -115,13 +115,13 @@ Tests the environment to determine which hash algorithms are supported. Outputs 
 
 | Option              | Short | Description                                                  | Default          |
 | ------------------- | ----- | ------------------------------------------------------------ | ---------------- |
-| `--path`            | `-p`  | Directory to scan (required unless using --verify-supported) | -                |
-| `--compare`         | `-c`  | CSV file path or checksum string to verify against           | -                |
-| `--algorithm`       | `-a`  | Hash algorithm: md5, sha256, sha384, sha512                  | sha256           |
+| `--path`            | -     | Directory to scan (required unless using --verify-supported) | -                |
+| `--compare`         | -     | CSV file path or checksum string to verify against           | -                |
+| `--algorithm`       | -     | Hash algorithm: md5, sha256, sha384, sha512                  | sha256           |
 | `--csvDirectory`    | -     | Directory to write generated CSV                             | OS temp/hashwalk |
-| `--debug`           | `-d`  | Enable detailed error logging                                | false            |
+| `--debug`           | -     | Enable detailed error logging                                | false            |
 | `--verify-supported`| `-v`  | Test which algorithms are supported in the environment       | false            |
-| `--help`            | `-h`  | Show help message                                            | -                |
+| `--help`            | -     | Show help message                                            | -                |
 
 ## Generated CSV Format
 
