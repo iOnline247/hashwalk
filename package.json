@@ -31,8 +31,10 @@
     "test:failures": "tsc -p tsconfig.test.json && node --test --test-reporter=tap dist/tests/unit/*.test.js dist/tests/integration/*.test.js | grep -A 10 'not ok'",
     "coverage": "tsc -p tsconfig.test.json && node --test --experimental-test-coverage --test-reporter=spec --test-reporter-destination=stdout dist/tests/unit/*.test.js dist/tests/integration/*.test.js",
     "lint": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno lint",
+    "lint:lockfile": "lockfile-lint --path package-lock.json --type npm --allowed-hosts npm --validate-https",
     "format:check": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno fmt --check",
     "format:fix": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno fmt",
+    "preinstall": "npm run lint:lockfile",
     "prepublishOnly": "npm run build",
     "sbom:generate": "npm run sbom:cyclonedx && npm run sbom:spdx",
     "sbom:cyclonedx": "npm sbom --sbom-format=cyclonedx > ./sbom/sbom-cyclonedx.json",
@@ -42,6 +44,7 @@
   "devDependencies": {
     "@types/node": "^25.0.3",
     "husky": "^9.1.7",
+    "lockfile-lint": "^5.0.0",
     "typescript": "^5.9.3"
   },
   "repository": {
