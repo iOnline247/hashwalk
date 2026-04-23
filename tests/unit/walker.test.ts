@@ -1,4 +1,4 @@
-import { describe, it } from 'node:test';
+import { describe, it, mock } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -50,6 +50,39 @@ describe('walk - Unit Tests', () => {
     for (const filePath of result) {
       const stats = fs.statSync(filePath);
       assert.ok(stats.isFile(), `${filePath} should be a file`);
+    }
+  });
+
+  it('should skip file entries when realpath throws', async () => {
+    const tmpDir = fs.mkdtempSync(
+      path.join(fixturesDir, 'realpath-fail-test-'),
+    );
+
+    try {
+      fs.writeFileSync(path.join(tmpDir, 'normal.txt'), 'content');
+      fs.writeFileSync(path.join(tmpDir, 'unreachable.txt'), 'content');
+
+      const originalRealpath = fs.promises.realpath;
+
+      mock.method(fs.promises, 'realpath', async (p: string) => {
+        if (typeof p === 'string' && p.includes('unreachable')) {
+          throw new Error('Simulated realpath failure');
+        }
+        return originalRealpath(p as Parameters<typeof originalRealpath>[0]);
+      });
+
+      try {
+        const result = await walk(tmpDir);
+
+        // When realpath fails for a file, the file is still included using
+        // its original fullPath (the catch block falls through to the visit check).
+        // Both files should be present.
+        assert.equal(result.length, 2, 'Both files should be returned');
+      } finally {
+        mock.restoreAll();
+      }
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
 });

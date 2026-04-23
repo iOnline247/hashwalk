@@ -111,5 +111,25 @@ describe('verify module - Unit Tests', () => {
       // If no error, the function works correctly
       assert.ok(true);
     });
+
+    it('should log debug message when debug is enabled and isFile fails', async () => {
+      const debugMessages: string[] = [];
+      const originalDebug = console.debug;
+      console.debug = (...args: unknown[]) =>
+        void debugMessages.push(args.map(String).join(' '));
+
+      try {
+        setDebug(true);
+        const result = await isFile('/nonexistent-path-for-debug-test');
+        assert.equal(result, false);
+        assert.ok(
+          debugMessages.some((m) => m.includes('Error checking file')),
+          'Should have logged a debug message',
+        );
+      } finally {
+        setDebug(false);
+        console.debug = originalDebug;
+      }
+    });
   });
 });

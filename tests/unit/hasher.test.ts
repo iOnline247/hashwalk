@@ -1,5 +1,7 @@
-import { describe, it } from 'node:test';
+import { describe, it, mock } from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { EventEmitter } from 'node:events';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
@@ -51,6 +53,25 @@ describe('hashFile - Unit Tests', () => {
     const result = await hashFile(nonExistentFile, 'sha256');
 
     assert.ok(result.startsWith('ERROR_ENOENT_'));
+  });
+
+  it('should return ERROR_UNKNOWN when stream error has no code', async () => {
+    const mockStream = new EventEmitter() as NodeJS.ReadableStream & EventEmitter;
+
+    mock.method(fs, 'createReadStream', () => mockStream);
+
+    try {
+      const resultPromise = hashFile('any-file.txt', 'sha256');
+
+      // Emit an error without a `code` property
+      const errWithoutCode = new Error('Stream error without code');
+      mockStream.emit('error', errWithoutCode);
+
+      const result = await resultPromise;
+      assert.ok(result.startsWith('ERROR_UNKNOWN_'));
+    } finally {
+      mock.restoreAll();
+    }
   });
 
   it('should handle empty files correctly', async () => {

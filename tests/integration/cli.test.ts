@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, it } from 'node:test';
+import { describe, it, mock } from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { isAlgoAvailable } from '../helpers/utils.js';
@@ -92,6 +92,15 @@ describe('hashwalk CLI - Integration Tests', () => {
 
     it('should use sha256 as default algorithm', async () => {
       const result = await runMain(['--path', dataDir]);
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(parsed.csv.includes('sha256'));
+    });
+
+    it('should fall back to sha256 when algorithm is empty string', async () => {
+      // Passing '' as algorithm triggers the `|| 'sha256'` fallback in cli.ts
+      const result = await runMain(['--path', dataDir, '--algorithm', '']);
       assert.equal(result.code, 0);
 
       const parsed = JSON.parse(result.stdout);
@@ -333,6 +342,30 @@ describe('hashwalk CLI - Integration Tests', () => {
         !err.error.includes('at main'),
         'Should not include detailed stack',
       );
+    });
+
+    it('should handle error without stack in debug mode', async () => {
+      // Mock fs.promises.mkdir (via node:fs) to throw an error without a stack.
+      // node:fs/promises default export and fs.promises share the same object,
+      // so mocking through node:fs affects cli.ts's `import fs from 'node:fs/promises'`.
+      const nodefs = await import('node:fs');
+
+      mock.method(nodefs.promises, 'mkdir', async () => {
+        const err = new Error('Error without stack');
+        // @ts-expect-error: intentionally clearing stack to test the `|| ''` fallback
+        err.stack = undefined;
+        throw err;
+      });
+
+      try {
+        const result = await runMain(['--path', __dirname, '--debug']);
+        assert.equal(result.code, 1);
+
+        const errOutput = JSON.parse(result.stderr);
+        assert.ok(errOutput.error.includes('Error without stack'));
+      } finally {
+        mock.restoreAll();
+      }
     });
   });
 });
