@@ -1,6 +1,9 @@
-import { describe, it } from 'node:test';
+import { describe, it, mock } from 'node:test';
 import assert from 'node:assert/strict';
-import { csvEscape } from '../../lib/csv.js';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { csvEscape, rows, writeCsv } from '../../lib/csv.js';
 
 describe('csvEscape - Unit Tests', () => {
   it('should quote all values unconditionally', () => {
@@ -97,5 +100,70 @@ describe('csvEscape - Unit Tests', () => {
     // csvEscape should quote the value but preserve the backslashes
     // The conversion to forward slashes happens at the source (cli.ts)
     assert.equal(result, '"folder\\subfolder\\file.txt"');
+  });
+});
+
+describe('rows - Unit Tests', () => {
+  it('should replace backslashes with forward slashes in RelativePath', async () => {
+    // Mutant 15: replace(/\\/g, '/') → replace(/\\/g, '')
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'csv-backslash-'));
+    const csvFile = path.join(tmpDir, 'out.csv');
+
+    try {
+      const testFile = path.join(tmpDir, 'file.txt');
+      fs.writeFileSync(testFile, 'content');
+
+      // Mock path.relative to return a Windows-style backslash path
+      mock.method(path, 'relative', (_from: string, _to: string) => 'sub\\dir\\file.txt');
+
+      try {
+        await writeCsv(csvFile, rows([testFile], tmpDir, 'sha256'));
+        const content = fs.readFileSync(csvFile, 'utf-8');
+
+        assert.ok(
+          content.includes('sub/dir/file.txt'),
+          'Should convert backslashes to forward slashes in RelativePath',
+        );
+        assert.ok(
+          !content.includes('sub\\dir\\file.txt'),
+          'Should not contain raw backslashes in RelativePath',
+        );
+        // With mutation (replace to ''), backslashes are deleted: 'subdirfile.txt'
+        assert.ok(
+          !content.includes('subdirfile.txt'),
+          'Should not strip backslashes (mutation guard)',
+        );
+      } finally {
+        mock.restoreAll();
+      }
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('writeCsv - Unit Tests', () => {
+  it('should end each data row with a newline character', async () => {
+    // Mutant 16: + '\n' → + ''  (rows without newlines)
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'csv-newline-'));
+    const testFile = path.join(tmpDir, 'test.txt');
+    const csvFile = path.join(tmpDir, 'output.csv');
+
+    try {
+      fs.writeFileSync(testFile, 'test content');
+      await writeCsv(csvFile, rows([testFile], tmpDir, 'sha256'));
+      const content = fs.readFileSync(csvFile, 'utf-8');
+
+      // Every row (header and data) should end with \n, so splitting on \n
+      // should produce an empty trailing element.
+      assert.ok(content.endsWith('\n'), 'CSV content should end with a newline');
+
+      // Splitting on \n: [header, datarow, ''] - at least 3 elements
+      const parts = content.split('\n');
+      assert.ok(parts.length >= 3, 'Should have header + data rows + trailing empty');
+      assert.equal(parts[parts.length - 1], '', 'Trailing newline should produce empty last element');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
   });
 });
