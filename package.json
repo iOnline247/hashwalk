@@ -30,6 +30,7 @@
     "test:integration": "tsc -p tsconfig.test.json && node --test dist/tests/integration/*.test.js",
     "test:failures": "tsc -p tsconfig.test.json && node --test --test-reporter=tap dist/tests/unit/*.test.js dist/tests/integration/*.test.js | grep -A 10 'not ok'",
     "coverage": "tsc -p tsconfig.test.json && node --test --experimental-test-coverage --test-reporter=spec --test-reporter-destination=stdout dist/tests/unit/*.test.js dist/tests/integration/*.test.js",
+    "mutate": "stryker run",
     "lint": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno lint",
     "format:check": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno fmt --check",
     "format:fix": "docker run --rm -i --security-opt no-new-privileges -v \"$PWD\":/app -w /app denoland/deno:alpine deno fmt",
@@ -40,6 +41,9 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^9.6.1",
+    "@stryker-mutator/tap-runner": "^9.6.1",
+    "@stryker-mutator/typescript-checker": "^9.6.1",
     "@types/node": "^25.0.3",
     "husky": "^9.1.7",
     "typescript": "^5.9.3"
