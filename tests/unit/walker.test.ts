@@ -117,26 +117,35 @@ describe('walk - Symlink Tests', () => {
 
   it('should follow a symlink to a directory and walk its contents', async () => {
     // Mutants 1, 2, 3: isSymbolicLink() conditional / stat() resolves isDir=true
-    const tmpDir = fs.mkdtempSync(path.join(fixturesBase, 'symlink-dir-'));
+    // The real directory must be OUTSIDE the scanned tmpDir so files can only
+    // be reached by following the symlink. If isSymbolicLink() → false the
+    // symlink is skipped and result is empty, killing the mutant.
+    const scanDir = fs.mkdtempSync(path.join(fixturesBase, 'symlink-dir-scan-'));
+    const externalDir = fs.mkdtempSync(
+      path.join(fixturesBase, 'symlink-dir-ext-'),
+    );
 
     try {
-      const realDir = path.join(tmpDir, 'real_dir');
-      fs.mkdirSync(realDir);
-      fs.writeFileSync(path.join(realDir, 'file_in_dir.txt'), 'content');
+      fs.writeFileSync(path.join(externalDir, 'file_in_dir.txt'), 'content');
 
-      const linkDir = path.join(tmpDir, 'link_dir');
+      const linkDir = path.join(scanDir, 'link_dir');
       try {
-        fs.symlinkSync(realDir, linkDir, 'dir');
+        fs.symlinkSync(externalDir, linkDir, 'dir');
       } catch {
         // Symlinks may not be supported on this platform
         return;
       }
 
-      const result = await walk(tmpDir);
-      // real_dir/file_in_dir.txt should appear exactly once
-      assert.equal(result.length, 1, 'Should find exactly one file via symlinked directory');
+      const result = await walk(scanDir);
+      // link_dir/file_in_dir.txt should appear exactly once
+      assert.equal(
+        result.length,
+        1,
+        'Should find exactly one file via symlinked directory',
+      );
     } finally {
-      fs.rmSync(tmpDir, { recursive: true, force: true });
+      fs.rmSync(scanDir, { recursive: true, force: true });
+      fs.rmSync(externalDir, { recursive: true, force: true });
     }
   });
 
