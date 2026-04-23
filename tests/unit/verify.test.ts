@@ -18,6 +18,18 @@ describe('verify module - Unit Tests', () => {
   const testFile = path.join(fixturesDir, 'test-content.txt');
 
   describe('hashFileStream', () => {
+    it('should reject the promise when the file stream emits an error', async () => {
+      // Mutant 18: stream.on('error', reject) → stream.on('', reject)
+      // With mutation, no handler is registered for 'error' → uncaught event → test fails
+      await assert.rejects(
+        hashFileStream('/nonexistent-path-for-stream-error-test.txt', 'sha256'),
+        (err: unknown) => {
+          assert.ok(err instanceof Error);
+          return true;
+        },
+      );
+    });
+
     it('should compute sha256 hash using stream', async () => {
       const expectedHash = crypto
         .createHash('sha256')
@@ -103,6 +115,49 @@ describe('verify module - Unit Tests', () => {
   });
 
   describe('setDebug', () => {
+    it('should not call console.debug in the initial (false) state', async () => {
+      // Mutant 17: let debugEnabled = false → true
+      // This test runs before any setDebug() call in this worker, so it tests
+      // the module-level initial value. With the mutation, debug would fire here.
+      const debugMessages: string[] = [];
+      const originalDebug = console.debug;
+      console.debug = (...args: unknown[]) =>
+        void debugMessages.push(args.map(String).join(' '));
+
+      try {
+        await isFile('/nonexistent-initial-debug-state-test');
+        assert.equal(
+          debugMessages.length,
+          0,
+          'Should not call console.debug when debugEnabled is in initial false state',
+        );
+      } finally {
+        console.debug = originalDebug;
+      }
+    });
+
+    it('should not call console.debug when setDebug(false) is active', async () => {
+      // Mutant 19: if (debugEnabled) → if (true)
+      // With mutation, debug always fires regardless of setDebug(false).
+      const debugMessages: string[] = [];
+      const originalDebug = console.debug;
+      console.debug = (...args: unknown[]) =>
+        void debugMessages.push(args.map(String).join(' '));
+
+      try {
+        setDebug(false);
+        await isFile('/nonexistent-setdebug-false-test');
+        assert.equal(
+          debugMessages.length,
+          0,
+          'Should not call console.debug when debug is disabled',
+        );
+      } finally {
+        console.debug = originalDebug;
+        setDebug(false);
+      }
+    });
+
     it('should enable debug mode', () => {
       // This is a simple setter test
       setDebug(true);

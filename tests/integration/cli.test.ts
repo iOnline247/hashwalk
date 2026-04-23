@@ -79,6 +79,39 @@ describe('hashwalk CLI - Integration Tests', () => {
         err.error.includes('Invalid algorithm: invalid. Must be one of'),
       );
     });
+
+    it('should include algorithm names separated by ", " in the error message', async () => {
+      // Mutant 9: validAlgorithms.join(', ') → join('')
+      const result = await runMain([
+        '--path',
+        dataDir,
+        '--algorithm',
+        'invalid',
+      ]);
+      assert.equal(result.code, 1);
+
+      const err = JSON.parse(result.stderr);
+      // The error must list algorithms with comma-space separator, not run together
+      assert.ok(
+        err.error.includes('md5, sha256'),
+        'Algorithm names should be separated by ", " not ""',
+      );
+    });
+
+    it('should reject positional arguments', async () => {
+      // Mutant 8: allowPositionals: false → true
+      // With allowPositionals: false, parseArgs throws a TypeError when positional
+      // args are passed. With allowPositionals: true (mutation), it succeeds silently.
+      let code: number;
+      try {
+        const result = await runMain(['--path', dataDir, 'extra-positional-arg']);
+        code = result.code;
+      } catch {
+        // parseArgs with allowPositionals: false throws TypeError — expected
+        code = 1;
+      }
+      assert.equal(code, 1, 'Should reject positional arguments');
+    });
   });
 
   describe('generate mode', () => {
@@ -167,6 +200,74 @@ describe('hashwalk CLI - Integration Tests', () => {
         assert.equal(path.dirname(parsed.csv), tmpDir);
       } finally {
         await fs.rm(tmpDir, { recursive: true, force: true });
+      }
+    });
+
+    it('should write CSV to a path containing "hashwalk" when no --csvDirectory is given', async () => {
+      // Mutant 11: path.join(os.tmpdir(), 'hashwalk') → path.join(os.tmpdir(), '')
+      const result = await runMain(['--path', dataDir]);
+      assert.equal(result.code, 0);
+
+      const parsed = JSON.parse(result.stdout);
+      assert.ok(
+        parsed.csv.includes('hashwalk'),
+        `Default CSV path should contain 'hashwalk', got: ${parsed.csv}`,
+      );
+    });
+
+    it('should include a timestamp in the CSV filename matching YYYYMMDDTHHmmss format', async () => {
+      // Mutant 12: timestamp format regex/replacement mutations
+      // The timestamp is created by .toISOString().replace(/[-:]/g, '').slice(0, 15)
+      // which produces e.g. "20240101T120000"
+      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-ts-'));
+
+      try {
+        const result = await runMain(['--path', dataDir, '--csvDirectory', tmpDir]);
+        assert.equal(result.code, 0);
+
+        const parsed = JSON.parse(result.stdout);
+        const csvBasename = path.basename(parsed.csv);
+
+        // Timestamp is 15 chars: 8 date digits + 'T' + 6 time digits
+        assert.ok(
+          /^\d{8}T\d{6}_/.test(csvBasename),
+          `CSV filename should start with timestamp like '20240101T120000_', got: ${csvBasename}`,
+        );
+      } finally {
+        await fs.rm(tmpDir, { recursive: true, force: true });
+      }
+    });
+
+    it('should output files in sorted order in the generated CSV', async () => {
+      // Mutant 10: (await walk(basePath)).sort() → without .sort()
+      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-sort-'));
+      const csvDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-sort-csv-'));
+
+      try {
+        // Create files in reverse alphabetical order so filesystem order ≠ sorted order
+        await fs.writeFile(path.join(tmpDir, 'z_last.txt'), 'z');
+        await fs.writeFile(path.join(tmpDir, 'a_first.txt'), 'a');
+        await fs.writeFile(path.join(tmpDir, 'm_middle.txt'), 'm');
+
+        const result = await runMain(['--path', tmpDir, '--csvDirectory', csvDir]);
+        assert.equal(result.code, 0);
+
+        const parsed = JSON.parse(result.stdout);
+        const csvContent = await fs.readFile(parsed.csv, 'utf-8');
+
+        // Parse RelativePath from each data row (format: "path","file","algo","hash")
+        const dataLines = csvContent.split('\n').slice(1).filter(Boolean);
+        const relativePaths = dataLines.map((line) => {
+          // First CSV field is quoted: "relativepath",...
+          const match = line.match(/^"([^"]*)"/);
+          return match ? match[1] : line;
+        });
+
+        const sortedPaths = [...relativePaths].sort();
+        assert.deepEqual(relativePaths, sortedPaths, 'CSV rows must be in sorted order');
+      } finally {
+        await fs.rm(tmpDir, { recursive: true, force: true });
+        await fs.rm(csvDir, { recursive: true, force: true });
       }
     });
 
@@ -320,6 +421,45 @@ describe('hashwalk CLI - Integration Tests', () => {
         await fs.rm(tmpDir, { recursive: true, force: true });
       }
     });
+
+    it('should return isMatch=false when comparing against a CSV from a different directory', async () => {
+      // Mutant 13: newHash === compareHash → true (always isMatch)
+      // Need a file comparison that results in isMatch: false
+      const tmpDir1 = await fs.mkdtemp(path.join(os.tmpdir(), 'cli-cmp1-'));
+      const tmpDir2 = await fs.mkdtemp(path.join(os.tmpdir(), 'cli-cmp2-'));
+      const csvDir = await fs.mkdtemp(path.join(os.tmpdir(), 'cli-cmp-csv-'));
+
+      try {
+        // Create two different source directories
+        await fs.writeFile(path.join(tmpDir1, 'file_a.txt'), 'content A');
+        await fs.writeFile(path.join(tmpDir2, 'file_b.txt'), 'content B');
+
+        // Generate CSV for dir1
+        const first = await runMain(['--path', tmpDir1, '--csvDirectory', csvDir]);
+        assert.equal(first.code, 0);
+        const firstResult = JSON.parse(first.stdout);
+
+        // Now hash dir2 but compare against dir1's CSV — should not match
+        const second = await runMain([
+          '--path',
+          tmpDir2,
+          '--compare',
+          firstResult.csv,
+        ]);
+        assert.equal(second.code, 0);
+
+        const result = JSON.parse(second.stdout);
+        assert.equal(
+          result.isMatch,
+          false,
+          'Comparing against a different directory CSV should give isMatch: false',
+        );
+      } finally {
+        await fs.rm(tmpDir1, { recursive: true, force: true });
+        await fs.rm(tmpDir2, { recursive: true, force: true });
+        await fs.rm(csvDir, { recursive: true, force: true });
+      }
+    });
   });
 
   describe('debug mode', () => {
@@ -330,6 +470,12 @@ describe('hashwalk CLI - Integration Tests', () => {
       const err = JSON.parse(result.stderr);
       assert.ok(err.error.includes('Invalid directory path'));
       assert.ok(err.error.includes('\n'), 'Should include stack trace');
+      // Mutant 14: (err as Error).stack || '' → stack && '' / true / false
+      // Verify the output contains actual stack frame text, not just a newline
+      assert.ok(
+        /\n\s+at\s/.test(err.error),
+        'Debug output should contain actual stack frames (e.g. "    at main ...")',
+      );
     });
 
     it('should show minimal error without --debug', async () => {
