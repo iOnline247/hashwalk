@@ -166,4 +166,33 @@ describe('writeCsv - Unit Tests', () => {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
+
+  it('should reject when the write stream emits an error', async () => {
+    // Mutant csv.ts L53:15: stream.on('error', reject) → stream.on('', reject)
+    // Without the error handler, stream errors are silently ignored.
+    const { EventEmitter } = await import('node:events');
+
+    const fakeStream = new EventEmitter() as ReturnType<typeof fs.createWriteStream>;
+    // Satisfy duck-typing: writeCsv calls .write(), .on(), and .end()
+    (fakeStream as unknown as Record<string, unknown>).write = () => true;
+    (fakeStream as unknown as Record<string, unknown>).end = () => {
+      // Emit error asynchronously so the promise handlers are set up first
+      setImmediate(() => fakeStream.emit('error', new Error('Write stream error')));
+    };
+
+    mock.method(fs, 'createWriteStream', () => fakeStream);
+
+    try {
+      async function* emptyRows() {
+        // No rows — writeCsv writes only the header then calls stream.end()
+      }
+      await assert.rejects(
+        () => writeCsv('/fake/path.csv', emptyRows()),
+        /Write stream error/,
+        'writeCsv should reject when the write stream emits an error',
+      );
+    } finally {
+      mock.restoreAll();
+    }
+  });
 });

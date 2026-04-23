@@ -509,6 +509,12 @@ describe('hashwalk CLI - Integration Tests', () => {
 
         const errOutput = JSON.parse(result.stderr);
         assert.ok(errOutput.error.includes('Error without stack'));
+        // When stack is undefined, the error should end with '\n' (the || '' fallback)
+        // not with 'Stryker was here!' or any other non-empty string
+        assert.ok(
+          errOutput.error.endsWith('\n'),
+          'Error without stack should end with newline (stack || "" produces empty string)',
+        );
       } finally {
         mock.restoreAll();
       }
