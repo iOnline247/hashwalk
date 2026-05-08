@@ -56,7 +56,9 @@ describe('hashFile - Unit Tests', () => {
   });
 
   it('should return ERROR_UNKNOWN when stream error has no code', async () => {
-    const mockStream = new EventEmitter() as NodeJS.ReadableStream & EventEmitter;
+    const mockStream = new EventEmitter() as
+      & NodeJS.ReadableStream
+      & EventEmitter;
 
     mock.method(fs, 'createReadStream', () => mockStream);
 

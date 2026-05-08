@@ -4,6 +4,11 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { csvEscape, rows, writeCsv } from '../../lib/csv.js';
+import { setImmediate } from 'node:timers';
+
+async function* emptyRows() {
+  // No rows — writeCsv writes only the header then calls stream.end()
+}
 
 describe('csvEscape - Unit Tests', () => {
   it('should quote all values unconditionally', () => {
@@ -114,7 +119,11 @@ describe('rows - Unit Tests', () => {
       fs.writeFileSync(testFile, 'content');
 
       // Mock path.relative to return a Windows-style backslash path
-      mock.method(path, 'relative', (_from: string, _to: string) => 'sub\\dir\\file.txt');
+      mock.method(
+        path,
+        'relative',
+        (_from: string, _to: string) => 'sub\\dir\\file.txt',
+      );
 
       try {
         await writeCsv(csvFile, rows([testFile], tmpDir, 'sha256'));
@@ -156,12 +165,22 @@ describe('writeCsv - Unit Tests', () => {
 
       // Every row (header and data) should end with \n, so splitting on \n
       // should produce an empty trailing element.
-      assert.ok(content.endsWith('\n'), 'CSV content should end with a newline');
+      assert.ok(
+        content.endsWith('\n'),
+        'CSV content should end with a newline',
+      );
 
       // Splitting on \n: [header, datarow, ''] - at least 3 elements
       const parts = content.split('\n');
-      assert.ok(parts.length >= 3, 'Should have header + data rows + trailing empty');
-      assert.equal(parts[parts.length - 1], '', 'Trailing newline should produce empty last element');
+      assert.ok(
+        parts.length >= 3,
+        'Should have header + data rows + trailing empty',
+      );
+      assert.equal(
+        parts[parts.length - 1],
+        '',
+        'Trailing newline should produce empty last element',
+      );
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
@@ -172,20 +191,21 @@ describe('writeCsv - Unit Tests', () => {
     // Without the error handler, stream errors are silently ignored.
     const { EventEmitter } = await import('node:events');
 
-    const fakeStream = new EventEmitter() as ReturnType<typeof fs.createWriteStream>;
+    const fakeStream = new EventEmitter() as ReturnType<
+      typeof fs.createWriteStream
+    >;
     // Satisfy duck-typing: writeCsv calls .write(), .on(), and .end()
     (fakeStream as unknown as Record<string, unknown>).write = () => true;
     (fakeStream as unknown as Record<string, unknown>).end = () => {
       // Emit error asynchronously so the promise handlers are set up first
-      setImmediate(() => fakeStream.emit('error', new Error('Write stream error')));
+      setImmediate(() =>
+        fakeStream.emit('error', new Error('Write stream error'))
+      );
     };
 
     mock.method(fs, 'createWriteStream', () => fakeStream);
 
     try {
-      async function* emptyRows() {
-        // No rows — writeCsv writes only the header then calls stream.end()
-      }
       await assert.rejects(
         () => writeCsv('/fake/path.csv', emptyRows()),
         /Write stream error/,
