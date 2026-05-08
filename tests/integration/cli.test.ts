@@ -3,10 +3,12 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, it, mock } from 'node:test';
-import { fileURLToPath } from 'node:url';
+import process from 'node:process';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { isAlgoAvailable } from '../helpers/utils.js';
 import { runCli, runMain } from '../helpers/runCli.js';
+import { setImmediate } from 'node:timers';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const fixturesDir = path.resolve(__dirname, '../../../tests/fixtures');
@@ -35,6 +37,38 @@ describe('hashwalk CLI - Smoke Tests (via child process)', () => {
     const parsed = JSON.parse(result.stdout);
     assert.ok(parsed.csv);
     assert.ok(parsed.hash);
+  });
+
+  it('should pass process argv to main and exit with its returned code', async () => {
+    const originalArgv = process.argv;
+    const originalExit = process.exit;
+    const binModulePath = path.resolve(__dirname, '../../bin/hashwalk.js');
+    let exitCode: number | undefined;
+
+    process.argv = ['node', binModulePath, '--help'];
+    mock.method(
+      process,
+      'exit',
+      ((code?: string | number | null) => {
+        exitCode = Number(code ?? 0);
+        return undefined as never;
+      }) as typeof process.exit,
+    );
+
+    try {
+      await import(`${pathToFileURL(binModulePath).href}?test=${Date.now()}`);
+      await new Promise((resolve) => setImmediate(resolve));
+
+      assert.equal(
+        exitCode,
+        0,
+        'bin entrypoint should call process.exit with main() result',
+      );
+    } finally {
+      mock.restoreAll();
+      process.argv = originalArgv;
+      process.exit = originalExit;
+    }
   });
 });
 
@@ -104,7 +138,11 @@ describe('hashwalk CLI - Integration Tests', () => {
       // args are passed. With allowPositionals: true (mutation), it succeeds silently.
       let code: number;
       try {
-        const result = await runMain(['--path', dataDir, 'extra-positional-arg']);
+        const result = await runMain([
+          '--path',
+          dataDir,
+          'extra-positional-arg',
+        ]);
         code = result.code;
       } catch {
         // parseArgs with allowPositionals: false throws TypeError — expected
@@ -222,7 +260,12 @@ describe('hashwalk CLI - Integration Tests', () => {
       const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-ts-'));
 
       try {
-        const result = await runMain(['--path', dataDir, '--csvDirectory', tmpDir]);
+        const result = await runMain([
+          '--path',
+          dataDir,
+          '--csvDirectory',
+          tmpDir,
+        ]);
         assert.equal(result.code, 0);
 
         const parsed = JSON.parse(result.stdout);
@@ -241,15 +284,24 @@ describe('hashwalk CLI - Integration Tests', () => {
     it('should output files in sorted order in the generated CSV', async () => {
       // Mutant 10: (await walk(basePath)).sort() → without .sort()
       const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-sort-'));
-      const csvDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hashwalk-sort-csv-'));
+      const csvDir = await fs.mkdtemp(
+        path.join(os.tmpdir(), 'hashwalk-sort-csv-'),
+      );
 
       try {
-        // Create files in reverse alphabetical order so filesystem order ≠ sorted order
-        await fs.writeFile(path.join(tmpDir, 'z_last.txt'), 'z');
-        await fs.writeFile(path.join(tmpDir, 'a_first.txt'), 'a');
-        await fs.writeFile(path.join(tmpDir, 'm_middle.txt'), 'm');
+        // Use a directory/file pair where depth-first traversal is not globally sorted.
+        // walk(tmpDir) naturally visits "a/file.txt" before "a-.txt", but the CLI must
+        // sort globally so "a-.txt" comes first.
+        await fs.mkdir(path.join(tmpDir, 'a'));
+        await fs.writeFile(path.join(tmpDir, 'a', 'file.txt'), 'nested');
+        await fs.writeFile(path.join(tmpDir, 'a-.txt'), 'sibling');
 
-        const result = await runMain(['--path', tmpDir, '--csvDirectory', csvDir]);
+        const result = await runMain([
+          '--path',
+          tmpDir,
+          '--csvDirectory',
+          csvDir,
+        ]);
         assert.equal(result.code, 0);
 
         const parsed = JSON.parse(result.stdout);
@@ -263,8 +315,11 @@ describe('hashwalk CLI - Integration Tests', () => {
           return match ? match[1] : line;
         });
 
-        const sortedPaths = [...relativePaths].sort();
-        assert.deepEqual(relativePaths, sortedPaths, 'CSV rows must be in sorted order');
+        assert.deepEqual(
+          relativePaths,
+          ['a-.txt', 'a/file.txt'],
+          'CSV rows must be globally sorted before writing',
+        );
       } finally {
         await fs.rm(tmpDir, { recursive: true, force: true });
         await fs.rm(csvDir, { recursive: true, force: true });
@@ -435,7 +490,12 @@ describe('hashwalk CLI - Integration Tests', () => {
         await fs.writeFile(path.join(tmpDir2, 'file_b.txt'), 'content B');
 
         // Generate CSV for dir1
-        const first = await runMain(['--path', tmpDir1, '--csvDirectory', csvDir]);
+        const first = await runMain([
+          '--path',
+          tmpDir1,
+          '--csvDirectory',
+          csvDir,
+        ]);
         assert.equal(first.code, 0);
         const firstResult = JSON.parse(first.stdout);
 
@@ -496,7 +556,7 @@ describe('hashwalk CLI - Integration Tests', () => {
       // so mocking through node:fs affects cli.ts's `import fs from 'node:fs/promises'`.
       const nodefs = await import('node:fs');
 
-      mock.method(nodefs.promises, 'mkdir', async () => {
+      mock.method(nodefs.promises, 'mkdir', () => {
         const err = new Error('Error without stack');
         // @ts-expect-error: intentionally clearing stack to test the `|| ''` fallback
         err.stack = undefined;
