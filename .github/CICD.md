@@ -11,7 +11,7 @@ Runs on every push and pull request to the `main` branch.
 
 **Jobs:**
 
-- **Build and Test**: Tests the package on Node.js 20.x, 22.x, 24.x
+- **Build and Test**: Tests the package on Node.js 22.x, 24.x, 26.x
   - Installs dependencies
   - Builds the project
   - Runs linter

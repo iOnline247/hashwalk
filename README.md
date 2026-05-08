@@ -223,7 +223,7 @@ npm publish
 
 This repository includes GitHub Actions workflows for:
 
-- **Continuous Integration**: Automated testing on Node.js 20.x, 22.x, and 24.x
+- **Continuous Integration**: Automated testing on Node.js 22.x, 24.x, and 26.x
   (all active LTS versions)
 - **Code Coverage**: Test coverage reporting
 - **Automated Publishing**: npm publishing with OIDC and Sigstore provenance
