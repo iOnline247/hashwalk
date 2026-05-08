@@ -1,6 +1,8 @@
 import { describe, it, mock } from 'node:test';
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { walk } from '../../lib/walker.js';
@@ -64,7 +66,7 @@ describe('walk - Unit Tests', () => {
 
       const originalRealpath = fs.promises.realpath;
 
-      mock.method(fs.promises, 'realpath', async (p: string) => {
+      mock.method(fs.promises, 'realpath', (p: string) => {
         if (typeof p === 'string' && p.includes('unreachable')) {
           throw new Error('Simulated realpath failure');
         }
@@ -109,7 +111,11 @@ describe('walk - Symlink Tests', () => {
 
       const result = await walk(tmpDir);
       // real.txt + link.txt → same inode, should deduplicate to 1 entry
-      assert.equal(result.length, 1, 'Should find exactly one file (symlink deduplicated)');
+      assert.equal(
+        result.length,
+        1,
+        'Should find exactly one file (symlink deduplicated)',
+      );
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
@@ -120,7 +126,9 @@ describe('walk - Symlink Tests', () => {
     // The real directory must be OUTSIDE the scanned tmpDir so files can only
     // be reached by following the symlink. If isSymbolicLink() → false the
     // symlink is skipped and result is empty, killing the mutant.
-    const scanDir = fs.mkdtempSync(path.join(fixturesBase, 'symlink-dir-scan-'));
+    const scanDir = fs.mkdtempSync(
+      path.join(fixturesBase, 'symlink-dir-scan-'),
+    );
     const externalDir = fs.mkdtempSync(
       path.join(fixturesBase, 'symlink-dir-ext-'),
     );
@@ -167,8 +175,15 @@ describe('walk - Symlink Tests', () => {
       }
 
       const result = await walk(tmpDir);
-      assert.equal(result.length, 1, 'Should only find real.txt, not the broken symlink');
-      assert.ok(result[0]?.includes('real.txt'), 'The single result should be real.txt');
+      assert.equal(
+        result.length,
+        1,
+        'Should only find real.txt, not the broken symlink',
+      );
+      assert.ok(
+        result[0]?.includes('real.txt'),
+        'The single result should be real.txt',
+      );
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
@@ -205,5 +220,29 @@ describe('walk - Symlink Tests', () => {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
-});
 
+  it('should ignore filesystem entries that are neither directories nor regular files', async () => {
+    if (os.platform() === 'win32') {
+      return;
+    }
+
+    const tmpDir = fs.mkdtempSync(path.join(fixturesBase, 'special-entry-'));
+
+    try {
+      const regularFile = path.join(tmpDir, 'regular.txt');
+      const pipePath = path.join(tmpDir, 'named-pipe');
+      fs.writeFileSync(regularFile, 'content');
+      execFileSync('mkfifo', [pipePath]);
+
+      const result = await walk(tmpDir);
+
+      assert.deepEqual(
+        result.sort(),
+        [regularFile],
+        'Walker should ignore named pipes and other non-file entries',
+      );
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+});
