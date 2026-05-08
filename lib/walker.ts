@@ -21,14 +21,15 @@ async function walkInternal(
     let isFileEntry = entry.isFile();
 
     if (entry.isSymbolicLink()) {
-      try {
-        const stats = await fs.promises.stat(fullPath);
-        isDir = stats.isDirectory();
-        isFileEntry = stats.isFile();
-      } catch {
+      const stats = await fs.promises.stat(fullPath).catch(() => null);
+
+      if (stats === null) {
         // Skip broken symlinks
         continue;
       }
+
+      isDir = stats.isDirectory();
+      isFileEntry = stats.isFile();
     }
 
     if (isDir) {
