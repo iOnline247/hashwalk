@@ -58,4 +58,4 @@ jobs:
           path: sbom/
 
       - name: Publish to npm with OIDC and provenance
-        run: npm publish
+        run: npm publish --access public --provenance
