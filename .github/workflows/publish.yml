@@ -19,7 +19,7 @@ jobs:
     name: Publish with provenance
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write # Required to upload SBOM artifacts
       id-token: write # Required for OIDC authentication and provenance
 
     steps:
