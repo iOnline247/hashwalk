@@ -1,6 +1,6 @@
 {
   "name": "hashwalk",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "description": "",
   "type": "module",
   "main": "./dist/lib/cli.js",
