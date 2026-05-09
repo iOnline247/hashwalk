@@ -197,6 +197,10 @@ Publishing (OIDC) and provenance.
 4. The publish workflow automatically runs with OIDC authentication and
    provenance signing
 
+If the publish step fails with `E404 Not Found`, make sure the npm Trusted
+Publisher is configured for `iOnline247/hashwalk` and that `package.json` keeps
+`repository.url` set to `https://github.com/iOnline247/hashwalk`.
+
 See [CI/CD Documentation](./.github/CICD.md) for setup details, workflow
 information, and OIDC configuration.
 

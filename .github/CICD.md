@@ -81,7 +81,7 @@ authentication. **No npm token or secret is required.**
 
 **Steps to configure:**
 
-1. Go to your package page on npmjs.com (or create the package first)
+1. Go to your package page on npmjs.com
 2. Navigate to **Settings** → **Publishing Access** → **Trusted Publishers**
 3. Click **Add Trusted Publisher**
 4. Select **GitHub Actions**
@@ -100,10 +100,27 @@ specific workflow in this specific repository.
 - The workflow file must be in `.github/workflows/` directory
 - OIDC authentication requires npm CLI v11.5.1 or later (installed automatically
   in GitHub Actions)
+- `package.json` must use the exact GitHub repository URL in `repository.url`.
+  For this repository, use `https://github.com/iOnline247/hashwalk`
 - No `NPM_TOKEN` secret is needed - authentication is handled automatically via
   OIDC
 
 For more details, see: https://docs.npmjs.com/trusted-publishers
+
+### Common Publish Failure: `E404 Not Found`
+
+If npm returns:
+
+```text
+E404 Not Found - PUT https://registry.npmjs.org/hashwalk - Not found
+```
+
+the workflow usually authenticated successfully but npm rejected the package
+authorization check. Verify both of these values exactly:
+
+1. The npm Trusted Publisher points to `iOnline247/hashwalk` and `publish.yml`
+2. `package.json` has
+   `"repository": { "url": "https://github.com/iOnline247/hashwalk" }`
 
 ### Publishing a New Version
 
