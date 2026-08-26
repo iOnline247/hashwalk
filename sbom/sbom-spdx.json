@@ -5,7 +5,7 @@
   "name": "hashwalk@1.5.10",
   "documentNamespace": "http://spdx.org/spdxdocs/hashwalk-1.5.10-***",
   "creationInfo": {
-    "created": "2026-08-26T00:10:20.805Z",
+    "created": "2026-08-26T17:40:56.468Z",
     "creators": [
       "Tool: npm/cli-11.6.2"
     ]
@@ -1521,11 +1521,11 @@
     },
     {
       "name": "@types/node",
-      "SPDXID": "SPDXRef-Package-types.node-25.0.3",
-      "versionInfo": "25.0.3",
+      "SPDXID": "SPDXRef-Package-types.node-26.3.0",
+      "versionInfo": "26.3.0",
       "packageFileName": "node_modules/@types/node",
       "description": "TypeScript definitions for node",
-      "downloadLocation": "https://registry.npmjs.org/@types/node/-/node-25.0.3.tgz",
+      "downloadLocation": "https://registry.npmjs.org/@types/node/-/node-26.3.0.tgz",
       "filesAnalyzed": false,
       "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
       "licenseDeclared": "MIT",
@@ -1533,13 +1533,13 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:npm/%40types/node@25.0.3"
+          "referenceLocator": "pkg:npm/%40types/node@26.3.0"
         }
       ],
       "checksums": [
         {
           "algorithm": "SHA512",
-          "checksumValue": "5bad3d6ee2d545599e5baf77c4a7f31de215ea72461b3f7cb823df79723510b30b5d578a619f66d797c03126943c11d82c616c55170c9920a4b103ab655f4160"
+          "checksumValue": "2f77e0ae7721ae2442d84c417e56fc8f8b9965444765f42c9907b25738637075b8924c15ca8f3fd21d41d8c573313ad850962ee86ec45acd78856fcbf69badab"
         }
       ]
     },
@@ -3993,11 +3993,11 @@
     },
     {
       "name": "undici-types",
-      "SPDXID": "SPDXRef-Package-undici-types-7.16.0",
-      "versionInfo": "7.16.0",
+      "SPDXID": "SPDXRef-Package-undici-types-8.3.0",
+      "versionInfo": "8.3.0",
       "packageFileName": "node_modules/undici-types",
       "description": "A stand-alone types package for Undici",
-      "downloadLocation": "https://registry.npmjs.org/undici-types/-/undici-types-7.16.0.tgz",
+      "downloadLocation": "https://registry.npmjs.org/undici-types/-/undici-types-8.3.0.tgz",
       "filesAnalyzed": false,
       "homepage": "https://undici.nodejs.org",
       "licenseDeclared": "MIT",
@@ -4005,13 +4005,13 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:npm/undici-types@7.16.0"
+          "referenceLocator": "pkg:npm/undici-types@8.3.0"
         }
       ],
       "checksums": [
         {
           "algorithm": "SHA512",
-          "checksumValue": "673f9a6564a3f0b13ace8c43fb1ae387855f9081bc61ae8bbd8919aad5101893d98d8979df2a42694c16aa8ede234c7ae8a046791a3e9a504490c49e499dfc37"
+          "checksumValue": "8f7ef949c57ad1da26f9890f1487d32dc3a23f190dfdbb87cf91a86e32e18b116e00d68db370bd9781a6ad6a9e8e05d627b05b25c158a53114912d467bc6e965"
         }
       ]
     },
@@ -4254,7 +4254,7 @@
       "relationshipType": "DEV_DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-hashwalk-1.5.10",
       "relationshipType": "DEV_DEPENDENCY_OF"
     },
@@ -4759,7 +4759,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.checkbox-5.1.4",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4784,7 +4784,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.confirm-6.0.12",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4799,7 +4799,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.core-11.1.9",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4839,7 +4839,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.editor-5.1.1",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4859,7 +4859,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.expand-5.0.13",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4874,7 +4874,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.external-editor-3.0.0",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4889,7 +4889,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.input-5.0.12",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4904,7 +4904,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.number-4.0.12",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4919,7 +4919,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.password-5.0.12",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4939,7 +4939,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.prompts-8.4.2",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -4994,7 +4994,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.rawlist-5.2.8",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -5009,7 +5009,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.search-4.1.8",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -5029,7 +5029,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.select-5.1.4",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -5054,7 +5054,7 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-types.node-26.3.0",
       "relatedSpdxElement": "SPDXRef-Package-inquirer.type-4.0.5",
       "relationshipType": "DEPENDENCY_OF"
     },
@@ -5354,8 +5354,8 @@
       "relationshipType": "DEPENDENCY_OF"
     },
     {
-      "spdxElementId": "SPDXRef-Package-undici-types-7.16.0",
-      "relatedSpdxElement": "SPDXRef-Package-types.node-25.0.3",
+      "spdxElementId": "SPDXRef-Package-undici-types-8.3.0",
+      "relatedSpdxElement": "SPDXRef-Package-types.node-26.3.0",
       "relationshipType": "DEPENDENCY_OF"
     },
     {

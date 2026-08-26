@@ -5,7 +5,7 @@
   "serialNumber": "urn:uuid:***",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-08-26T00:10:20.285Z",
+    "timestamp": "2026-08-26T17:40:55.880Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -2687,13 +2687,13 @@
       ]
     },
     {
-      "bom-ref": "@types/node@25.0.3",
+      "bom-ref": "@types/node@26.3.0",
       "type": "library",
       "name": "@types/node",
-      "version": "25.0.3",
+      "version": "26.3.0",
       "scope": "optional",
       "description": "TypeScript definitions for node",
-      "purl": "pkg:npm/%40types/node@25.0.3",
+      "purl": "pkg:npm/%40types/node@26.3.0",
       "properties": [
         {
           "name": "cdx:npm:package:development",
@@ -2703,7 +2703,7 @@
       "externalReferences": [
         {
           "type": "distribution",
-          "url": "https://registry.npmjs.org/@types/node/-/node-25.0.3.tgz"
+          "url": "https://registry.npmjs.org/@types/node/-/node-26.3.0.tgz"
         },
         {
           "type": "vcs",
@@ -2717,7 +2717,7 @@
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "5bad3d6ee2d545599e5baf77c4a7f31de215ea72461b3f7cb823df79723510b30b5d578a619f66d797c03126943c11d82c616c55170c9920a4b103ab655f4160"
+          "content": "2f77e0ae7721ae2442d84c417e56fc8f8b9965444765f42c9907b25738637075b8924c15ca8f3fd21d41d8c573313ad850962ee86ec45acd78856fcbf69badab"
         }
       ],
       "licenses": [
@@ -6956,13 +6956,13 @@
       ]
     },
     {
-      "bom-ref": "undici-types@7.16.0",
+      "bom-ref": "undici-types@8.3.0",
       "type": "library",
       "name": "undici-types",
-      "version": "7.16.0",
+      "version": "8.3.0",
       "scope": "optional",
       "description": "A stand-alone types package for Undici",
-      "purl": "pkg:npm/undici-types@7.16.0",
+      "purl": "pkg:npm/undici-types@8.3.0",
       "properties": [
         {
           "name": "cdx:npm:package:development",
@@ -6972,7 +6972,7 @@
       "externalReferences": [
         {
           "type": "distribution",
-          "url": "https://registry.npmjs.org/undici-types/-/undici-types-7.16.0.tgz"
+          "url": "https://registry.npmjs.org/undici-types/-/undici-types-8.3.0.tgz"
         },
         {
           "type": "vcs",
@@ -6990,7 +6990,7 @@
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "673f9a6564a3f0b13ace8c43fb1ae387855f9081bc61ae8bbd8919aad5101893d98d8979df2a42694c16aa8ede234c7ae8a046791a3e9a504490c49e499dfc37"
+          "content": "8f7ef949c57ad1da26f9890f1487d32dc3a23f190dfdbb87cf91a86e32e18b116e00d68db370bd9781a6ad6a9e8e05d627b05b25c158a53114912d467bc6e965"
         }
       ],
       "licenses": [
@@ -7355,7 +7355,7 @@
         "@stryker-mutator/core@9.6.1",
         "@stryker-mutator/tap-runner@9.6.1",
         "@stryker-mutator/typescript-checker@9.6.1",
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "husky@9.1.7",
         "typescript@5.9.3"
       ]
@@ -7623,7 +7623,7 @@
     {
       "ref": "@inquirer/checkbox@5.1.4",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/ansi@2.0.5",
         "@inquirer/core@11.1.9",
         "@inquirer/figures@2.0.5",
@@ -7633,7 +7633,7 @@
     {
       "ref": "@inquirer/confirm@6.0.12",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/core@11.1.9",
         "@inquirer/type@4.0.5"
       ]
@@ -7641,7 +7641,7 @@
     {
       "ref": "@inquirer/core@11.1.9",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/ansi@2.0.5",
         "@inquirer/figures@2.0.5",
         "@inquirer/type@4.0.5",
@@ -7654,7 +7654,7 @@
     {
       "ref": "@inquirer/editor@5.1.1",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/core@11.1.9",
         "@inquirer/external-editor@3.0.0",
         "@inquirer/type@4.0.5"
@@ -7663,7 +7663,7 @@
     {
       "ref": "@inquirer/expand@5.0.13",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/core@11.1.9",
         "@inquirer/type@4.0.5"
       ]
@@ -7671,7 +7671,7 @@
     {
       "ref": "@inquirer/external-editor@3.0.0",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "chardet@2.1.1",
         "iconv-lite@0.7.2"
       ]
@@ -7683,7 +7683,7 @@
     {
       "ref": "@inquirer/input@5.0.12",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/core@11.1.9",
         "@inquirer/type@4.0.5"
       ]
@@ -7691,7 +7691,7 @@
     {
       "ref": "@inquirer/number@4.0.12",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/core@11.1.9",
         "@inquirer/type@4.0.5"
       ]
@@ -7699,7 +7699,7 @@
     {
       "ref": "@inquirer/password@5.0.12",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/ansi@2.0.5",
         "@inquirer/core@11.1.9",
         "@inquirer/type@4.0.5"
@@ -7708,7 +7708,7 @@
     {
       "ref": "@inquirer/prompts@8.4.2",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/checkbox@5.1.4",
         "@inquirer/confirm@6.0.12",
         "@inquirer/editor@5.1.1",
@@ -7724,7 +7724,7 @@
     {
       "ref": "@inquirer/rawlist@5.2.8",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/core@11.1.9",
         "@inquirer/type@4.0.5"
       ]
@@ -7732,7 +7732,7 @@
     {
       "ref": "@inquirer/search@4.1.8",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/core@11.1.9",
         "@inquirer/figures@2.0.5",
         "@inquirer/type@4.0.5"
@@ -7741,7 +7741,7 @@
     {
       "ref": "@inquirer/select@5.1.4",
       "dependsOn": [
-        "@types/node@25.0.3",
+        "@types/node@26.3.0",
         "@inquirer/ansi@2.0.5",
         "@inquirer/core@11.1.9",
         "@inquirer/figures@2.0.5",
@@ -7751,7 +7751,7 @@
     {
       "ref": "@inquirer/type@4.0.5",
       "dependsOn": [
-        "@types/node@25.0.3"
+        "@types/node@26.3.0"
       ]
     },
     {
@@ -7874,9 +7874,9 @@
       "dependsOn": []
     },
     {
-      "ref": "@types/node@25.0.3",
+      "ref": "@types/node@26.3.0",
       "dependsOn": [
-        "undici-types@7.16.0"
+        "undici-types@8.3.0"
       ]
     },
     {
@@ -8420,7 +8420,7 @@
       "dependsOn": []
     },
     {
-      "ref": "undici-types@7.16.0",
+      "ref": "undici-types@8.3.0",
       "dependsOn": []
     },
     {

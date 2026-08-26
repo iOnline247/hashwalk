@@ -44,7 +44,7 @@
     "@stryker-mutator/core": "^9.6.1",
     "@stryker-mutator/tap-runner": "^9.6.1",
     "@stryker-mutator/typescript-checker": "^9.6.1",
-    "@types/node": "^25.0.3",
+    "@types/node": "^26.3.0",
     "husky": "^9.1.7",
     "typescript": "^5.9.3"
   },
