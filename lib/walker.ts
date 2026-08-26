@@ -50,12 +50,16 @@ async function walkInternal(
       visited.add(realPath);
       results.push(...await walkInternal(fullPath, visited));
     } else if (isFileEntry) {
-      // Track visited files by their real path to prevent duplicates
+      // Track visited files by their real path to prevent duplicates.
+      // Only resolve realpath for symlinks — for regular files fullPath
+      // is already unique within the walk, saving a syscall per file.
       let realPath: string = fullPath;
-      try {
-        realPath = await fs.promises.realpath(fullPath);
-      } catch {
-        // Skip if we can't resolve the real path
+      if (entry.isSymbolicLink()) {
+        try {
+          realPath = await fs.promises.realpath(fullPath);
+        } catch {
+          // Fall back to fullPath if realpath fails
+        }
       }
 
       if (!visited.has(realPath)) {

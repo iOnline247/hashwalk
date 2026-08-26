@@ -45,7 +45,13 @@ export async function writeCsv(
       csvEscape(row.Hash),
     ].join(',') + '\n';
 
-    stream.write(line);
+    const ok = stream.write(line);
+
+    if (!ok) {
+      await new Promise<void>((resolve) => {
+        stream.once('drain', () => resolve());
+      });
+    }
   }
 
   await new Promise<void>((resolve, reject) => {

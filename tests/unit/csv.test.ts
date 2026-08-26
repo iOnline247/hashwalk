@@ -215,4 +215,51 @@ describe('writeCsv - Unit Tests', () => {
       mock.restoreAll();
     }
   });
+
+  it('should await drain when stream.write() returns false (backpressure)', async () => {
+    // Mutant csv.ts L49: if (!ok) → if (ok) — the drain branch is never taken.
+    const { EventEmitter } = await import('node:events');
+
+    let writeCallCount = 0;
+    let drainEmitted = false;
+    const fakeStream = new EventEmitter() as ReturnType<
+      typeof fs.createWriteStream
+    >;
+    (fakeStream as unknown as Record<string, unknown>).write = (_chunk: string) => {
+      writeCallCount++;
+      // Return false on first data-row write to trigger backpressure path
+      if (writeCallCount === 2 && !drainEmitted) {
+        setImmediate(() => {
+          drainEmitted = true;
+          fakeStream.emit('drain');
+        });
+        return false;
+      }
+      return true;
+    };
+    (fakeStream as unknown as Record<string, unknown>).end = () => {
+      setImmediate(() => fakeStream.emit('finish'));
+    };
+
+    mock.method(fs, 'createWriteStream', () => fakeStream);
+
+    try {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'csv-drain-'));
+      const testFile1 = path.join(tmpDir, 'file1.txt');
+      const testFile2 = path.join(tmpDir, 'file2.txt');
+      const csvFile = path.join(tmpDir, 'output.csv');
+
+      try {
+        fs.writeFileSync(testFile1, 'content1');
+        fs.writeFileSync(testFile2, 'content2');
+
+        await writeCsv(csvFile, rows([testFile1, testFile2], tmpDir, 'sha256'));
+        assert.ok(drainEmitted, 'Drain event should have been emitted during backpressure');
+      } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+      }
+    } finally {
+      mock.restoreAll();
+    }
+  });
 });
