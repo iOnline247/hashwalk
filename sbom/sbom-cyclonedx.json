@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:66b16270-59fa-455f-b8b9-a9024fdacdbc",
+  "serialNumber": "urn:uuid:***",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-04-23T21:11:15.536Z",
+    "timestamp": "2026-08-26T00:10:20.285Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -15,27 +15,22 @@
       {
         "vendor": "npm",
         "name": "cli",
-        "version": "10.8.2"
+        "version": "11.6.2"
       }
     ],
     "component": {
-      "bom-ref": "hashwalk@1.5.0",
+      "bom-ref": "hashwalk@1.5.10",
       "type": "library",
       "name": "hashwalk",
-      "version": "1.5.0",
+      "version": "1.5.10",
       "scope": "required",
       "author": "Matthew Bramer",
-      "purl": "pkg:npm/hashwalk@1.5.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": ""
-        }
-      ],
+      "purl": "pkg:npm/hashwalk@1.5.10",
+      "properties": [],
       "externalReferences": [
         {
           "type": "vcs",
-          "url": "git+https://github.com/iOnline247/hashwalk.git"
+          "url": "https://github.com/iOnline247/hashwalk"
         },
         {
           "type": "website",
@@ -62,14 +57,10 @@
       "name": "@babel/code-frame",
       "version": "7.29.0",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Generate errors that contain a code frame that point to source locations.",
       "purl": "pkg:npm/%40babel/code-frame@7.29.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/code-frame"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -82,15 +73,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-code-frame"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen"
         }
       ],
       "hashes": [
@@ -113,14 +100,10 @@
       "name": "@babel/compat-data",
       "version": "7.29.0",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "The compat-data to determine required Babel plugins",
       "purl": "pkg:npm/%40babel/compat-data@7.29.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/compat-data"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -133,15 +116,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/babel/babel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
+          "url": "https://github.com/babel/babel.git"
         }
       ],
       "hashes": [
@@ -164,14 +139,10 @@
       "name": "@babel/core",
       "version": "7.29.0",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Babel compiler core.",
       "purl": "pkg:npm/%40babel/core@7.29.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/core"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -184,15 +155,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-core"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20core%22+is%3Aopen"
         }
       ],
       "hashes": [
@@ -220,10 +187,6 @@
       "purl": "pkg:npm/semver@6.3.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/core/node_modules/semver"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -235,15 +198,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/npm/node-semver.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/npm/node-semver#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/node-semver/issues"
+          "url": "https://github.com/npm/node-semver.git"
         }
       ],
       "hashes": [
@@ -266,14 +221,10 @@
       "name": "@babel/generator",
       "version": "7.29.1",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Turns an AST into code.",
       "purl": "pkg:npm/%40babel/generator@7.29.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/generator"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -286,15 +237,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-generator"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20generator%22+is%3Aopen"
         }
       ],
       "hashes": [
@@ -317,14 +264,10 @@
       "name": "@babel/helper-annotate-as-pure",
       "version": "7.27.3",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Helper function to annotate paths and nodes with #__PURE__ comment",
       "purl": "pkg:npm/%40babel/helper-annotate-as-pure@7.27.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-annotate-as-pure"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -337,15 +280,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-annotate-as-pure"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -368,14 +307,10 @@
       "name": "@babel/helper-compilation-targets",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Helper functions on Babel compilation targets",
       "purl": "pkg:npm/%40babel/helper-compilation-targets@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-compilation-targets"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -388,15 +323,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/babel/babel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
+          "url": "https://github.com/babel/babel.git"
         }
       ],
       "hashes": [
@@ -414,70 +341,15 @@
       ]
     },
     {
-      "bom-ref": "semver@6.3.1",
-      "type": "library",
-      "name": "semver",
-      "version": "6.3.1",
-      "scope": "optional",
-      "author": "GitHub Inc.",
-      "description": "The semantic version parser used by npm.",
-      "purl": "pkg:npm/semver@6.3.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-compilation-targets/node_modules/semver"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/node-semver.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/npm/node-semver#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/node-semver/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "051ed5bc30951cefaadb10445ac9314ba0c9135a919dbec3c7352ba206fbd425a849f89c07162c88019df8a9749a6abf329ac6f7202b464cab4314cee978cccc"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ]
-    },
-    {
       "bom-ref": "@babel/helper-create-class-features-plugin@7.28.6",
       "type": "library",
       "name": "@babel/helper-create-class-features-plugin",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Compile class public and private fields, private methods and decorators to ES6",
       "purl": "pkg:npm/%40babel/helper-create-class-features-plugin@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-create-class-features-plugin"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -490,15 +362,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/babel/babel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
+          "url": "https://github.com/babel/babel.git"
         }
       ],
       "hashes": [
@@ -516,70 +380,15 @@
       ]
     },
     {
-      "bom-ref": "semver@6.3.1",
-      "type": "library",
-      "name": "semver",
-      "version": "6.3.1",
-      "scope": "optional",
-      "author": "GitHub Inc.",
-      "description": "The semantic version parser used by npm.",
-      "purl": "pkg:npm/semver@6.3.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-create-class-features-plugin/node_modules/semver"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/node-semver.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/npm/node-semver#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/node-semver/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "051ed5bc30951cefaadb10445ac9314ba0c9135a919dbec3c7352ba206fbd425a849f89c07162c88019df8a9749a6abf329ac6f7202b464cab4314cee978cccc"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ]
-    },
-    {
       "bom-ref": "@babel/helper-globals@7.28.0",
       "type": "library",
       "name": "@babel/helper-globals",
       "version": "7.28.0",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "A collection of JavaScript globals for Babel internal usage",
       "purl": "pkg:npm/%40babel/helper-globals@7.28.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-globals"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -592,15 +401,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/babel/babel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
+          "url": "https://github.com/babel/babel.git"
         }
       ],
       "hashes": [
@@ -623,14 +424,10 @@
       "name": "@babel/helper-member-expression-to-functions",
       "version": "7.28.5",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Helper function to replace certain member expressions with function calls",
       "purl": "pkg:npm/%40babel/helper-member-expression-to-functions@7.28.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-member-expression-to-functions"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -643,15 +440,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-member-expression-to-functions"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -674,14 +467,10 @@
       "name": "@babel/helper-module-imports",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Babel helper functions for inserting module loads",
       "purl": "pkg:npm/%40babel/helper-module-imports@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-module-imports"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -694,15 +483,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-module-imports"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -725,14 +510,10 @@
       "name": "@babel/helper-module-transforms",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Babel helper functions for implementing ES6 module transformations",
       "purl": "pkg:npm/%40babel/helper-module-transforms@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-module-transforms"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -745,15 +526,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-module-transforms"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -776,14 +553,10 @@
       "name": "@babel/helper-optimise-call-expression",
       "version": "7.27.1",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Helper function to optimise call expression",
       "purl": "pkg:npm/%40babel/helper-optimise-call-expression@7.27.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-optimise-call-expression"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -796,15 +569,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-optimise-call-expression"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -827,14 +596,10 @@
       "name": "@babel/helper-plugin-utils",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "General utilities for plugins to use",
       "purl": "pkg:npm/%40babel/helper-plugin-utils@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-plugin-utils"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -847,15 +612,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-plugin-utils"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -878,14 +639,10 @@
       "name": "@babel/helper-replace-supers",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Helper function to replace supers",
       "purl": "pkg:npm/%40babel/helper-replace-supers@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-replace-supers"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -898,15 +655,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-replace-supers"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -929,14 +682,10 @@
       "name": "@babel/helper-skip-transparent-expression-wrappers",
       "version": "7.27.1",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Helper which skips types and parentheses",
       "purl": "pkg:npm/%40babel/helper-skip-transparent-expression-wrappers@7.27.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-skip-transparent-expression-wrappers"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -949,15 +698,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/babel/babel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
+          "url": "https://github.com/babel/babel.git"
         }
       ],
       "hashes": [
@@ -980,14 +721,10 @@
       "name": "@babel/helper-string-parser",
       "version": "7.27.1",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "A utility package to parse strings",
       "purl": "pkg:npm/%40babel/helper-string-parser@7.27.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-string-parser"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1000,15 +737,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helper-string-parser"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1031,14 +764,10 @@
       "name": "@babel/helper-validator-identifier",
       "version": "7.28.5",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Validate identifier/keywords name",
       "purl": "pkg:npm/%40babel/helper-validator-identifier@7.28.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-validator-identifier"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1051,15 +780,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/babel/babel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
+          "url": "https://github.com/babel/babel.git"
         }
       ],
       "hashes": [
@@ -1082,14 +803,10 @@
       "name": "@babel/helper-validator-option",
       "version": "7.27.1",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Validate plugin/preset options",
       "purl": "pkg:npm/%40babel/helper-validator-option@7.27.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helper-validator-option"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1102,15 +819,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/babel/babel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
+          "url": "https://github.com/babel/babel.git"
         }
       ],
       "hashes": [
@@ -1133,14 +842,10 @@
       "name": "@babel/helpers",
       "version": "7.29.2",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Collection of helper functions used by Babel transforms.",
       "purl": "pkg:npm/%40babel/helpers@7.29.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/helpers"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1153,15 +858,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-helpers"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1184,14 +885,10 @@
       "name": "@babel/parser",
       "version": "7.29.2",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "A JavaScript parser",
       "purl": "pkg:npm/%40babel/parser@7.29.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/parser"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1204,15 +901,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-parser"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A+parser+%28babylon%29%22+is%3Aopen"
         }
       ],
       "hashes": [
@@ -1235,14 +928,10 @@
       "name": "@babel/plugin-proposal-decorators",
       "version": "7.29.0",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Compile class and object decorators to ES5",
       "purl": "pkg:npm/%40babel/plugin-proposal-decorators@7.29.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-proposal-decorators"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1255,15 +944,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-proposal-decorators"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1286,14 +971,10 @@
       "name": "@babel/plugin-syntax-decorators",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Allow parsing of decorators",
       "purl": "pkg:npm/%40babel/plugin-syntax-decorators@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-syntax-decorators"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1306,15 +987,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-syntax-decorators"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1337,14 +1014,10 @@
       "name": "@babel/plugin-syntax-jsx",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Allow parsing of jsx",
       "purl": "pkg:npm/%40babel/plugin-syntax-jsx@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-syntax-jsx"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1357,15 +1030,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-syntax-jsx"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1388,14 +1057,10 @@
       "name": "@babel/plugin-syntax-typescript",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Allow parsing of TypeScript syntax",
       "purl": "pkg:npm/%40babel/plugin-syntax-typescript@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-syntax-typescript"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1408,15 +1073,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-syntax-typescript"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1439,14 +1100,10 @@
       "name": "@babel/plugin-transform-destructuring",
       "version": "7.28.5",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Compile ES2015 destructuring to ES5",
       "purl": "pkg:npm/%40babel/plugin-transform-destructuring@7.28.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-transform-destructuring"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1459,15 +1116,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-transform-destructuring"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1490,14 +1143,10 @@
       "name": "@babel/plugin-transform-explicit-resource-management",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Compile `using` and `await using` declarations to ES2015",
       "purl": "pkg:npm/%40babel/plugin-transform-explicit-resource-management@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-transform-explicit-resource-management"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1510,15 +1159,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-transform-explicit-resource-management"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1541,14 +1186,10 @@
       "name": "@babel/plugin-transform-modules-commonjs",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "This plugin transforms ES2015 modules to CommonJS",
       "purl": "pkg:npm/%40babel/plugin-transform-modules-commonjs@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-transform-modules-commonjs"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1561,15 +1202,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-transform-modules-commonjs"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1592,14 +1229,10 @@
       "name": "@babel/plugin-transform-typescript",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Transform TypeScript into ES.next",
       "purl": "pkg:npm/%40babel/plugin-transform-typescript@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/plugin-transform-typescript"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1612,15 +1245,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-plugin-transform-typescript"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues"
         }
       ],
       "hashes": [
@@ -1643,14 +1272,10 @@
       "name": "@babel/preset-typescript",
       "version": "7.28.5",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Babel preset for TypeScript.",
       "purl": "pkg:npm/%40babel/preset-typescript@7.28.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/preset-typescript"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1663,15 +1288,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-preset-typescript"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22area%3A%20typescript%22+is%3Aopen"
         }
       ],
       "hashes": [
@@ -1694,14 +1315,10 @@
       "name": "@babel/template",
       "version": "7.28.6",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Generate an AST from a string template.",
       "purl": "pkg:npm/%40babel/template@7.28.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/template"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1714,15 +1331,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-template"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20template%22+is%3Aopen"
         }
       ],
       "hashes": [
@@ -1745,14 +1358,10 @@
       "name": "@babel/traverse",
       "version": "7.29.0",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "The Babel Traverse module maintains the overall tree state, and is responsible for replacing, removing, and adding nodes",
       "purl": "pkg:npm/%40babel/traverse@7.29.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/traverse"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1765,15 +1374,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-traverse"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20traverse%22+is%3Aopen"
         }
       ],
       "hashes": [
@@ -1796,14 +1401,10 @@
       "name": "@babel/types",
       "version": "7.29.0",
       "scope": "optional",
-      "author": "The Babel Team",
+      "author": "The Babel Team (https://babel.dev/team)",
       "description": "Babel Types is a Lodash-esque utility library for AST nodes",
       "purl": "pkg:npm/%40babel/types@7.29.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@babel/types"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1816,15 +1417,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/babel/babel.git"
+          "url": "https://github.com/babel/babel.git"
         },
         {
           "type": "website",
           "url": "https://babel.dev/docs/en/next/babel-types"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20types%22+is%3Aopen"
         }
       ],
       "hashes": [
@@ -1847,13 +1444,9 @@
       "name": "@inquirer/ansi",
       "version": "2.0.5",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "purl": "pkg:npm/%40inquirer/ansi@2.0.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/ansi"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1866,15 +1459,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/ansi/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -1897,14 +1486,10 @@
       "name": "@inquirer/checkbox",
       "version": "5.1.4",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer checkbox prompt",
       "purl": "pkg:npm/%40inquirer/checkbox@5.1.4",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/checkbox"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1917,15 +1502,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/checkbox/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -1948,14 +1529,10 @@
       "name": "@inquirer/confirm",
       "version": "6.0.12",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer confirm prompt",
       "purl": "pkg:npm/%40inquirer/confirm@6.0.12",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/confirm"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1968,15 +1545,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/confirm/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -1999,14 +1572,10 @@
       "name": "@inquirer/core",
       "version": "11.1.9",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Core Inquirer prompt API",
       "purl": "pkg:npm/%40inquirer/core@11.1.9",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/core"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2019,15 +1588,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/core/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2050,14 +1615,10 @@
       "name": "@inquirer/editor",
       "version": "5.1.1",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer multiline editor prompt",
       "purl": "pkg:npm/%40inquirer/editor@5.1.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/editor"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2070,15 +1631,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/editor/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2101,14 +1658,10 @@
       "name": "@inquirer/expand",
       "version": "5.0.13",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer checkbox prompt",
       "purl": "pkg:npm/%40inquirer/expand@5.0.13",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/expand"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2121,15 +1674,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/expand/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2152,14 +1701,10 @@
       "name": "@inquirer/external-editor",
       "version": "3.0.0",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Edit a string with the users preferred text editor using $VISUAL or $ENVIRONMENT",
       "purl": "pkg:npm/%40inquirer/external-editor@3.0.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/external-editor"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2172,15 +1717,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/external-editor/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2203,14 +1744,10 @@
       "name": "@inquirer/figures",
       "version": "2.0.5",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Vendored version of figures, for CJS compatibility",
       "purl": "pkg:npm/%40inquirer/figures@2.0.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/figures"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2223,15 +1760,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/SBoudrias/Inquirer.js#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         }
       ],
       "hashes": [
@@ -2254,14 +1783,10 @@
       "name": "@inquirer/input",
       "version": "5.0.12",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer input text prompt",
       "purl": "pkg:npm/%40inquirer/input@5.0.12",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/input"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2274,15 +1799,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/input/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2305,14 +1826,10 @@
       "name": "@inquirer/number",
       "version": "4.0.12",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer number prompt",
       "purl": "pkg:npm/%40inquirer/number@4.0.12",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/number"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2325,15 +1842,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/number/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2356,14 +1869,10 @@
       "name": "@inquirer/password",
       "version": "5.0.12",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer password prompt",
       "purl": "pkg:npm/%40inquirer/password@5.0.12",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/password"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2376,15 +1885,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/password/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2407,14 +1912,10 @@
       "name": "@inquirer/prompts",
       "version": "8.4.2",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer prompts, combined in a single package",
       "purl": "pkg:npm/%40inquirer/prompts@8.4.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/prompts"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2427,15 +1928,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/prompts/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2458,14 +1955,10 @@
       "name": "@inquirer/rawlist",
       "version": "5.2.8",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer rawlist prompt",
       "purl": "pkg:npm/%40inquirer/rawlist@5.2.8",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/rawlist"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2478,15 +1971,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/rawlist/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2509,14 +1998,10 @@
       "name": "@inquirer/search",
       "version": "4.1.8",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer search prompt",
       "purl": "pkg:npm/%40inquirer/search@4.1.8",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/search"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2529,15 +2014,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/search/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2560,14 +2041,10 @@
       "name": "@inquirer/select",
       "version": "5.1.4",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer select/list prompt",
       "purl": "pkg:npm/%40inquirer/select@5.1.4",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/select"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2580,15 +2057,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         },
         {
           "type": "website",
           "url": "https://github.com/SBoudrias/Inquirer.js/blob/main/packages/select/README.md"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
         }
       ],
       "hashes": [
@@ -2611,14 +2084,10 @@
       "name": "@inquirer/type",
       "version": "4.0.5",
       "scope": "optional",
-      "author": "Simon Boudrias",
+      "author": "Simon Boudrias <admin@simonboudrias.com>",
       "description": "Inquirer core TS types",
       "purl": "pkg:npm/%40inquirer/type@4.0.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@inquirer/type"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2631,15 +2100,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/SBoudrias/Inquirer.js#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+          "url": "https://github.com/SBoudrias/Inquirer.js.git"
         }
       ],
       "hashes": [
@@ -2662,14 +2123,10 @@
       "name": "@jridgewell/gen-mapping",
       "version": "0.3.13",
       "scope": "optional",
-      "author": "Justin Ridgewell",
+      "author": "Justin Ridgewell <justin@ridgewell.name>",
       "description": "Generate source maps",
       "purl": "pkg:npm/%40jridgewell/gen-mapping@0.3.13",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/gen-mapping"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2687,10 +2144,6 @@
         {
           "type": "website",
           "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/gen-mapping"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/sourcemaps/issues"
         }
       ],
       "hashes": [
@@ -2713,14 +2166,10 @@
       "name": "@jridgewell/remapping",
       "version": "2.3.5",
       "scope": "optional",
-      "author": "Justin Ridgewell",
+      "author": "Justin Ridgewell <justin@ridgewell.name>",
       "description": "Remap sequential sourcemaps through transformations to point at the original source code",
       "purl": "pkg:npm/%40jridgewell/remapping@2.3.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/remapping"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2738,10 +2187,6 @@
         {
           "type": "website",
           "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/remapping"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/sourcemaps/issues"
         }
       ],
       "hashes": [
@@ -2764,14 +2209,10 @@
       "name": "@jridgewell/resolve-uri",
       "version": "3.1.2",
       "scope": "optional",
-      "author": "Justin Ridgewell",
+      "author": "Justin Ridgewell <justin@ridgewell.name>",
       "description": "Resolve a URI relative to an optional base URI",
       "purl": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/resolve-uri"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2781,18 +2222,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/jridgewell/resolve-uri.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/jridgewell/resolve-uri#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/resolve-uri/issues"
         }
       ],
       "hashes": [
@@ -2815,14 +2244,10 @@
       "name": "@jridgewell/sourcemap-codec",
       "version": "1.5.5",
       "scope": "optional",
-      "author": "Justin Ridgewell",
+      "author": "Justin Ridgewell <justin@ridgewell.name>",
       "description": "Encode/decode sourcemap mappings",
       "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/sourcemap-codec"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2840,10 +2265,6 @@
         {
           "type": "website",
           "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/sourcemaps/issues"
         }
       ],
       "hashes": [
@@ -2866,14 +2287,10 @@
       "name": "@jridgewell/trace-mapping",
       "version": "0.3.31",
       "scope": "optional",
-      "author": "Justin Ridgewell",
+      "author": "Justin Ridgewell <justin@ridgewell.name>",
       "description": "Trace the original position through a source map",
       "purl": "pkg:npm/%40jridgewell/trace-mapping@0.3.31",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/trace-mapping"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2891,10 +2308,6 @@
         {
           "type": "website",
           "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/trace-mapping"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/sourcemaps/issues"
         }
       ],
       "hashes": [
@@ -2921,10 +2334,6 @@
       "description": "A tiny, zero-dependency yet spec-compliant asynchronous iterator polyfill/ponyfill for ReadableStreams.",
       "purl": "pkg:npm/%40sec-ant/readable-stream@0.4.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@sec-ant/readable-stream"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -2973,10 +2382,6 @@
       "purl": "pkg:npm/%40sindresorhus/merge-streams@4.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@sindresorhus/merge-streams"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -2985,18 +2390,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/@sindresorhus/merge-streams/-/merge-streams-4.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/merge-streams.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/merge-streams#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/merge-streams/issues"
         }
       ],
       "hashes": [
@@ -3022,10 +2415,6 @@
       "description": "The api for the extendable JavaScript mutation testing framework Stryker",
       "purl": "pkg:npm/%40stryker-mutator/api@9.6.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@stryker-mutator/api"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3074,10 +2463,6 @@
       "purl": "pkg:npm/%40stryker-mutator/core@9.6.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@stryker-mutator/core"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3120,14 +2505,10 @@
       "name": "@stryker-mutator/instrumenter",
       "version": "9.6.1",
       "scope": "optional",
-      "author": "Nico Jansen",
+      "author": "Nico Jansen <jansennico@gmail.com>",
       "description": "The code instrumenter used in Stryker, the JavaScript mutation testing framework",
       "purl": "pkg:npm/%40stryker-mutator/instrumenter@9.6.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@stryker-mutator/instrumenter"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3175,10 +2556,6 @@
       "purl": "pkg:npm/%40stryker-mutator/tap-runner@9.6.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@stryker-mutator/tap-runner"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3221,14 +2598,10 @@
       "name": "@stryker-mutator/typescript-checker",
       "version": "9.6.1",
       "scope": "optional",
-      "author": "Nico Jansen",
+      "author": "Nico Jansen <jansennico@gmail.com>",
       "description": "A typescript type checker plugin to be used in Stryker, the JavaScript mutation testing framework",
       "purl": "pkg:npm/%40stryker-mutator/typescript-checker@9.6.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@stryker-mutator/typescript-checker"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3272,14 +2645,10 @@
       "name": "@stryker-mutator/util",
       "version": "9.6.1",
       "scope": "optional",
-      "author": "Nico Jansen",
+      "author": "Nico Jansen <jansennico@gmail.com>",
       "description": "Contains utilities for Stryker, the mutation testing framework for JavaScript and friends",
       "purl": "pkg:npm/%40stryker-mutator/util@9.6.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@stryker-mutator/util"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3327,10 +2696,6 @@
       "purl": "pkg:npm/%40types/node@25.0.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@types/node"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3342,15 +2707,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
         },
         {
           "type": "website",
           "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
         }
       ],
       "hashes": [
@@ -3378,10 +2739,6 @@
       "purl": "pkg:npm/ajv@8.18.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/ajv"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3392,16 +2749,8 @@
           "url": "https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz"
         },
         {
-          "type": "vcs",
-          "url": "git+https://github.com/ajv-validator/ajv.git"
-        },
-        {
           "type": "website",
           "url": "https://ajv.js.org"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/ajv-validator/ajv/issues"
         }
       ],
       "hashes": [
@@ -3429,10 +2778,6 @@
       "purl": "pkg:npm/angular-html-parser@10.4.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/angular-html-parser"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3443,16 +2788,8 @@
           "url": "https://registry.npmjs.org/angular-html-parser/-/angular-html-parser-10.4.0.tgz"
         },
         {
-          "type": "vcs",
-          "url": "git+https://github.com/prettier/angular-html-parser.git"
-        },
-        {
           "type": "website",
           "url": "https://github.com/prettier/angular-html-parser/blob/HEAD/packages/angular-html-parser#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/prettier/angular-html-parser/issues"
         }
       ],
       "hashes": [
@@ -3479,10 +2816,6 @@
       "purl": "pkg:npm/balanced-match@4.0.4",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/balanced-match"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3495,14 +2828,6 @@
         {
           "type": "vcs",
           "url": "git://github.com/juliangruber/balanced-match.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/juliangruber/balanced-match#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/juliangruber/balanced-match/issues"
         }
       ],
       "hashes": [
@@ -3529,10 +2854,6 @@
       "purl": "pkg:npm/baseline-browser-mapping@2.10.21",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/baseline-browser-mapping"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3545,14 +2866,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/web-platform-dx/baseline-browser-mapping.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/web-platform-dx/baseline-browser-mapping#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/web-platform-dx/baseline-browser-mapping/issues"
         }
       ],
       "hashes": [
@@ -3579,10 +2892,6 @@
       "purl": "pkg:npm/brace-expansion@5.0.5",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/brace-expansion"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3595,14 +2904,6 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/juliangruber/brace-expansion.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/juliangruber/brace-expansion#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/juliangruber/brace-expansion/issues"
         }
       ],
       "hashes": [
@@ -3625,14 +2926,10 @@
       "name": "browserslist",
       "version": "4.28.2",
       "scope": "optional",
-      "author": "Andrey Sitnik",
+      "author": "Andrey Sitnik <andrey@sitnik.es>",
       "description": "Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-env-preset",
       "purl": "pkg:npm/browserslist@4.28.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/browserslist"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3642,18 +2939,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/browserslist/-/browserslist-4.28.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/browserslist/browserslist.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/browserslist/browserslist#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/browserslist/browserslist/issues"
         }
       ],
       "hashes": [
@@ -3676,14 +2961,10 @@
       "name": "call-bind-apply-helpers",
       "version": "1.0.2",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Helper functions around Function call/apply/bind, for use in `call-bind`",
       "purl": "pkg:npm/call-bind-apply-helpers@1.0.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/call-bind-apply-helpers"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3727,14 +3008,10 @@
       "name": "call-bound",
       "version": "1.0.4",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Robust call-bound JavaScript intrinsics, using `call-bind` and `get-intrinsic`.",
       "purl": "pkg:npm/call-bound@1.0.4",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/call-bound"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3783,10 +3060,6 @@
       "purl": "pkg:npm/caniuse-lite@1.0.30001790",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/caniuse-lite"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3795,18 +3068,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001790.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/browserslist/caniuse-lite.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/browserslist/caniuse-lite#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/browserslist/caniuse-lite/issues"
         }
       ],
       "hashes": [
@@ -3833,10 +3094,6 @@
       "purl": "pkg:npm/chalk@5.6.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/chalk"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -3845,18 +3102,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/chalk/-/chalk-5.6.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/chalk.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/chalk#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/chalk/issues"
         }
       ],
       "hashes": [
@@ -3879,14 +3124,10 @@
       "name": "chardet",
       "version": "2.1.1",
       "scope": "optional",
-      "author": "Dmitry Shirokov",
+      "author": "Dmitry Shirokov <deadrunk@gmail.com>",
       "description": "Character encoding detector",
       "purl": "pkg:npm/chardet@2.1.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/chardet"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3899,7 +3140,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/runk/node-chardet.git"
+          "url": "https://github.com/runk/node-chardet.git"
         },
         {
           "type": "website",
@@ -3930,14 +3171,10 @@
       "name": "cli-width",
       "version": "4.1.0",
       "scope": "optional",
-      "author": "Ilya Radchenko",
+      "author": "Ilya Radchenko <knownasilya@gmail.com>",
       "description": "Get stdout window width, with two fallbacks, tty and then a default.",
       "purl": "pkg:npm/cli-width@4.1.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/cli-width"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -3950,7 +3187,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/knownasilya/cli-width.git"
+          "url": "git@github.com:knownasilya/cli-width.git"
         },
         {
           "type": "website",
@@ -3981,14 +3218,10 @@
       "name": "commander",
       "version": "14.0.3",
       "scope": "optional",
-      "author": "TJ Holowaychuk",
+      "author": "TJ Holowaychuk <tj@vision-media.ca>",
       "description": "the complete solution for node.js command-line programs",
       "purl": "pkg:npm/commander@14.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/commander"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4002,14 +3235,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/tj/commander.js.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/tj/commander.js#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/tj/commander.js/issues"
         }
       ],
       "hashes": [
@@ -4037,10 +3262,6 @@
       "purl": "pkg:npm/convert-source-map@2.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/convert-source-map"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4057,10 +3278,6 @@
         {
           "type": "website",
           "url": "https://github.com/thlorenz/convert-source-map"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/thlorenz/convert-source-map/issues"
         }
       ],
       "hashes": [
@@ -4083,14 +3300,10 @@
       "name": "cross-spawn",
       "version": "7.0.6",
       "scope": "optional",
-      "author": "André Cruz",
+      "author": "André Cruz <andre@moxy.studio>",
       "description": "Cross platform child_process#spawn and child_process#spawnSync",
       "purl": "pkg:npm/cross-spawn@7.0.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/cross-spawn"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4103,15 +3316,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/moxystudio/node-cross-spawn.git"
+          "url": "git@github.com:moxystudio/node-cross-spawn.git"
         },
         {
           "type": "website",
           "url": "https://github.com/moxystudio/node-cross-spawn"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/moxystudio/node-cross-spawn/issues"
         }
       ],
       "hashes": [
@@ -4134,14 +3343,10 @@
       "name": "debug",
       "version": "4.4.3",
       "scope": "optional",
-      "author": "Josh Junon",
+      "author": "Josh Junon (https://github.com/qix-)",
       "description": "Lightweight debugging utility for Node.js and the browser",
       "purl": "pkg:npm/debug@4.4.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/debug"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4155,14 +3360,6 @@
         {
           "type": "vcs",
           "url": "git://github.com/debug-js/debug.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/debug-js/debug#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/debug-js/debug/issues"
         }
       ],
       "hashes": [
@@ -4185,14 +3382,10 @@
       "name": "des.js",
       "version": "1.1.0",
       "scope": "optional",
-      "author": "Fedor Indutny",
+      "author": "Fedor Indutny <fedor@indutny.com>",
       "description": "DES implementation",
       "purl": "pkg:npm/des.js@1.1.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/des.js"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4240,10 +3433,6 @@
       "purl": "pkg:npm/diff-match-patch@1.0.5",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/diff-match-patch"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4255,15 +3444,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/JackuB/diff-match-patch.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/JackuB/diff-match-patch#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/JackuB/diff-match-patch/issues"
+          "url": "https://github.com/JackuB/diff-match-patch.git"
         }
       ],
       "hashes": [
@@ -4286,14 +3467,10 @@
       "name": "dunder-proto",
       "version": "1.0.1",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "If available, the `Object.prototype.__proto__` accessor and mutator, call-bound",
       "purl": "pkg:npm/dunder-proto@1.0.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/dunder-proto"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4342,10 +3519,6 @@
       "purl": "pkg:npm/electron-to-chromium@1.5.344",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/electron-to-chromium"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4358,14 +3531,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/Kilian/electron-to-chromium.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/Kilian/electron-to-chromium#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/Kilian/electron-to-chromium/issues"
         }
       ],
       "hashes": [
@@ -4393,10 +3558,6 @@
       "purl": "pkg:npm/emoji-regex@10.6.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/emoji-regex"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4408,15 +3569,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/mathiasbynens/emoji-regex.git"
+          "url": "https://github.com/mathiasbynens/emoji-regex.git"
         },
         {
           "type": "website",
           "url": "https://mths.be/emoji-regex"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mathiasbynens/emoji-regex/issues"
         }
       ],
       "hashes": [
@@ -4439,14 +3596,10 @@
       "name": "es-define-property",
       "version": "1.0.1",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "`Object.defineProperty`, but not IE 8's broken one.",
       "purl": "pkg:npm/es-define-property@1.0.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/es-define-property"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4490,14 +3643,10 @@
       "name": "es-errors",
       "version": "1.3.0",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "A simple cache for a few of the JS Error constructors.",
       "purl": "pkg:npm/es-errors@1.3.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/es-errors"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4541,14 +3690,10 @@
       "name": "es-object-atoms",
       "version": "1.1.1",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "ES Object-related atoms: Object, ToObject, RequireObjectCoercible",
       "purl": "pkg:npm/es-object-atoms@1.1.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/es-object-atoms"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4597,10 +3742,6 @@
       "purl": "pkg:npm/escalade@3.2.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/escalade"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4609,18 +3750,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lukeed/escalade.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/lukeed/escalade#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lukeed/escalade/issues"
         }
       ],
       "hashes": [
@@ -4643,14 +3772,10 @@
       "name": "events-to-array",
       "version": "2.0.3",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
       "description": "Put a bunch of emitted events in an array, for testing.",
       "purl": "pkg:npm/events-to-array@2.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/events-to-array"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4663,7 +3788,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/isaacs/events-to-array.git"
+          "url": "https://github.com/isaacs/events-to-array"
         },
         {
           "type": "website",
@@ -4699,10 +3824,6 @@
       "purl": "pkg:npm/execa@9.6.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/execa"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4711,18 +3832,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/execa/-/execa-9.6.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/execa.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/execa#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/execa/issues"
         }
       ],
       "hashes": [
@@ -4749,10 +3858,6 @@
       "description": "Fast deep equal",
       "purl": "pkg:npm/fast-deep-equal@3.1.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/fast-deep-equal"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4800,10 +3905,6 @@
       "purl": "pkg:npm/fast-string-truncated-width@3.0.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/fast-string-truncated-width"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4812,18 +3913,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/fast-string-truncated-width/-/fast-string-truncated-width-3.0.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/fabiospampinato/fast-string-truncated-width.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/fabiospampinato/fast-string-truncated-width#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/fabiospampinato/fast-string-truncated-width/issues"
         }
       ],
       "hashes": [
@@ -4850,10 +3939,6 @@
       "purl": "pkg:npm/fast-string-width@3.0.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/fast-string-width"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -4862,18 +3947,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/fast-string-width/-/fast-string-width-3.0.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/fabiospampinato/fast-string-width.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/fabiospampinato/fast-string-width#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/fabiospampinato/fast-string-width/issues"
         }
       ],
       "hashes": [
@@ -4896,14 +3969,10 @@
       "name": "fast-uri",
       "version": "3.1.0",
       "scope": "optional",
-      "author": "Vincent Le Goff",
+      "author": "Vincent Le Goff <vince.legoff@gmail.com> (https://github.com/zekth)",
       "description": "Dependency-free RFC 3986 URI toolbox",
       "purl": "pkg:npm/fast-uri@3.1.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/fast-uri"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -4947,14 +4016,10 @@
       "name": "fast-wrap-ansi",
       "version": "0.2.0",
       "scope": "optional",
-      "author": "James Garbutt",
+      "author": "James Garbutt (https://github.com/43081j)",
       "description": "A tiny and fast text wrap library which takes ANSI escapes into account.",
       "purl": "pkg:npm/fast-wrap-ansi@0.2.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/fast-wrap-ansi"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5003,10 +4068,6 @@
       "purl": "pkg:npm/figures@6.1.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/figures"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5015,18 +4076,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/figures/-/figures-6.1.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/figures.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/figures#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/figures/issues"
         }
       ],
       "hashes": [
@@ -5049,14 +4098,10 @@
       "name": "function-bind",
       "version": "1.1.2",
       "scope": "optional",
-      "author": "Raynos",
+      "author": "Raynos <raynos2@gmail.com>",
       "description": "Implementation of Function.prototype.bind",
       "purl": "pkg:npm/function-bind@1.1.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/function-bind"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5069,7 +4114,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/Raynos/function-bind.git"
+          "url": "https://github.com/Raynos/function-bind.git"
         },
         {
           "type": "website",
@@ -5100,14 +4145,10 @@
       "name": "gensync",
       "version": "1.0.0-beta.2",
       "scope": "optional",
-      "author": "Logan Smyth",
+      "author": "Logan Smyth <loganfsmyth@gmail.com>",
       "description": "Allows users to use generators in order to write common functions that can be both sync or async.",
       "purl": "pkg:npm/gensync@1.0.0-beta.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/gensync"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5120,15 +4161,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/loganfsmyth/gensync.git"
+          "url": "https://github.com/loganfsmyth/gensync.git"
         },
         {
           "type": "website",
           "url": "https://github.com/loganfsmyth/gensync"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/loganfsmyth/gensync/issues"
         }
       ],
       "hashes": [
@@ -5151,14 +4188,10 @@
       "name": "get-intrinsic",
       "version": "1.3.0",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Get and robustly cache all JS language-level intrinsics at first require time",
       "purl": "pkg:npm/get-intrinsic@1.3.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/get-intrinsic"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5202,14 +4235,10 @@
       "name": "get-proto",
       "version": "1.0.1",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Robustly get the [[Prototype]] of an object",
       "purl": "pkg:npm/get-proto@1.0.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/get-proto"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5258,10 +4287,6 @@
       "purl": "pkg:npm/get-stream@9.0.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/get-stream"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5270,18 +4295,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/get-stream/-/get-stream-9.0.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/get-stream.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/get-stream#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/get-stream/issues"
         }
       ],
       "hashes": [
@@ -5304,14 +4317,10 @@
       "name": "glob",
       "version": "13.0.6",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me/)",
       "description": "the most correct and second fastest glob implementation in JavaScript",
       "purl": "pkg:npm/glob@13.0.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/glob"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5324,15 +4333,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/isaacs/node-glob.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-glob#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-glob/issues"
+          "url": "git@github.com:isaacs/node-glob.git"
         }
       ],
       "hashes": [
@@ -5355,14 +4356,10 @@
       "name": "gopd",
       "version": "1.2.0",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "`Object.getOwnPropertyDescriptor`, but accounts for IE's broken implementation.",
       "purl": "pkg:npm/gopd@1.2.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/gopd"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5411,10 +4408,6 @@
       "purl": "pkg:npm/has-symbols@1.1.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/has-symbols"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5457,14 +4450,10 @@
       "name": "hasown",
       "version": "2.0.3",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "A robust, ES3 compatible, \"has own property\" predicate.",
       "purl": "pkg:npm/hasown@2.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/hasown"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5508,14 +4497,10 @@
       "name": "human-signals",
       "version": "8.0.1",
       "scope": "optional",
-      "author": "ehmicky",
+      "author": "ehmicky <ehmicky@gmail.com> (https://github.com/ehmicky)",
       "description": "Human-friendly process signals",
       "purl": "pkg:npm/human-signals@8.0.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/human-signals"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5564,10 +4549,6 @@
       "purl": "pkg:npm/husky@9.1.7",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/husky"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5580,14 +4561,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/typicode/husky.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/typicode/husky#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/typicode/husky/issues"
         }
       ],
       "hashes": [
@@ -5610,14 +4583,10 @@
       "name": "iconv-lite",
       "version": "0.7.2",
       "scope": "optional",
-      "author": "Alexander Shtuchkin",
+      "author": "Alexander Shtuchkin <ashtuchkin@gmail.com>",
       "description": "Convert character encodings in pure javascript.",
       "purl": "pkg:npm/iconv-lite@0.7.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/iconv-lite"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5630,15 +4599,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/pillarjs/iconv-lite.git"
+          "url": "https://github.com/pillarjs/iconv-lite.git"
         },
         {
           "type": "website",
           "url": "https://github.com/pillarjs/iconv-lite"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pillarjs/iconv-lite/issues"
         }
       ],
       "hashes": [
@@ -5665,10 +4630,6 @@
       "purl": "pkg:npm/inherits@2.0.4",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/inherits"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5677,18 +4638,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/inherits.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/inherits#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/inherits/issues"
         }
       ],
       "hashes": [
@@ -5716,10 +4665,6 @@
       "purl": "pkg:npm/is-plain-obj@4.1.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/is-plain-obj"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5728,18 +4673,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-4.1.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/is-plain-obj.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/is-plain-obj#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/is-plain-obj/issues"
         }
       ],
       "hashes": [
@@ -5767,10 +4700,6 @@
       "purl": "pkg:npm/is-stream@4.0.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/is-stream"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5779,18 +4708,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/is-stream/-/is-stream-4.0.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/is-stream.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/is-stream#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/is-stream/issues"
         }
       ],
       "hashes": [
@@ -5818,10 +4735,6 @@
       "purl": "pkg:npm/is-unicode-supported@2.1.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/is-unicode-supported"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5830,18 +4743,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/is-unicode-supported/-/is-unicode-supported-2.1.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/is-unicode-supported.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/is-unicode-supported#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/is-unicode-supported/issues"
         }
       ],
       "hashes": [
@@ -5864,14 +4765,10 @@
       "name": "isexe",
       "version": "2.0.0",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
       "description": "Minimal module to check if a file is executable.",
       "purl": "pkg:npm/isexe@2.0.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/isexe"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5915,14 +4812,10 @@
       "name": "js-md4",
       "version": "0.3.2",
       "scope": "optional",
-      "author": "Chen, Yi-Cyuan",
+      "author": "Chen, Yi-Cyuan <emn178@gmail.com>",
       "description": "A simple MD4 hash function for JavaScript supports UTF-8 encoding.",
       "purl": "pkg:npm/js-md4@0.3.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/js-md4"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -5935,7 +4828,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/emn178/js-md4.git"
+          "url": "https://github.com/emn178/js-md4.git"
         },
         {
           "type": "website",
@@ -5971,10 +4864,6 @@
       "purl": "pkg:npm/js-tokens@4.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/js-tokens"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -5983,18 +4872,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lydell/js-tokens.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/lydell/js-tokens#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lydell/js-tokens/issues"
         }
       ],
       "hashes": [
@@ -6022,10 +4899,6 @@
       "purl": "pkg:npm/jsesc@3.1.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/jsesc"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6037,15 +4910,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/mathiasbynens/jsesc.git"
+          "url": "https://github.com/mathiasbynens/jsesc.git"
         },
         {
           "type": "website",
           "url": "https://mths.be/jsesc"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mathiasbynens/jsesc/issues"
         }
       ],
       "hashes": [
@@ -6072,10 +4941,6 @@
       "description": "JSON-RPC 2.0 client and server",
       "purl": "pkg:npm/json-rpc-2.0@1.7.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/json-rpc-2.0"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6124,10 +4989,6 @@
       "purl": "pkg:npm/json-schema-traverse@1.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/json-schema-traverse"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6170,14 +5031,10 @@
       "name": "json5",
       "version": "2.2.3",
       "scope": "optional",
-      "author": "Aseem Kishore",
+      "author": "Aseem Kishore <aseem.kishore@gmail.com>",
       "description": "JSON for Humans",
       "purl": "pkg:npm/json5@2.2.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/json5"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6221,14 +5078,10 @@
       "name": "lodash.groupby",
       "version": "4.6.0",
       "scope": "optional",
-      "author": "John-David Dalton",
+      "author": "John-David Dalton <john.david.dalton@gmail.com> (http://allyoucanleet.com/)",
       "description": "The lodash method `_.groupBy` exported as a module.",
       "purl": "pkg:npm/lodash.groupby@4.6.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/lodash.groupby"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6240,16 +5093,8 @@
           "url": "https://registry.npmjs.org/lodash.groupby/-/lodash.groupby-4.6.0.tgz"
         },
         {
-          "type": "vcs",
-          "url": "git+https://github.com/lodash/lodash.git"
-        },
-        {
           "type": "website",
           "url": "https://lodash.com/"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lodash/lodash/issues"
         }
       ],
       "hashes": [
@@ -6272,14 +5117,10 @@
       "name": "lru-cache",
       "version": "5.1.1",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me>",
       "description": "A cache object that deletes the least-recently-used items.",
       "purl": "pkg:npm/lru-cache@5.1.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/lru-cache"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6289,18 +5130,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/lru-cache/-/lru-cache-5.1.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/node-lru-cache.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-lru-cache#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-lru-cache/issues"
         }
       ],
       "hashes": [
@@ -6323,14 +5152,10 @@
       "name": "math-intrinsics",
       "version": "1.1.0",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "ES Math-related intrinsics and helpers, robustly cached.",
       "purl": "pkg:npm/math-intrinsics@1.1.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/math-intrinsics"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6378,10 +5203,6 @@
       "purl": "pkg:npm/minimalistic-assert@1.0.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/minimalistic-assert"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6393,7 +5214,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/calvinmetcalf/minimalistic-assert.git"
+          "url": "https://github.com/calvinmetcalf/minimalistic-assert.git"
         },
         {
           "type": "website",
@@ -6424,14 +5245,10 @@
       "name": "minimatch",
       "version": "10.2.5",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
       "description": "a glob matcher in javascript",
       "purl": "pkg:npm/minimatch@10.2.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/minimatch"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6444,15 +5261,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/isaacs/minimatch.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/minimatch#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/minimatch/issues"
+          "url": "git@github.com:isaacs/minimatch"
         }
       ],
       "hashes": [
@@ -6475,14 +5284,10 @@
       "name": "minipass",
       "version": "7.1.3",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
       "description": "minimal implementation of a PassThrough stream",
       "purl": "pkg:npm/minipass@7.1.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/minipass"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6492,18 +5297,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/minipass/-/minipass-7.1.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/minipass.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/minipass#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/minipass/issues"
         }
       ],
       "hashes": [
@@ -6530,10 +5323,6 @@
       "purl": "pkg:npm/ms@2.1.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/ms"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6542,18 +5331,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/vercel/ms.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/vercel/ms#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/vercel/ms/issues"
         }
       ],
       "hashes": [
@@ -6580,10 +5357,6 @@
       "description": "Schema validation for the mutation server protocol (MSP).",
       "purl": "pkg:npm/mutation-server-protocol@0.4.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/mutation-server-protocol"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6631,10 +5404,6 @@
       "purl": "pkg:npm/mutation-testing-elements@3.7.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/mutation-testing-elements"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6681,10 +5450,6 @@
       "purl": "pkg:npm/mutation-testing-metrics@3.7.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/mutation-testing-metrics"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6730,10 +5495,6 @@
       "description": "The json schema for a mutation testing report.",
       "purl": "pkg:npm/mutation-testing-report-schema@3.7.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/mutation-testing-report-schema"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6782,10 +5543,6 @@
       "purl": "pkg:npm/mute-stream@3.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/mute-stream"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6798,14 +5555,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/npm/mute-stream.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/npm/mute-stream#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/mute-stream/issues"
         }
       ],
       "hashes": [
@@ -6828,14 +5577,10 @@
       "name": "node-releases",
       "version": "2.0.38",
       "scope": "optional",
-      "author": "Sergey Rubanov",
+      "author": "Sergey Rubanov <chi187@gmail.com>",
       "description": "Node.js releases data",
       "purl": "pkg:npm/node-releases@2.0.38",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/node-releases"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -6849,14 +5594,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/chicoxyzzy/node-releases.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/chicoxyzzy/node-releases#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chicoxyzzy/node-releases/issues"
         }
       ],
       "hashes": [
@@ -6884,10 +5621,6 @@
       "purl": "pkg:npm/npm-run-path@6.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/npm-run-path"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6896,18 +5629,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/npm-run-path/-/npm-run-path-6.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/npm-run-path.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/npm-run-path#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/npm-run-path/issues"
         }
       ],
       "hashes": [
@@ -6935,10 +5656,6 @@
       "purl": "pkg:npm/path-key@4.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/npm-run-path/node_modules/path-key"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -6947,18 +5664,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/path-key/-/path-key-4.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/path-key.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/path-key#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/path-key/issues"
         }
       ],
       "hashes": [
@@ -6986,10 +5691,6 @@
       "purl": "pkg:npm/object-inspect@1.13.4",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/object-inspect"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7006,10 +5707,6 @@
         {
           "type": "website",
           "url": "https://github.com/inspect-js/object-inspect"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/inspect-js/object-inspect/issues"
         }
       ],
       "hashes": [
@@ -7037,10 +5734,6 @@
       "purl": "pkg:npm/parse-ms@4.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/parse-ms"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7049,18 +5742,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/parse-ms/-/parse-ms-4.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/parse-ms.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/parse-ms#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/parse-ms/issues"
         }
       ],
       "hashes": [
@@ -7088,10 +5769,6 @@
       "purl": "pkg:npm/path-key@3.1.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/path-key"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7100,18 +5777,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/path-key.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/path-key#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/path-key/issues"
         }
       ],
       "hashes": [
@@ -7134,14 +5799,10 @@
       "name": "path-scurry",
       "version": "2.0.2",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
       "description": "walk paths fast and efficiently",
       "purl": "pkg:npm/path-scurry@2.0.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/path-scurry"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7154,15 +5815,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/isaacs/path-scurry.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/path-scurry#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/path-scurry/issues"
+          "url": "git+https://github.com/isaacs/path-scurry"
         }
       ],
       "hashes": [
@@ -7185,14 +5838,10 @@
       "name": "lru-cache",
       "version": "11.3.5",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me>",
       "description": "A cache object that deletes the least-recently-used items.",
       "purl": "pkg:npm/lru-cache@11.3.5",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/path-scurry/node_modules/lru-cache"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7206,14 +5855,6 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/isaacs/node-lru-cache.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-lru-cache#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-lru-cache/issues"
         }
       ],
       "hashes": [
@@ -7241,10 +5882,6 @@
       "purl": "pkg:npm/picocolors@1.1.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/picocolors"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7253,18 +5890,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/alexeyraspopov/picocolors.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/alexeyraspopov/picocolors#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/alexeyraspopov/picocolors/issues"
         }
       ],
       "hashes": [
@@ -7292,10 +5917,6 @@
       "purl": "pkg:npm/pretty-ms@9.3.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/pretty-ms"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7304,18 +5925,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/pretty-ms/-/pretty-ms-9.3.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/pretty-ms.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/pretty-ms#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/pretty-ms/issues"
         }
       ],
       "hashes": [
@@ -7338,14 +5947,10 @@
       "name": "progress",
       "version": "2.0.3",
       "scope": "optional",
-      "author": "TJ Holowaychuk",
+      "author": "TJ Holowaychuk <tj@vision-media.ca>",
       "description": "Flexible ascii progress bar",
       "purl": "pkg:npm/progress@2.0.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/progress"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7358,15 +5963,7 @@
         },
         {
           "type": "vcs",
-          "url": "git://github.com/visionmedia/node-progress.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/visionmedia/node-progress#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/visionmedia/node-progress/issues"
+          "url": "git://github.com/visionmedia/node-progress"
         }
       ],
       "hashes": [
@@ -7393,10 +5990,6 @@
       "purl": "pkg:npm/qs@6.15.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/qs"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7408,15 +6001,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/ljharb/qs.git"
+          "url": "https://github.com/ljharb/qs.git"
         },
         {
           "type": "website",
           "url": "https://github.com/ljharb/qs"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/ljharb/qs/issues"
         }
       ],
       "hashes": [
@@ -7444,10 +6033,6 @@
       "purl": "pkg:npm/require-from-string@2.0.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/require-from-string"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7456,18 +6041,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/floatdrop/require-from-string.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/floatdrop/require-from-string#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/floatdrop/require-from-string/issues"
         }
       ],
       "hashes": [
@@ -7490,14 +6063,10 @@
       "name": "rxjs",
       "version": "7.8.2",
       "scope": "optional",
-      "author": "Ben Lesh",
+      "author": "Ben Lesh <ben@benlesh.com>",
       "description": "Reactive Extensions for modern JavaScript",
       "purl": "pkg:npm/rxjs@7.8.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/rxjs"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7510,7 +6079,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/reactivex/rxjs.git"
+          "url": "https://github.com/reactivex/rxjs.git"
         },
         {
           "type": "website",
@@ -7546,10 +6115,6 @@
       "purl": "pkg:npm/safer-buffer@2.1.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/safer-buffer"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7562,10 +6127,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/ChALkeR/safer-buffer.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/ChALkeR/safer-buffer#readme"
         },
         {
           "type": "issue-tracker",
@@ -7597,10 +6158,6 @@
       "purl": "pkg:npm/semver@7.7.4",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/semver"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7613,14 +6170,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/npm/node-semver.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/npm/node-semver#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/node-semver/issues"
         }
       ],
       "hashes": [
@@ -7648,10 +6197,6 @@
       "purl": "pkg:npm/shebang-command@2.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/shebang-command"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7660,18 +6205,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/kevva/shebang-command.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/kevva/shebang-command#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/kevva/shebang-command/issues"
         }
       ],
       "hashes": [
@@ -7699,10 +6232,6 @@
       "purl": "pkg:npm/shebang-regex@3.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/shebang-regex"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -7711,18 +6240,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/shebang-regex.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/shebang-regex#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/shebang-regex/issues"
         }
       ],
       "hashes": [
@@ -7745,14 +6262,10 @@
       "name": "side-channel",
       "version": "1.1.0",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Store information about any JS value in a side channel. Uses WeakMap if available.",
       "purl": "pkg:npm/side-channel@1.1.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/side-channel"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7796,14 +6309,10 @@
       "name": "side-channel-list",
       "version": "1.0.1",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Store information about any JS value in a side channel, using a linked list",
       "purl": "pkg:npm/side-channel-list@1.0.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/side-channel-list"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7847,14 +6356,10 @@
       "name": "side-channel-map",
       "version": "1.0.1",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Store information about any JS value in a side channel, using a Map",
       "purl": "pkg:npm/side-channel-map@1.0.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/side-channel-map"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7898,14 +6403,10 @@
       "name": "side-channel-weakmap",
       "version": "1.0.2",
       "scope": "optional",
-      "author": "Jordan Harband",
+      "author": "Jordan Harband <ljharb@gmail.com>",
       "description": "Store information about any JS value in a side channel. Uses WeakMap if available.",
       "purl": "pkg:npm/side-channel-weakmap@1.0.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/side-channel-weakmap"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7949,14 +6450,10 @@
       "name": "signal-exit",
       "version": "4.1.0",
       "scope": "optional",
-      "author": "Ben Coe",
+      "author": "Ben Coe <ben@npmjs.com>",
       "description": "when you want to fire an event no matter how a process exits.",
       "purl": "pkg:npm/signal-exit@4.1.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/signal-exit"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -7969,15 +6466,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/tapjs/signal-exit.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/tapjs/signal-exit#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/tapjs/signal-exit/issues"
+          "url": "https://github.com/tapjs/signal-exit.git"
         }
       ],
       "hashes": [
@@ -8000,14 +6489,10 @@
       "name": "source-map",
       "version": "0.7.6",
       "scope": "optional",
-      "author": "Nick Fitzgerald",
+      "author": "Nick Fitzgerald <nfitzgerald@mozilla.com>",
       "description": "Generates and consumes source maps",
       "purl": "pkg:npm/source-map@0.7.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/source-map"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8020,15 +6505,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/mozilla/source-map.git"
+          "url": "http://github.com/mozilla/source-map.git"
         },
         {
           "type": "website",
           "url": "https://github.com/mozilla/source-map"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mozilla/source-map/issues"
         }
       ],
       "hashes": [
@@ -8056,10 +6537,6 @@
       "purl": "pkg:npm/strip-final-newline@4.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/strip-final-newline"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8068,18 +6545,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/strip-final-newline/-/strip-final-newline-4.0.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/strip-final-newline.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/strip-final-newline#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/strip-final-newline/issues"
         }
       ],
       "hashes": [
@@ -8106,10 +6571,6 @@
       "purl": "pkg:npm/tap-parser@17.0.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tap-parser"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8122,14 +6583,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/tapjs/tapjs.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/tapjs/tapjs#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/tapjs/tapjs/issues"
         }
       ],
       "hashes": [
@@ -8152,14 +6605,10 @@
       "name": "tap-yaml",
       "version": "3.0.0",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me>",
       "description": "Yaml handling for TAP parsers and generators",
       "purl": "pkg:npm/tap-yaml@3.0.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tap-yaml"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8173,14 +6622,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/tapjs/tap-yaml.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/tapjs/tap-yaml#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/tapjs/tap-yaml/issues"
         }
       ],
       "hashes": [
@@ -8208,10 +6649,6 @@
       "purl": "pkg:npm/tree-kill@1.2.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tree-kill"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8228,10 +6665,6 @@
         {
           "type": "website",
           "url": "https://github.com/pkrumins/node-tree-kill"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pkrumins/node-tree-kill/issues"
         }
       ],
       "hashes": [
@@ -8259,10 +6692,6 @@
       "purl": "pkg:npm/tslib@2.8.1",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tslib"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8274,7 +6703,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/Microsoft/tslib.git"
+          "url": "https://github.com/Microsoft/tslib.git"
         },
         {
           "type": "website",
@@ -8305,14 +6734,10 @@
       "name": "tunnel",
       "version": "0.0.6",
       "scope": "optional",
-      "author": "Koichi Kobayashi",
+      "author": "Koichi Kobayashi <koichik@improvement.jp>",
       "description": "Node HTTP/HTTPS Agents for tunneling proxies",
       "purl": "pkg:npm/tunnel@0.0.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tunnel"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8325,15 +6750,11 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/koichik/node-tunnel.git"
+          "url": "https://github.com/koichik/node-tunnel.git"
         },
         {
           "type": "website",
           "url": "https://github.com/koichik/node-tunnel/"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/koichik/node-tunnel/issues"
         }
       ],
       "hashes": [
@@ -8356,14 +6777,10 @@
       "name": "typed-inject",
       "version": "5.0.0",
       "scope": "optional",
-      "author": "Nico Jansen",
+      "author": "Nico Jansen <jansennico@gmail.com>",
       "description": "Type safe dependency injection framework for TypeScript",
       "purl": "pkg:npm/typed-inject@5.0.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/typed-inject"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8412,10 +6829,6 @@
       "purl": "pkg:npm/typed-rest-client@2.3.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/typed-rest-client"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8463,10 +6876,6 @@
       "purl": "pkg:npm/typescript@5.9.3",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/typescript"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8478,7 +6887,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/microsoft/TypeScript.git"
+          "url": "https://github.com/microsoft/TypeScript.git"
         },
         {
           "type": "website",
@@ -8509,14 +6918,10 @@
       "name": "underscore",
       "version": "1.13.8",
       "scope": "optional",
-      "author": "Jeremy Ashkenas",
+      "author": "Jeremy Ashkenas <jeremy@documentcloud.org>",
       "description": "JavaScript's functional programming helper library.",
       "purl": "pkg:npm/underscore@1.13.8",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/underscore"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8534,10 +6939,6 @@
         {
           "type": "website",
           "url": "https://underscorejs.org"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jashkenas/underscore/issues"
         }
       ],
       "hashes": [
@@ -8563,10 +6964,6 @@
       "description": "A stand-alone types package for Undici",
       "purl": "pkg:npm/undici-types@7.16.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/undici-types"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8615,10 +7012,6 @@
       "purl": "pkg:npm/unicorn-magic@0.3.0",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/unicorn-magic"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8627,18 +7020,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/unicorn-magic/-/unicorn-magic-0.3.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/unicorn-magic.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/unicorn-magic#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/unicorn-magic/issues"
         }
       ],
       "hashes": [
@@ -8661,14 +7042,10 @@
       "name": "update-browserslist-db",
       "version": "1.2.3",
       "scope": "optional",
-      "author": "Andrey Sitnik",
+      "author": "Andrey Sitnik <andrey@sitnik.ru>",
       "description": "CLI tool to update caniuse-lite to refresh target browsers from Browserslist config",
       "purl": "pkg:npm/update-browserslist-db@1.2.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/update-browserslist-db"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8678,18 +7055,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/browserslist/update-db.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/browserslist/update-db#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/browserslist/update-db/issues"
         }
       ],
       "hashes": [
@@ -8716,10 +7081,6 @@
       "purl": "pkg:npm/weapon-regex@1.3.6",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/weapon-regex"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8731,15 +7092,7 @@
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/stryker-mutator/weapon-regex.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/stryker-mutator/weapon-regex#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/stryker-mutator/weapon-regex/issues"
+          "url": "https://github.com/stryker-mutator/weapon-regex"
         }
       ],
       "hashes": [
@@ -8762,14 +7115,10 @@
       "name": "which",
       "version": "2.0.2",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
       "description": "Like which(1) unix command. Find the first instance of an executable in the PATH.",
       "purl": "pkg:npm/which@2.0.2",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/which"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8783,14 +7132,6 @@
         {
           "type": "vcs",
           "url": "git://github.com/isaacs/node-which.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-which#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-which/issues"
         }
       ],
       "hashes": [
@@ -8813,14 +7154,10 @@
       "name": "yallist",
       "version": "3.1.1",
       "scope": "optional",
-      "author": "Isaac Z. Schlueter",
+      "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
       "description": "Yet Another Linked List",
       "purl": "pkg:npm/yallist@3.1.1",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/yallist"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8834,14 +7171,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/isaacs/yallist.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/yallist#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/yallist/issues"
         }
       ],
       "hashes": [
@@ -8864,14 +7193,10 @@
       "name": "yaml",
       "version": "2.8.3",
       "scope": "optional",
-      "author": "Eemeli Aro",
+      "author": "Eemeli Aro <eemeli@gmail.com>",
       "description": "JavaScript parser and stringifier for YAML",
       "purl": "pkg:npm/yaml@2.8.3",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/yaml"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8883,16 +7208,8 @@
           "url": "https://registry.npmjs.org/yaml/-/yaml-2.8.3.tgz"
         },
         {
-          "type": "vcs",
-          "url": "git+https://github.com/eemeli/yaml.git"
-        },
-        {
           "type": "website",
           "url": "https://eemeli.org/yaml/"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/eemeli/yaml/issues"
         }
       ],
       "hashes": [
@@ -8915,14 +7232,10 @@
       "name": "yaml-types",
       "version": "0.3.0",
       "scope": "optional",
-      "author": "Eemeli Aro",
+      "author": "Eemeli Aro <eemeli@gmail.com>",
       "description": "Useful JavaScript types for YAML",
       "purl": "pkg:npm/yaml-types@0.3.0",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/yaml-types"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -8934,16 +7247,8 @@
           "url": "https://registry.npmjs.org/yaml-types/-/yaml-types-0.3.0.tgz"
         },
         {
-          "type": "vcs",
-          "url": "git+https://github.com/eemeli/yaml-types.git"
-        },
-        {
           "type": "website",
           "url": "https://eemeli.org/yaml/"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/eemeli/yaml-types/issues"
         }
       ],
       "hashes": [
@@ -8971,10 +7276,6 @@
       "purl": "pkg:npm/yoctocolors@2.1.2",
       "properties": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/yoctocolors"
-        },
-        {
           "name": "cdx:npm:package:development",
           "value": "true"
         }
@@ -8983,18 +7284,6 @@
         {
           "type": "distribution",
           "url": "https://registry.npmjs.org/yoctocolors/-/yoctocolors-2.1.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/yoctocolors.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/yoctocolors#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/yoctocolors/issues"
         }
       ],
       "hashes": [
@@ -9017,14 +7306,10 @@
       "name": "zod",
       "version": "4.3.6",
       "scope": "optional",
-      "author": "Colin McDonnell",
+      "author": "Colin McDonnell <zod@colinhacks.com>",
       "description": "TypeScript-first schema declaration and validation library with static type inference",
       "purl": "pkg:npm/zod@4.3.6",
       "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/zod"
-        },
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -9065,7 +7350,7 @@
   ],
   "dependencies": [
     {
-      "ref": "hashwalk@1.5.0",
+      "ref": "hashwalk@1.5.10",
       "dependsOn": [
         "@stryker-mutator/core@9.6.1",
         "@stryker-mutator/tap-runner@9.6.1",
@@ -9138,10 +7423,6 @@
       ]
     },
     {
-      "ref": "semver@6.3.1",
-      "dependsOn": []
-    },
-    {
       "ref": "@babel/helper-create-class-features-plugin@7.28.6",
       "dependsOn": [
         "@babel/core@7.29.0",
@@ -9153,10 +7434,6 @@
         "@babel/traverse@7.29.0",
         "semver@6.3.1"
       ]
-    },
-    {
-      "ref": "semver@6.3.1",
-      "dependsOn": []
     },
     {
       "ref": "@babel/helper-globals@7.28.0",
