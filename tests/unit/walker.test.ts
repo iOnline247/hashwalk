@@ -221,6 +221,87 @@ describe('walk - Symlink Tests', () => {
     }
   });
 
+  it('should include regular files even when fs.promises.stat throws (kills isSymbolicLink mutant at line 23)', async () => {
+    // Mutant: if (entry.isSymbolicLink()) -> if (true) at line 23
+    // Real code: regular files skip the symlink block -> included
+    // Mutated code: every entry goes through symlink block, stat() throws -> skipped via continue
+    const tmpDir = fs.mkdtempSync(path.join(fixturesBase, 'stat-throw-regular-'));
+
+    try {
+      const file1 = path.join(tmpDir, 'file1.txt');
+      const file2 = path.join(tmpDir, 'file2.txt');
+      fs.writeFileSync(file1, 'content1');
+      fs.writeFileSync(file2, 'content2');
+
+      // Mock stat to throw for regular files in this dir
+      const originalStat = fs.promises.stat;
+      mock.method(fs.promises, 'stat', (p: string) => {
+        if (typeof p === 'string' && p.includes('file1.txt')) {
+          throw new Error('Simulated stat failure on regular file');
+        }
+        return originalStat(p as Parameters<typeof originalStat>[0]);
+      });
+
+      try {
+        const result = await walk(tmpDir);
+
+        // Real code: both files included (regular files skip symlink block)
+        // Mutated code: file1.txt skipped (stat throws in symlink block)
+        // This assertion kills the mutant because mutated code would return only 1 file
+        assert.equal(
+          result.length,
+          2,
+          'Both regular files should be included even when stat throws on one',
+        );
+      } finally {
+        mock.restoreAll();
+      }
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('should include regular files even when fs.promises.realpath returns fake paths (kills isSymbolicLink mutant at line 57)', async () => {
+    // Mutant: if (entry.isSymbolicLink()) -> if (true) at line 57
+    // Real code: regular files skip the realpath block -> realPath = fullPath for each file
+    // Mutated code: every entry goes through realpath block -> if realpath() returns same fake path, deduplication kicks in
+    const tmpDir = fs.mkdtempSync(path.join(fixturesBase, 'realpath-fake-'));
+
+    try {
+      const file1 = path.join(tmpDir, 'file1.txt');
+      const file2 = path.join(tmpDir, 'file2.txt');
+      fs.writeFileSync(file1, 'content1');
+      fs.writeFileSync(file2, 'content2');
+
+      // Mock realpath to return the SAME fake path for all files in this dir
+      const originalRealpath = fs.promises.realpath;
+      mock.method(fs.promises, 'realpath', (p: string) => {
+        if (typeof p === 'string' && p.startsWith(tmpDir)) {
+          // Return a single fake realpath for all files -> deduplication in mutated code
+          return Promise.resolve('/fake/realpath/shared.txt');
+        }
+        return originalRealpath(p as Parameters<typeof originalRealpath>[0]);
+      });
+
+      try {
+        const result = await walk(tmpDir);
+
+        // Real code: both files included (regular files skip realpath block, realPath = fullPath)
+        // Mutated code: both files get same fake realpath -> deduplicated to 1 entry
+        // This assertion kills the mutant because mutated code would return only 1 file
+        assert.equal(
+          result.length,
+          2,
+          'Both regular files should be included even when realpath returns identical fake paths',
+        );
+      } finally {
+        mock.restoreAll();
+      }
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('should ignore filesystem entries that are neither directories nor regular files', async () => {
     if (os.platform() === 'win32') {
       return;
